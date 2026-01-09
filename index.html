@@ -6,9 +6,9 @@
   <title>Sarangi Surendran | Technical Writer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* --- Base Reset --- */
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; scroll-behavior:smooth; }
-    body { background:#f8f9fb; color:#2c2c34; line-height:1.6; }
+    /* --- Reset & Base --- */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; scroll-behavior:smooth; }
+    body { background:#f5f5f7; color:#2c2c34; line-height:1.6; }
     a { text-decoration:none; color:inherit; }
 
     /* --- Navigation --- */
@@ -25,7 +25,7 @@
       z-index:1000;
     }
     nav .logo { font-weight:700; font-size:1.5rem; color:#1b1b2f; }
-    nav ul { display:flex; gap:30px; list-style:none; }
+    nav ul { display:flex; gap:25px; list-style:none; flex-wrap:wrap; }
     nav ul li a {
       position:relative;
       color:#1b1b2f;
@@ -48,34 +48,25 @@
     /* --- Hero Section --- */
     header.hero {
       display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
-      min-height:100vh;
+      min-height:90vh;
       background: linear-gradient(145deg, #2c2c34, #6d63ff);
       color:#fff;
       position:relative;
-      overflow:hidden;
       padding:0 20px;
     }
-    header.hero::after {
-      content:'';
-      position:absolute; top:0; left:0; width:100%; height:100%;
-      background:url('https://via.placeholder.com/1600x900') center/cover no-repeat;
-      opacity:0.1; z-index:0;
-    }
-    header.hero h1 { font-size:3rem; margin-bottom:15px; font-weight:700; z-index:1; }
-    header.hero p.subtitle { font-size:1.3rem; margin-bottom:10px; z-index:1; }
-    header.hero p.tagline { max-width:700px; z-index:1; font-weight:400; margin-bottom:40px; }
+    header.hero h1 { font-size:3rem; font-weight:700; margin-bottom:15px; }
+    header.hero p.subtitle { font-size:1.4rem; margin-bottom:15px; }
+    header.hero p.tagline { font-size:1rem; max-width:700px; }
 
     /* --- Sections --- */
     section {
-      max-width:1000px; margin:80px auto; padding:0 20px; opacity:0; transform:translateY(30px); transition:all 0.8s ease-out;
+      max-width:1000px; margin:80px auto; padding:0 20px;
+      opacity:0; transform:translateY(30px); transition:all 0.8s ease-out;
     }
     section.visible { opacity:1; transform:translateY(0); }
     section h2 { font-size:2rem; color:#6d63ff; margin-bottom:20px; position:relative; }
     section h2::after { content:''; position:absolute; width:60px; height:4px; background:#00bfa5; bottom:-10px; left:0; border-radius:2px; }
     section p, section li { font-size:1rem; margin-bottom:15px; color:#333; }
-
-    /* --- About Me --- */
-    #about p { margin-bottom:20px; }
 
     /* --- Skills Cards --- */
     .skills-container { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
@@ -90,7 +81,7 @@
     .portfolio-container { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; }
     .portfolio-card {
       background:#fff; border-radius:15px; overflow:hidden; flex:1 1 300px;
-      box-shadow:0 10px 20px rgba(0,0,0,0.08); transition:all 0.3s; position:relative;
+      box-shadow:0 10px 20px rgba(0,0,0,0.08); transition:all 0.3s;
     }
     .portfolio-card:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 20px 30px rgba(0,0,0,0.2); }
     .portfolio-card img { width:100%; height:180px; object-fit:cover; transition: all 0.5s; }
@@ -157,15 +148,13 @@
   <section id="about">
     <h2>About Me</h2>
     <p>
-      I am an Information Developer based in Bangalore, India, with 2.6 years of experience documenting complex SaaS products at Whatfix. I translate complex workflows into clear, structured, and user-friendly documentation that reduces support queries, accelerates onboarding, and helps users achieve their goals efficiently.
+      I am an Information Developer based in Bangalore, India, with over 2.6 years of experience documenting complex SaaS products at Whatfix. My focus is on transforming intricate workflows into structured, user-friendly content that reduces support queries, accelerates onboarding, and empowers users to accomplish their tasks efficiently.
     </p>
     <p>
-      I collaborate closely with Product Managers, Developers, Engineers, Designers, CSMs, DAC teams, and Support teams to ensure documentation is accurate, intuitive, and visually engaging. I also create multimedia content, interactive flows, and community posts to enhance user learning and adoption.
+      I work closely with Product Managers, Developers, Engineers, Designers, CSMs, DAC teams, and Support teams to ensure every piece of documentation is accurate, intuitive, and visually engaging. I also create multimedia content including videos, interactive flows, and community posts to enhance learning and adoption.
     </p>
   </section>
 
-  <!-- Remaining sections same as previous code -->
-  
   <!-- --- What I Do --- -->
   <section id="what-i-do">
     <h2>What I Do</h2>
@@ -244,7 +233,7 @@
   <section id="case-study">
     <h2>Case Study</h2>
     <p><strong>Problem:</strong> Users were struggling with onboarding and feature adoption for a new SaaS module.</p>
-    <p><strong>Approach:</strong> Collaborated with PMs, Developers, Designers, and Support teams to create interactive DAP flows, videos, and contextual product tips. Surveys measured usability and effectiveness.</p>
+    <p><strong>Approach:</strong> Collaborated with PMs, Developers, Designers, and Support teams to create interactive DAP flows, videos, and contextual product tips. Surveys were used to gather feedback on usability and effectiveness.</p>
     <p><strong>Outcome:</strong> Reduced support queries, faster onboarding, higher feature adoption, and improved user satisfaction.</p>
   </section>
 
@@ -267,9 +256,11 @@
     <p>© 2026 Sarangi Surendran</p>
   </footer>
 
+  <!-- --- Scroll to Top --- -->
   <button id="scrollTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">&#8679;</button>
 
   <script>
+    // Scroll reveal
     const sections = document.querySelectorAll('section');
     function revealSections() {
       const triggerBottom = window.innerHeight / 5 * 4;
@@ -281,11 +272,13 @@
     window.addEventListener('scroll', revealSections);
     window.addEventListener('load', revealSections);
 
+    // Scroll-to-top button
     const scrollBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', () => {
       if(window.scrollY > 300) scrollBtn.style.display = 'block';
       else scrollBtn.style.display = 'none';
     });
   </script>
+
 </body>
 </html>
