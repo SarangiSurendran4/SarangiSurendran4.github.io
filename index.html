@@ -1,230 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sarangi Surendran | Technical Writer</title>
-  
-  <style>
-    /* --- Reset & Base --- */
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background: #f8f9fa; color: #212529; line-height:1.6; scroll-behavior: smooth; }
-    a { text-decoration: none; color: inherit; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sarangi Surendran | Technical Writer</title>
+<style>
+  /* ===== Reset & Base ===== */
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body { background-color:#fdfdfd; color:#222; line-height:1.6; scroll-behavior: smooth; }
+  a { text-decoration:none; color:inherit; }
+  section { padding:80px 15px; max-width:1000px; margin:auto; }
 
-    /* --- Header --- */
-    header {
-      position: fixed;
-      top:0;
-      left:0;
-      width:100%;
-      background:#fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
-      padding: 1rem 2rem;
-    }
-    nav .logo { font-size: 1.5rem; font-weight: bold; color:#007bff; }
-    nav ul { display:flex; list-style:none; gap:2rem; }
-    nav ul li { position: relative; }
-    nav ul li a { font-weight: 500; transition: 0.3s; }
-    nav ul li a:hover { color:#007bff; }
+  /* ===== Header ===== */
+  header { 
+    position: sticky; top:0; background:#fff; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:20px 40px; border-bottom:1px solid #e0e0e0;
+    transition: background 0.3s ease;
+  }
+  header:hover { background: #f5f5f5; }
+  header .logo { font-size:1.8rem; font-weight:700; color:#111; }
+  nav a { margin-left:30px; font-weight:500; position:relative; transition: color 0.3s ease; }
+  nav a::after { content:''; position:absolute; width:0%; height:2px; bottom:-4px; left:0; background:#111; transition:0.3s; }
+  nav a:hover::after { width:100%; }
+  nav a:hover { color:#111; }
 
-    /* --- Section Styling --- */
-    section {
-      max-width: 1000px;
-      margin: 120px auto 60px auto;
-      padding: 0 2rem;
-      opacity:0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-in-out;
-    }
-    section.show { opacity:1; transform: translateY(0); }
-    h2 {
-      font-size:2rem;
-      color:#007bff;
-      margin-bottom:1rem;
-      position: relative;
-    }
-    h2::after {
-      content:'';
-      position: absolute;
-      width:50px;
-      height:3px;
-      background:#007bff;
-      left:0;
-      bottom:-5px;
-      border-radius:2px;
-    }
-    p { margin-bottom:1rem; }
-    ul { list-style: disc inside; margin-bottom:1rem; }
+  /* ===== Hero / About Me ===== */
+  #about { padding-top:140px; }
+  #about h1 { font-size:2.6rem; margin-bottom:15px; }
+  #about p { font-size:1.1rem; color:#444; margin-bottom:10px; }
 
-    /* --- About Me --- */
-    #about p { font-size: 1.1rem; }
+  /* ===== Experience Section ===== */
+  .experience h2 { font-size:2rem; margin-bottom:20px; }
+  .job { margin-bottom:30px; }
+  .job h3 { font-size:1.3rem; color:#111; margin-bottom:5px; }
+  .job span { font-weight:500; color:#555; font-size:0.95rem; }
+  .job ul { margin-top:10px; padding-left:20px; list-style-type: disc; color:#333; }
 
-    /* --- Cards for Skills / Tools --- */
-    .skills, .tools {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .card {
-      background:#fff;
-      padding:1rem;
-      border-radius:10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      text-align:center;
-      transition: 0.3s;
-    }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-    .card h3 { color:#007bff; margin-bottom:0.5rem; }
+  /* ===== Skills & Tools ===== */
+  .skills h2 { font-size:2rem; margin-bottom:20px; }
+  .skills ul { display:flex; flex-wrap:wrap; gap:15px; list-style:none; }
+  .skills li { background:#f5f5f5; padding:10px 15px; border-radius:6px; font-weight:500; transition: transform 0.3s; }
+  .skills li:hover { transform:translateY(-3px); background:#eaeaea; }
 
-    /* --- Contact --- */
-    #contact p { margin-bottom:0.5rem; font-weight:500; }
+  /* ===== Awards / Recognitions ===== */
+  .awards h2 { font-size:2rem; margin-bottom:20px; }
+  .awards ul { list-style:none; padding-left:0; }
+  .awards li { margin-bottom:15px; padding-left:10px; border-left:3px solid #222; background:#fafafa; padding:10px 15px; border-radius:5px; }
 
-    /* --- Footer --- */
-    footer {
-      text-align:center;
-      padding:2rem 1rem;
-      background:#212529;
-      color:#fff;
-      margin-top:3rem;
-    }
+  /* ===== Education ===== */
+  .education h2 { font-size:2rem; margin-bottom:20px; }
+  .education p { margin-bottom:10px; }
 
-    /* --- Smooth Scroll for nav --- */
-    nav ul li a { cursor: pointer; }
+  /* ===== Contact ===== */
+  .contact h2 { font-size:2rem; margin-bottom:20px; }
+  .contact p { margin-bottom:10px; }
 
-    /* --- Responsive --- */
-    @media(max-width:768px){
-      nav { flex-direction: column; gap:1rem; }
-      .skills, .tools { grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); }
-    }
-
-  </style>
+  /* ===== Smooth Scroll Highlight ===== */
+  nav a.active { color:#111; font-weight:600; }
+</style>
 </head>
-
 <body>
 
-  <!-- Header Navigation -->
-  <header>
-    <nav>
-      <div class="logo">Sarangi Surendran</div>
-      <ul>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#work">Documentation Work</a></li>
-        <li><a href="#skills">Skills & Tools</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<!-- ===== Header / Navigation ===== -->
+<header>
+  <div class="logo">Sarangi Surendran</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills & Tools</a>
+    <a href="#awards">Awards</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <!-- About Me -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I am Sarangi Surendran, a passionate Information Developer with 2.6 years of experience
-      at Whatfix, creating user-focused SaaS documentation that simplifies complex workflows
-      for end users, support teams, and internal stakeholders. I thrive at the intersection of
-      technology, design, and clarity, transforming intricate product features into intuitive
-      guides, interactive content, and best practices that empower users and improve adoption.
-    </p>
-  </section>
+<!-- ===== About Me ===== -->
+<section id="about">
+  <h1>About Me</h1>
+  <p>I am a professional Information Developer with 2.6 years of experience at Whatfix, specializing in creating user-centered documentation, DAP content, videos, and community posts for SaaS products. I have extensive experience collaborating with Product Managers, Engineers, Designers, UX writers, CSMs, and support teams to understand workflows, identify gaps, and create content that is accurate, actionable, and aligned with user needs.</p>
+  <p>My approach combines analytical rigor and design sensibility: I actively analyze support tickets, analytics, and customer feedback to inform content strategy, and I apply design principles to make complex information intuitive and visually clear. I also proactively innovate, automating workflows, creating impactful videos, and experimenting with content formats to maximize user adoption and satisfaction.</p>
+  <p>Beyond execution, I contribute strategically by identifying content gaps, proposing product improvements, and mentoring team members. I aim to create content and experiences that not only inform but also delight users, while driving measurable adoption and engagement.</p>
+</section>
 
-  <!-- Experience & Impact -->
-  <section id="experience">
-    <h2>Experience & Impact</h2>
+<!-- ===== Experience ===== -->
+<section id="experience" class="experience">
+  <h2>Experience</h2>
+  
+  <div class="job">
+    <h3>Information Developer II – Whatfix</h3>
+    <span>July 2023 – Present | Bangalore, India</span>
     <ul>
-      <li>2.6 years as an Information Developer, with 11 months in ID2 role at Whatfix.</li>
-      <li>Collaborated with Product Managers, Developers, Designers, Engineers, CSMs, DAC team, and Support teams to ensure accurate and user-friendly documentation.</li>
-      <li>Reduced support queries by creating step-by-step guides, DAP content, videos, and interactive flows.</li>
-      <li>Improved onboarding with product tips, community posts, and guided learning content.</li>
-      <li>Enabled users to complete tasks faster through flows, DAP content, and troubleshooting guides.</li>
-      <li>Designed surveys to measure documentation impact and refine content strategy.</li>
+      <li>Created user guides, onboarding content, feature documentation, troubleshooting guides, FAQs, release notes, and internal SOPs across multiple pods including Studio, Guidance, App Engine, Workflow Engine, Hub & CD, and Seek.</li>
+      <li>Collaborated with PMs, Engineers, Designers, UX Writers, CSMs, DAC, and Support teams to gather insights and validate content relevance.</li>
+      <li>Developed DAP content, contextual product tips, videos, and community posts to enhance adoption and reduce support queries.</li>
+      <li>Used analytics, support tickets, and CallAI calls to measure impact, identify gaps, and proactively create content to close them.</li>
+      <li>Automated recurring tasks such as broken link checks, article age tracking, and Jira ticket fetching to improve efficiency.</li>
+      <li>Applied UX and design principles to ensure content clarity, consistency, and accessibility (WCAG-compliant).</li>
+      <li>Proactively raised product insights, improving both documentation and product UX.</li>
     </ul>
-  </section>
+  </div>
 
-  <!-- Documentation Work -->
-  <section id="work">
-    <h2>Documentation Work</h2>
+  <div class="job">
+    <h3>Information Developer I – Whatfix</h3>
+    <span>March 2021 – June 2023 | Bangalore, India</span>
     <ul>
-      <li>User Guides & Manuals</li>
-      <li>How-To Articles & Tutorials</li>
-      <li>Onboarding Documentation</li>
-      <li>Feature Documentation</li>
-      <li>Troubleshooting & Best Practices</li>
-      <li>FAQs & Help Center Articles</li>
-      <li>Release Notes & Change Logs</li>
-      <li>Internal Documentation & Process Docs</li>
+      <li>Produced high-quality documentation for end users, internal teams, and support teams, focusing on clarity and usability.</li>
+      <li>Collaborated with cross-functional teams to identify pain points, create knowledge base articles, and improve onboarding experience.</li>
+      <li>Created videos, DAP content, and interactive flows to reduce support dependency and improve adoption.</li>
+      <li>Followed and improved style guides and UX copy standards across multiple product pods.</li>
     </ul>
-  </section>
+  </div>
+</section>
 
-  <!-- Skills & Tools -->
-  <section id="skills">
-    <h2>Skills & Tools</h2>
+<!-- ===== Skills & Tools ===== -->
+<section id="skills" class="skills">
+  <h2>Skills & Tools</h2>
+  <ul>
+    <li>User Guides & Manuals</li>
+    <li>Knowledge Base & Help Center Articles</li>
+    <li>Onboarding & Feature Documentation</li>
+    <li>Release Notes & Change Logs</li>
+    <li>Troubleshooting & Best Practices</li>
+    <li>DAP Content & Product Tips</li>
+    <li>Videos (Camtasia, Synthesia, Loom)</li>
+    <li>Confluence & Document360</li>
+    <li>Jira & Project Tracking</li>
+    <li>Figma & Draw.io</li>
+    <li>Snagit & Screenshots</li>
+    <li>Git (basic)</li>
+    <li>UX Copy & Style Guide Adherence</li>
+  </ul>
+</section>
 
-    <h3>Documentation & Content Tools</h3>
-    <div class="skills">
-      <div class="card">Confluence</div>
-      <div class="card">Document 360</div>
-      <div class="card">Markdown</div>
-      <div class="card">Camtasia</div>
-      <div class="card">Snagit</div>
-      <div class="card">Synthesia</div>
-      <div class="card">Draw.io</div>
-    </div>
+<!-- ===== Awards & Recognitions ===== -->
+<section id="awards" class="awards">
+  <h2>Awards & Recognitions</h2>
+  <ul>
+    <li>Recognized for exceptional reliability and commitment, consistently delivering high-quality outputs under tight deadlines.</li>
+    <li>Received appreciation for proactively planning tasks, seeking feedback, and implementing improvements for greater impact.</li>
+    <li>Recognized for creating impactful videos and DAP content for critical product launches and announcements.</li>
+    <li>Awarded for innovative solutions optimizing workflows, such as Synthesia-Loom integration for video creation efficiency.</li>
+    <li>Consistently acknowledged for improving content clarity, UX, and adoption across multiple pods through creative documentation approaches.</li>
+  </ul>
+</section>
 
-    <h3>Project Collaboration & Design</h3>
-    <div class="tools">
-      <div class="card">Jira</div>
-      <div class="card">Figma</div>
-      <div class="card">Slack</div>
-      <div class="card">Basic Git</div>
-    </div>
-  </section>
+<!-- ===== Education ===== -->
+<section id="education" class="education">
+  <h2>Education</h2>
+  <p><strong>BE in Computer Science</strong>, Vijaya Vittala Institute of Technology (2018 - 2022)</p>
+  <p>CGPA: 7.8 – Graduated with First Class Distinction</p>
+</section>
 
-  <!-- Education -->
-  <section id="education">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>Bachelor of Engineering (Computer Science)</strong>, Vijaya Vittala Institute of Technology (2018 - 2022)</li>
-      <li>CGPA: 7.8 | First Class Distinction</li>
-    </ul>
-  </section>
+<!-- ===== Contact ===== -->
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:sarangisurendran43@gmail.com">sarangisurendran43@gmail.com</a></p>
+  <p>Phone: 938134</p>
+  <p>Location: Bangalore, India</p>
+</section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:sarangisurendran43@gmail.com">sarangisurendran43@gmail.com</a></p>
-    <p>Phone: 938134</p>
-    <p>Location: Bangalore, India</p>
-  </section>
+<script>
+  // ===== Smooth Scroll Active Link Highlight =====
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
 
-  <!-- Footer -->
-  <footer>
-    © 2026 Sarangi Surendran
-  </footer>
-
-  <!-- JS for Scroll Reveal -->
-  <script>
-    // Animate sections on scroll
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
-    sections.forEach(section => observer.observe(section));
-  </script>
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href").includes(current)) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
