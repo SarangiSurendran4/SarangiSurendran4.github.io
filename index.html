@@ -8,289 +8,91 @@
     /* --- Global Styles --- */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter', sans-serif; color:#111; line-height:1.5; background:#fefefe; }
+    a { color:#0066cc; text-decoration:none; transition:color 0.3s; }
+    a:hover { color:#004a99; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    section { padding:60px 20px; max-width:900px; margin:auto; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      color: #111;
-      line-height: 1.6;
-      background-color: #fefefe;
-    }
+    h1,h2,h3 { font-weight:700; margin-bottom:12px; }
+    h1 { font-size:2.6rem; }
+    h2 { font-size:1.8rem; border-bottom:2px solid #e2e2e2; padding-bottom:6px; margin-bottom:20px; }
+    h3 { font-size:1.2rem; color:#111; }
 
-    a {
-      color: #0066cc;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #004a99;
-    }
+    p { margin-bottom:12px; font-size:0.97rem; color:#333; }
 
-    section {
-      padding: 80px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h1, h2, h3 {
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      color: #111;
-    }
-
-    h2 {
-      font-size: 2rem;
-      color: #222;
-      border-bottom: 2px solid #e2e2e2;
-      padding-bottom: 8px;
-      margin-bottom: 24px;
-    }
-
-    p {
-      margin-bottom: 16px;
-      font-size: 1rem;
-      color: #333;
-    }
-
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-      margin-bottom: 16px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
+    ul { list-style-type:disc; padding-left:20px; margin-bottom:12px; }
+    li { margin-bottom:6px; }
 
     /* --- Header Navigation --- */
     header {
-      background: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      padding: 20px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
+      background:#fff;
+      position:sticky; top:0;
+      z-index:999;
+      padding:14px 20px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      box-shadow:0 1px 5px rgba(0,0,0,0.06);
     }
-
-    header nav {
-      display: flex;
-      gap: 24px;
-      margin-top: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    header nav a {
-      font-weight: 600;
-      padding: 6px 0;
-      position: relative;
-    }
-
+    header h1 { font-size:2rem; margin-bottom:4px; }
+    header h3 { font-weight:500; font-size:1rem; color:#555; }
+    header nav { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; margin-top:8px; }
+    header nav a { font-weight:600; padding:4px 0; position:relative; }
     header nav a::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background: #0066cc;
-      transition: width .3s;
-      position: absolute;
-      bottom: 0;
-      left: 0;
+      content:''; display:block; width:0; height:2px; background:#0066cc; transition:width .3s; position:absolute; bottom:0; left:0;
     }
-
-    header nav a:hover::after {
-      width: 100%;
-    }
+    header nav a:hover::after { width:100%; }
 
     /* --- Intro Section --- */
-    .intro {
-      text-align: center;
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
-
-    .intro h1 {
-      font-size: 3rem;
-      margin-bottom: 12px;
-    }
-
-    .intro h3 {
-      font-weight: 500;
-      font-size: 1.2rem;
-      color: #555;
-    }
-
-    .intro .contact-links a {
-      margin: 0 12px;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    .intro .contact-links a:hover {
-      color: #004a99;
-    }
+    .intro { text-align:center; padding-top:40px; padding-bottom:40px; }
+    .intro p { font-size:1rem; margin-bottom:12px; }
+    .intro .contact-links a { margin:0 10px; font-weight:600; }
 
     /* --- Skills Section --- */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .skill-card {
-      background: #fff;
-      border: 1px solid #e2e2e2;
-      padding: 16px;
-      border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-
-    .skill-card h4 {
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-      color: #0066cc;
-    }
+    .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+    .skill-card { background:#fff; border:1px solid #e2e2e2; padding:14px; border-radius:6px; transition:transform 0.3s, box-shadow 0.3s; }
+    .skill-card:hover { transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,0.07); }
+    .skill-card h4 { margin-bottom:6px; font-size:1.05rem; color:#0066cc; }
 
     /* --- Experience Section --- */
-    .experience-block {
-      margin-bottom: 40px;
-    }
-
-    .role {
-      margin-bottom: 24px;
-    }
-
-    .role h3 {
-      font-size: 1.3rem;
-      color: #111;
-      margin-bottom: 8px;
-    }
-
-    .role .duration {
-      font-size: 0.9rem;
-      color: #666;
-      margin-bottom: 12px;
-    }
-
-    .role ul {
-      list-style: disc inside;
-    }
-
+    .experience-block { margin-bottom:30px; }
+    .role { margin-bottom:20px; }
+    .role h3 { font-size:1.15rem; margin-bottom:4px; }
+    .role .duration { font-size:0.88rem; color:#666; margin-bottom:8px; }
+    .role ul { list-style:disc inside; }
     .growth-note {
-      background: #e6f0ff;
-      border-left: 4px solid #0066cc;
-      padding: 12px 16px;
-      font-style: italic;
-      margin-top: 16px;
-      border-radius: 4px;
+      background:#e6f0ff; border-left:4px solid #0066cc; padding:10px 14px; font-style:italic; margin-top:12px; border-radius:4px;
     }
 
     /* --- Work Samples --- */
-    .work-samples {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .work-card {
-      border: 1px solid #e2e2e2;
-      border-radius: 8px;
-      padding: 16px;
-      background: #fff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .work-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-
-    .work-card h4 {
-      margin-bottom: 6px;
-      color: #0066cc;
-    }
-
-    .work-card p {
-      font-size: 0.95rem;
-      margin-bottom: 6px;
-    }
+    .work-samples { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
+    .work-card { border:1px solid #e2e2e2; border-radius:6px; padding:14px; background:#fff; transition:transform 0.3s, box-shadow 0.3s; }
+    .work-card:hover { transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,0.07); }
+    .work-card h4 { margin-bottom:4px; color:#0066cc; font-size:1.05rem; }
+    .work-card p { font-size:0.92rem; margin-bottom:4px; }
 
     /* --- Recognition Section --- */
-    .recognitions {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .recognition-card {
-      background: #fff;
-      border-left: 4px solid #0066cc;
-      padding: 12px 16px;
-      border-radius: 6px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .recognition-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-    }
-
-    .recognition-card h5 {
-      font-size: 1rem;
-      margin-bottom: 4px;
-      color: #004a99;
-    }
-
-    .recognition-card p {
-      font-size: 0.9rem;
-      color: #333;
-    }
+    .recognitions { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
+    .recognition-card { background:#fff; border-left:4px solid #0066cc; padding:10px 14px; border-radius:6px; transition:transform 0.3s, box-shadow 0.3s; }
+    .recognition-card:hover { transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,0.07); }
+    .recognition-card h5 { font-size:1rem; margin-bottom:4px; color:#004a99; }
+    .recognition-card p { font-size:0.88rem; color:#333; }
 
     /* --- Contact Section --- */
-    .contact a {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
+    .contact a { display:block; margin-bottom:6px; font-weight:600; }
 
     /* --- Responsive --- */
     @media(max-width:768px){
-      h1 { font-size:2.4rem; }
-      h2 { font-size:1.6rem; }
+      h1{ font-size:2rem; }
+      h2{ font-size:1.5rem; }
     }
 
     /* --- Subtle Animations on Scroll --- */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in { opacity:0; transform:translateY(15px); transition:opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
 
   </style>
 </head>
@@ -364,160 +166,3 @@
       </div>
     </div>
   </section>
-
-  <!-- Experience -->
-  <section id="experience" class="fade-in">
-    <h2>Experience</h2>
-    <div class="experience-block">
-      <h3>Whatfix</h3>
-      <div class="role">
-        <h3>Information Developer II</h3>
-        <p class="duration">March 2025 – Present</p>
-        <ul>
-          <li>Owned documentation and DAP content for multiple features across pods.</li>
-          <li>Created user guides, walkthroughs, FAQs, release notes, and product tips.</li>
-          <li>Partnered with PMs and engineers to document new releases and workflows.</li>
-          <li>Reviewed and improved content consistency using templates and standards.</li>
-          <li>Created videos, community posts, and surveys to measure impact and adoption.</li>
-        </ul>
-      </div>
-      <div class="role">
-        <h3>Information Developer I</h3>
-        <p class="duration">Jan 2024 – March 2025</p>
-        <ul>
-          <li>Authored user guides, tutorials, and release notes.</li>
-          <li>Contributed to documentation templates and content standards.</li>
-          <li>Collaborated across multiple pods for content accuracy and consistency.</li>
-        </ul>
-      </div>
-      <div class="role">
-        <h3>Intern</h3>
-        <p class="duration">July 2023 – Jan 2024</p>
-        <ul>
-          <li>Assisted with documentation updates, audits, and learning product workflows.</li>
-        </ul>
-      </div>
-      <div class="growth-note">
-        Promoted from Intern → ID I → ID II based on ownership, quality, and cross-pod contributions.
-      </div>
-    </div>
-
-    <div class="experience-block">
-      <h3>Software Engineer Trainee</h3>
-      <p>Qspiders Campus Connect – Internship (Sep 2022 – Feb 2023)</p>
-      <ul>
-        <li>Trained in Java, SQL, Aptitude, and soft skills.</li>
-        <li>Created web pages using HTML, CSS, and JavaScript.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Work Samples / Case Studies -->
-  <section id="work" class="fade-in">
-    <h2>Selected Work / Case Studies</h2>
-    <div class="work-samples">
-      <div class="work-card">
-        <h4>Feature Walkthrough Documentation</h4>
-        <p><strong>Context:</strong> Whatfix SaaS Feature Release</p>
-        <p><strong>Audience:</strong> End users & Admins</p>
-        <p><strong>Role:</strong> Lead Documentation Owner</p>
-        <p><strong>Challenge:</strong> Complex multi-step workflows confusing for users</p>
-        <p><strong>Solution:</strong> Created structured guides, screenshots, and DAP flows</p>
-        <p><strong>Outcome:</strong> Reduced support tickets and improved adoption of new features</p>
-      </div>
-      <div class="work-card">
-        <h4>Onboarding DAP Content</h4>
-        <p><strong>Context:</strong> Multi-product onboarding for new users</p>
-        <p><strong>Audience:</strong> New users & CSM teams</p>
-        <p><strong>Role:</strong> Designer & Writer</p>
-        <p><strong>Challenge:</strong> Users struggled to complete tasks efficiently</p>
-        <p><strong>Solution:</strong> Contextual in-app guidance, videos, and tips</p>
-        <p><strong>Outcome:</strong> Faster onboarding, higher feature adoption</p>
-      </div>
-      <div class="work-card">
-        <h4>Community & Video Content</h4>
-        <p><strong>Context:</strong> Product knowledge sharing & adoption</p>
-        <p><strong>Audience:</strong> Users & internal teams</p>
-        <p><strong>Role:</strong> Content Creator</p>
-        <p><strong>Challenge:</strong> Users unaware of advanced features</p>
-        <p><strong>Solution:</strong> Videos, community posts, tutorials</p>
-        <p><strong>Outcome:</strong> Positive feedback, engagement, and reduced support tickets</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Recognitions -->
-  <section id="recognitions" class="fade-in">
-    <h2>Rewards & Recognition</h2>
-    <div class="recognitions">
-      <div class="recognition-card">
-        <h5>Badge: Above and Beyond</h5>
-        <p>Recognized for being exceptionally dependable and committed. Consistently met deadlines, even under challenges, validating reliability and ownership.</p>
-      </div>
-      <div class="recognition-card">
-        <h5>Badge: Hustler</h5>
-        <p>Recognized for proactively improving work, seeking feedback, and implementing it to deliver high-quality outputs, reflecting commitment to growth.</p>
-      </div>
-      <div class="recognition-card">
-        <h5>PM Appreciation</h5>
-        <p>Supported Seek for Salesforce announcement by preparing demo videos under tight deadlines, amplifying product visibility.</p>
-      </div>
-      <div class="recognition-card">
-        <h5>Spot Award</h5>
-        <p>Implemented urgent emergency downtime pop-up; stayed late to troubleshoot and deliver on time while identifying new solutions.</p>
-      </div>
-      <div class="recognition-card">
-        <h5>Spot Award</h5>
-        <p>Presented use cases during "Monday use case call," demonstrating creativity and practical application of features.</p>
-      </div>
-      <div class="recognition-card">
-        <h5>Slack Appreciation</h5>
-        <p>Recognized for hustle, quick turnaround, proactive delivery, including drafting content under limited information.</p>
-      </div>
-      <div class="recognition-card">
-        <h5>Cheers Mate Shoutout</h5>
-        <p>Created innovative solution for video workflow using Synthesia + Loom, reducing rework and saving costs.</p>
-      </div>
-      <div class="recognition-card">
-        <h5>Slack Appreciation</h5>
-        <p>Proposed user-centered smart tip to improve documentation and reduce errors in Studio.</p>
-      </div>
-      <div class="recognition-card">
-        <h5>Slack Appreciation</h5>
-        <p>Engaged with users in community posts, maintaining a positive and responsive presence.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="fade-in">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:sarangisurendran43@gmail.com">sarangisurendran43@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/sarangi-surendran" target="_blank">linkedin.com/in/sarangi-surendran</a></p>
-    <p>Resume: <a href="#">Download PDF</a></p>
-  </section>
-
-  <script>
-    // --- Scroll fade-in animation ---
-    const faders = document.querySelectorAll('.fade-in');
-
-    const appearOptions = {
-      threshold: 0.2,
-      rootMargin: "0px 0px -50px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
-      entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        appearOnScroll.unobserve(entry.target);
-      });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-  </script>
-
-</body>
-</html>
