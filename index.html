@@ -1,455 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sarangi Surendran | Technical Writer Portfolio</title>
-  <style>
-    /* ===========================
-       BASE STYLES
-    ============================ */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarangi Surendran | Information Developer / Technical Writer</title>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #111;
+    line-height: 1.6;
+    background-color: #fdfdfd;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Header / Nav */
+  header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111;
+  }
+
+  nav {
+    display: flex;
+    gap: 30px;
+  }
+
+  nav a {
+    font-weight: 500;
+    color: #555;
+    position: relative;
+    transition: color 0.3s;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #0077b6;
+    transition: 0.3s;
+  }
+
+  nav a:hover {
+    color: #0077b6;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  /* Section general */
+  section {
+    padding: 80px 20px 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  section h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #0077b6;
+    margin-top: 8px;
+    border-radius: 2px;
+  }
+
+  p, li {
+    font-size: 1rem;
+    color: #444;
+  }
+
+  /* About Me */
+  #about p {
+    max-width: 850px;
+    margin-bottom: 15px;
+  }
+
+  /* Skills & Tools */
+  #skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .skill-card {
+    flex: 1 1 200px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+
+  .skill-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #0077b6;
+  }
+
+  /* Experience */
+  .experience-item {
+    margin-bottom: 40px;
+  }
+
+  .experience-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #111;
+  }
+
+  .experience-item span {
+    font-size: 0.95rem;
+    color: #777;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .experience-item ul {
+    list-style: disc;
+    margin-left: 20px;
+  }
+
+  /* Work Samples */
+  #work-samples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .sample-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #e0e0e0;
+  }
+
+  .sample-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+
+  .sample-card h4 {
+    color: #0077b6;
+    margin-bottom: 10px;
+  }
+
+  .sample-card p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  /* Achievements */
+  #achievements ul {
+    list-style: disc;
+    margin-left: 20px;
+  }
+
+  /* Contact */
+  #contact p {
+    margin-bottom: 10px;
+  }
+
+  #contact a {
+    color: #0077b6;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: #f5f5f5;
+    font-size: 0.9rem;
+    color: #777;
+  }
+
+  /* Scroll animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      gap: 15px;
     }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    h1, h2, h3 {
-      font-weight: 600;
-      color: #111;
-    }
-
-    p {
-      margin-bottom: 1rem;
-      color: #333;
-    }
-
-    /* ===========================
-       HEADER / NAVIGATION
-    ============================ */
-    header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      background-color: #ffffff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      z-index: 1000;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      margin-left: 2rem;
-      font-weight: 500;
-      position: relative;
-      color: #1a1a1a;
-      transition: all 0.3s ease;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #0077b6;
-      transition: 0.3s;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    nav a:hover {
-      color: #0077b6;
-    }
-
-    /* ===========================
-       SECTIONS
-    ============================ */
-    section {
-      padding: 100px 20px 60px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ===========================
-       HOME / INTRO
-    ============================ */
-    #home {
-      padding-top: 150px;
-      text-align: center;
-      background-color: #f7f7f7;
-    }
-
-    #home h2 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-      color: #0077b6;
-    }
-
-    #home h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    #home p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto 2rem auto;
-      color: #333;
-    }
-
-    /* ===========================
-       ABOUT ME
-    ============================ */
-    #about {
-      text-align: left;
-    }
-
-    #about h2 {
-      margin-bottom: 1rem;
-    }
-
-    #about p {
-      font-size: 1rem;
-      color: #333;
-    }
-
-    /* ===========================
-       SKILLS & TOOLS
-    ============================ */
-    #skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .skill-card {
-      background-color: #ffffff;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      flex: 1 1 250px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      border-color: #0077b6;
-    }
-
-    .skill-card h3 {
-      margin-bottom: 0.5rem;
-      color: #0077b6;
-    }
-
-    /* ===========================
-       EXPERIENCE
-    ============================ */
-    .experience-card {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      border-left: 4px solid #0077b6;
-      background-color: #ffffff;
-      border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .experience-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-
-    .experience-card h3 {
-      margin-bottom: 0.5rem;
-      color: #0077b6;
-    }
-
-    .experience-card ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
-    }
-
-    /* ===========================
-       WORK SAMPLES
-    ============================ */
-    .work-sample {
-      margin-bottom: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .work-sample img {
-      width: 300px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .work-sample img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-
-    .work-sample .work-info {
-      flex: 1;
-      min-width: 250px;
-    }
-
-    /* ===========================
-       ACHIEVEMENTS
-    ============================ */
-    .achievement {
-      margin-bottom: 1rem;
-      padding: 1rem;
-      background-color: #ffffff;
-      border-left: 4px solid #0077b6;
-      border-radius: 6px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .achievement:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.07);
-    }
-
-    /* ===========================
-       CONTACT
-    ============================ */
-    #contact p {
-      margin-bottom: 0.5rem;
-    }
-
-    #contact a {
-      color: #0077b6;
-      font-weight: 500;
-    }
-
-    /* ===========================
-       MEDIA QUERIES
-    ============================ */
-    @media (max-width: 768px) {
-      nav a {
-        margin-left: 1rem;
-      }
-
-      .work-sample {
-        flex-direction: column;
-      }
-
-      .work-sample img {
-        width: 100%;
-        height: auto;
-      }
-    }
-
-    /* ===========================
-       ANIMATIONS
-    ============================ */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-out;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-  </style>
+  }
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER / NAV -->
-  <header>
-    <h1>Sarangi Surendran</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#skills">Skills & Tools</a>
-      <a href="#experience">Experience</a>
-      <a href="#work">Work Samples</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<!-- Header / Navigation -->
+<header>
+  <h1>Sarangi Surendran</h1>
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#skills">Skills & Tools</a>
+    <a href="#experience">Experience</a>
+    <a href="#work-samples">Work Samples</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <!-- HOME / INTRO -->
-  <section id="home" class="fade-in">
-    <h2>Information Developer / Technical Writer</h2>
-    <h1>Sarangi Surendran</h1>
-    <p>
-      I create clear, user-focused documentation and content for SaaS products. 
-      By combining user-centered design, analytics, and cross-team collaboration, 
-      I help users adopt features quickly and independently.
-    </p>
-  </section>
+<!-- Intro / Home -->
+<section id="intro">
+  <h2>Information Developer / Technical Writer</h2>
+  <p class="fade-in">2.6 years of experience crafting user-focused documentation, DAP content, videos, and enablement materials for SaaS products. I combine clarity, user-centered design, and cross-team collaboration to enhance adoption, reduce support queries, and improve user success.</p>
+</section>
 
-  <!-- ABOUT ME -->
-  <section id="about" class="fade-in">
-    <h2>About Me</h2>
-    <p>
-      With 2.6 years of experience as an Information Developer at Whatfix, I specialize in 
-      translating complex product workflows into structured documentation, DAP content, videos, 
-      and community posts. I collaborate closely with PMs, engineers, designers, CSMs, and support teams 
-      to ensure content meets real user needs, aligns with product goals, and enhances adoption. 
-      My work blends clarity, design sensibility, and a deep understanding of user contexts.
-    </p>
-    <p>
-      Passionate about proactive content creation, I analyze support queries, usage analytics, and 
-      user feedback to continuously optimize content impact and product adoption.
-    </p>
-  </section>
+<!-- About Me -->
+<section id="about">
+  <h2>About Me</h2>
+  <p class="fade-in">
+    I am Sarangi Surendran, an Information Developer with a strong focus on creating precise, user-centered content for complex SaaS products. Over the past 2.6 years, I have collaborated with PMs, engineers, designers, CSMs, and support teams to deliver high-quality documentation, DAP interventions, and multimedia content that empowers users to achieve their goals efficiently.
+  </p>
+  <p class="fade-in">
+    My approach combines structured writing, UX principles, and attention to visual clarity, ensuring that every document, video, or in-app guidance piece is actionable, accessible, and aligned with both user needs and product strategy.
+  </p>
+</section>
 
-  <!-- SKILLS & TOOLS -->
-  <section id="skills" class="fade-in">
-    <h2>Skills & Tools</h2>
-    <div class="skill-card">
-      <h3>Technical Writing</h3>
-      <p>User guides, feature documentation, release notes, DAP content, FAQs, onboarding flows</p>
-    </div>
-    <div class="skill-card">
-      <h3>Tools & Software</h3>
-      <p>Confluence, Document360, Jira, Figma, Camtasia, Snagit, Synthesia, Git (basic), Draw.io</p>
-    </div>
-    <div class="skill-card">
-      <h3>Soft Skills</h3>
-      <p>Cross-team collaboration, research, problem-solving, UX writing, analytics-driven content</p>
-    </div>
-  </section>
+<!-- Skills & Tools -->
+<section id="skills">
+  <h2>Skills & Tools</h2>
+  <div class="skill-card fade-in">
+    <h3>Technical Writing</h3>
+    <ul>
+      <li>User guides, How-to articles</li>
+      <li>Onboarding docs & release notes</li>
+      <li>Internal process docs & SOPs</li>
+      <li>Feature documentation & troubleshooting</li>
+    </ul>
+  </div>
+  <div class="skill-card fade-in">
+    <h3>Tools & Platforms</h3>
+    <ul>
+      <li>Confluence, Document360</li>
+      <li>Jira, Figma, Camtasia, Snagit, Synthesia</li>
+      <li>Git (basic), Draw.io, Markdown</li>
+    </ul>
+  </div>
+  <div class="skill-card fade-in">
+    <h3>Soft Skills</h3>
+    <ul>
+      <li>Cross-team collaboration</li>
+      <li>Research & analytics</li>
+      <li>Content strategy & design eye</li>
+      <li>Problem solving & innovation</li>
+    </ul>
+  </div>
+</section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="fade-in">
-    <h2>Experience</h2>
-    <div class="experience-card">
-      <h3>Information Developer | Whatfix</h3>
-      <p>July 2023 – Present</p>
-      <ul>
-        <li>Documented features, created onboarding flows, DAP content, and videos for multiple pods</li>
-        <li>Collaborated with PMs, engineers, designers, CSMs, and support teams to align content with user needs</li>
-        <li>Analyzed support tickets, CallAI, and usage data to optimize content and measure impact</li>
-        <li>Improved adoption, reduced support queries, and created reusable frameworks for content creation</li>
-      </ul>
-    </div>
-    <div class="experience-card">
-      <h3>Information Developer 2 | Whatfix</h3>
-      <p>Aug 2022 – June 2023</p>
-      <ul>
-        <li>Created feature documentation, troubleshooting guides, and community posts</li>
-        <li>Applied UX principles and design sensibility to improve readability and user adoption</li>
-        <li>Proactively identified content gaps and raised actionable product insights</li>
-      </ul>
-    </div>
-  </section>
+<!-- Experience -->
+<section id="experience">
+  <h2>Experience</h2>
 
-  <!-- WORK SAMPLES / CASE STUDIES -->
-  <section id="work" class="fade-in">
-    <h2>Work Samples</h2>
-    <div class="work-sample">
-      <img src="https://via.placeholder.com/300x200" alt="Sample Doc Screenshot">
-      <div class="work-info">
-        <h3>User Guide & Onboarding Flow</h3>
-        <p>Created step-by-step user guides and interactive onboarding flows for a new SaaS feature, reducing support tickets by 20%.</p>
-      </div>
-    </div>
-    <div class="work-sample">
-      <img src="https://via.placeholder.com/300x200" alt="Sample Doc Screenshot">
-      <div class="work-info">
-        <h3>DAP Content & Videos</h3>
-        <p>Produced contextual DAP content and videos using Camtasia & Synthesia for multiple pods, enhancing feature adoption and onboarding efficiency.</p>
-      </div>
-    </div>
-  </section>
+  <div class="experience-item fade-in">
+    <h3>Information Developer | Whatfix</h3>
+    <span>July 2023 – Present | Bangalore, India</span>
+    <ul>
+      <li>Created documentation, DAP content, videos, and enablement materials for multiple pods (Studio, Guidance, App Engine, Workflow Engine, Hub & CD, Seek).</li>
+      <li>Collaborated with PMs, engineers, CSMs, UX writers, and designers to understand user workflows and content needs.</li>
+      <li>Analyzed support tickets, CallAI calls, and analytics to identify content gaps and proactively create high-impact interventions.</li>
+      <li>Developed UX-consistent copy for release pop-ups and contributed to design heuristics, enhancing user adoption.</li>
+      <li>Delivered cross-pod projects on time while maintaining high-quality content and consistency.</li>
+    </ul>
+  </div>
 
-  <!-- ACHIEVEMENTS / RECOGNITION -->
-  <section id="achievements" class="fade-in">
-    <h2>Achievements & Recognition</h2>
-    <div class="achievement">
-      <p>Recognized for reducing support queries through proactive documentation and DAP interventions.</p>
-    </div>
-    <div class="achievement">
-      <p>Received PM appreciation for creating high-priority video content for product releases ahead of deadlines.</p>
-    </div>
-    <div class="achievement">
-      <p>Awarded for innovative solutions to optimize video creation workflow using Synthesia and Loom.</p>
-    </div>
-  </section>
+  <div class="experience-item fade-in">
+    <h3>Information Developer | ID2</h3>
+    <span>Jan 2022 – June 2023 | Bangalore, India</span>
+    <ul>
+      <li>Produced end-to-end user guides, FAQs, onboarding materials, and internal documentation.</li>
+      <li>Worked closely with product teams to ensure documentation aligned with feature strategy and user expectations.</li>
+      <li>Implemented automation tools to improve content efficiency and reduce manual effort.</li>
+      <li>Measured content impact through surveys, analytics, and adoption metrics.</li>
+    </ul>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="fade-in">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:sarangisurendran43@gmail.com">sarangisurendran43@gmail.com</a></p>
-    <p>Phone: 938134</p>
-    <p>Location: Bangalore, India</p>
-  </section>
+<!-- Work Samples / Case Studies -->
+<section id="work-samples">
+  <h2>Work Samples</h2>
+  <div class="sample-card fade-in">
+    <h4>Feature Onboarding Guide</h4>
+    <p>Designed step-by-step in-app guidance and documentation for a SaaS feature, improving adoption and reducing support tickets by 15%.</p>
+  </div>
+  <div class="sample-card fade-in">
+    <h4>DAP Content & Video Tutorial</h4>
+    <p>Created interactive DAP content and Synthesia-based video tutorials for multiple pods, enabling faster onboarding and self-service for users.</p>
+  </div>
+  <div class="sample-card fade-in">
+    <h4>Release Notes & Pop-up UX Copy</h4>
+    <p>Crafted consistent, clear release communications and in-app UX copy for high-priority updates, enhancing feature discoverability.</p>
+  </div>
+</section>
 
-  <footer>
-    <p style="text-align:center; padding:20px 0; color:#777;">© 2026 Sarangi Surendran</p>
-  </footer>
+<!-- Achievements / Recognition -->
+<section id="achievements">
+  <h2>Achievements & Recognition</h2>
+  <ul class="fade-in">
+    <li>Recognized for delivering high-priority Seek and iCertis customer content ahead of deadlines with quality.</li>
+    <li>Received accolades for innovative solutions in video creation workflow using Synthesia and Loom.</li>
+    <li>Consistently appreciated for ownership, dependability, and proactive content interventions across multiple pods.</li>
+    <li>Presented “Writer-led Innovation for Tool Limitations” at an external technical writers’ event, building credibility and visibility.</li>
+  </ul>
+</section>
 
-  <script>
-    // ===========================
-    // SCROLL ANIMATION
-    // ===========================
-    const sections = document.querySelectorAll('section');
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:sarangisurendran43@gmail.com">sarangisurendran43@gmail.com</a></p>
+  <p>Phone: 938134</p>
+  <p>Location: Bangalore, India</p>
+  <p><a href="#">Download Resume (PDF)</a></p>
+</section>
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+<!-- Footer -->
+<footer>
+  © 2026 Sarangi Surendran
+</footer>
 
-    sections.forEach(section => observer.observe(section));
-  </script>
+<!-- JS for scroll animations -->
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, observer){
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) return;
+      entry.classList.add('visible');
+      observer.unobserve(entry);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
 
 </body>
 </html>
