@@ -1,186 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sarangi Surendran | Technical Writer</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarangi Nambiar | Technical Writer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* --- Reset & Fonts --- */
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+    body { line-height:1.6; color:#333; background: #f7f7f7; }
+
+    /* --- Header / Hero --- */
+    header.hero {
+      background: linear-gradient(135deg, #6C63FF, #00C2FF);
+      color: #fff;
+      text-align: center;
+      padding: 120px 20px 80px;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+    }
+    header.hero h1 { font-size: 3rem; margin-bottom: 10px; animation: fadeInUp 1s ease forwards; }
+    header.hero p.subtitle { font-size: 1.2rem; margin-bottom: 5px; opacity: 0; animation: fadeInUp 1.2s forwards; }
+    header.hero p.tagline { font-size: 1rem; margin-bottom: 30px; opacity: 0; animation: fadeInUp 1.4s forwards; }
+
+    header.hero .links a {
+      display:inline-block;
+      margin: 0 10px;
+      text-decoration:none;
+      background:#fff;
+      color:#6C63FF;
+      font-weight:600;
+      padding:12px 25px;
+      border-radius:8px;
+      transition: transform 0.3s, background 0.3s, color 0.3s;
+    }
+    header.hero .links a:hover {
+      background:#6C63FF;
+      color:#fff;
+      transform: translateY(-5px);
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity:0; transform: translateY(20px);}
+      100% { opacity:1; transform: translateY(0);}
+    }
+
+    /* --- Sections --- */
+    section {
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    section h2 {
+      font-size: 2rem;
+      color:#6C63FF;
+      margin-bottom:20px;
+      position: relative;
+    }
+    section h2::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background:#00C2FF;
+      bottom:-10px;
+      left:0;
+      border-radius:2px;
+    }
+
+    section p, section ul, section li {
+      font-size:1rem;
+      margin-bottom:15px;
+    }
+    ul { list-style-type: square; padding-left: 20px; }
+    ul li { margin-bottom:10px; }
+
+    /* --- Skills / Tools Cards --- */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap:20px;
+      justify-content: center;
+    }
+    .skill-card {
+      background: #fff;
+      flex: 1 1 200px;
+      padding:20px;
+      border-radius:12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align:center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+    }
+    .skill-card h3 {
+      color:#6C63FF;
+      margin-bottom:10px;
+    }
+
+    /* --- Portfolio / Case Studies --- */
+    .portfolio-container {
+      display:flex;
+      flex-wrap: wrap;
+      gap:30px;
+      justify-content: center;
+    }
+    .portfolio-card {
+      background:#fff;
+      flex:1 1 300px;
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+      overflow:hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .portfolio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+    }
+    .portfolio-card img {
+      width:100%;
+      height:180px;
+      object-fit:cover;
+    }
+    .portfolio-card .content {
+      padding:15px;
+    }
+    .portfolio-card .content h4 {
+      margin-bottom:10px;
+      color:#6C63FF;
+    }
+    .portfolio-card .content p {
+      font-size:0.95rem;
+      color:#555;
+    }
+
+    /* --- Contact --- */
+    footer {
+      background:#333;
+      color:#fff;
+      text-align:center;
+      padding:50px 20px;
+    }
+    footer a { color:#00C2FF; text-decoration:none; font-weight:600; }
+
+    /* --- Animations on Scroll (fadeIn) --- */
+    .fade-in {
+      opacity:0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+    }
+    .fade-in.delay-1 { animation-delay:0.2s; }
+    .fade-in.delay-2 { animation-delay:0.4s; }
+    .fade-in.delay-3 { animation-delay:0.6s; }
+    .fade-in.delay-4 { animation-delay:0.8s; }
+  </style>
 </head>
 
 <body>
 
-  <!-- HERO -->
+  <!-- --- Hero Section --- -->
   <header class="hero">
-    <div class="container">
-      <h1>Sarangi Surendran</h1>
-      <p class="role">Technical Writer · Information Developer (ID2)</p>
+    <h1>Sarangi Nambiar</h1>
+    <p class="subtitle">Technical Writer / Information Developer</p>
+    <p class="tagline">
+      2.6 years of experience creating user-focused SaaS documentation that empowers end users and internal teams.
+    </p>
 
-      <p class="value-prop">
-        I design clear, user-centered documentation for enterprise SaaS products— 
-        helping users onboard faster, complete tasks confidently, and rely less on support.
-      </p>
-
-      <nav class="links">
-        <a href="#work">Work</a>
-        <a href="#case-study">Case Study</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <div class="links">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#case-study">Case Study</a>
+      <a href="#contact">Contact Me</a>
     </div>
   </header>
 
-  <!-- PROFESSIONAL SUMMARY -->
-  <section class="section">
-    <div class="container narrow">
-      <h2>Professional Summary</h2>
-      <p>
-        I am an Information Developer with 2.6 years of experience documenting
-        enterprise SaaS products at Whatfix. I currently work as an ID2,
-        contributing to both customer-facing and internal documentation initiatives.
-      </p>
-      <p>
-        My focus is on transforming complex product workflows into structured,
-        task-oriented content that aligns with user intent and business goals.
-      </p>
+  <!-- --- About Me --- -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p class="fade-in delay-1">
+      I am an Information Developer based in Bangalore, India, with 2.6 years of experience documenting complex SaaS products, primarily at Whatfix. I specialize in creating structured, user-focused content that reduces support queries, improves onboarding, and helps users complete tasks efficiently.
+    </p>
+    <p class="fade-in delay-2">
+      I collaborate closely with Product Managers, Developers, Engineers, Designers, CSMs, DAC teams, and Support teams to ensure documentation is accurate, intuitive, and visually engaging.
+    </p>
+  </section>
+
+  <!-- --- What I Do --- -->
+  <section id="what-i-do">
+    <h2>What I Do</h2>
+    <ul class="fade-in delay-1">
+      <li>User Guides & Onboarding Docs</li>
+      <li>How-To Articles, FAQs, Troubleshooting Guides</li>
+      <li>Feature Documentation & Release Notes</li>
+      <li>Internal Process Documentation & Best Practices</li>
+      <li>Community Posts & Product Tips</li>
+    </ul>
+  </section>
+
+  <!-- --- Skills & Tools --- -->
+  <section id="skills">
+    <h2>Skills & Tools</h2>
+    <div class="skills-container fade-in delay-1">
+      <div class="skill-card">
+        <h3>Documentation</h3>
+        <p>Confluence, Document 360, Markdown</p>
+      </div>
+      <div class="skill-card">
+        <h3>Collaboration & Project</h3>
+        <p>Jira, Slack, Figma</p>
+      </div>
+      <div class="skill-card">
+        <h3>Visuals & Media</h3>
+        <p>Camtasia, Snagit, Synthesia, Draw.io</p>
+      </div>
+      <div class="skill-card">
+        <h3>Versioning</h3>
+        <p>Git (basic)</p>
+      </div>
     </div>
   </section>
 
-  <!-- CORE EXPERTISE -->
-  <section class="section alt">
-    <div class="container">
-      <h2>Core Expertise</h2>
+  <!-- --- Impact / Achievements --- -->
+  <section id="impact">
+    <h2>Impact</h2>
+    <ul class="fade-in delay-1">
+      <li>Reduced support queries by creating clear documentation and video tutorials</li>
+      <li>Improved onboarding with DAP content and structured flows</li>
+      <li>Helped users complete tasks faster with product tips and contextual content</li>
+      <li>Created surveys to measure documentation effectiveness and impact</li>
+    </ul>
+  </section>
 
-      <div class="expertise">
-        <div>
-          <h3>End-User Documentation</h3>
-          <p>
-            User guides, how-to articles, onboarding documentation, FAQs,
-            troubleshooting content, and best practices.
-          </p>
+  <!-- --- Portfolio Samples --- -->
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-container fade-in delay-1">
+      <div class="portfolio-card">
+        <img src="portfolio1.jpg" alt="User Guide Sample">
+        <div class="content">
+          <h4>User Guide</h4>
+          <p>Structured user guide for a complex SaaS workflow, including step-by-step flows and visual screenshots.</p>
         </div>
-
-        <div>
-          <h3>In-App Guidance & DAP Content</h3>
-          <p>
-            Contextual product tips, walkthroughs, flows, and onboarding
-            experiences that support just-in-time learning.
-          </p>
+      </div>
+      <div class="portfolio-card">
+        <img src="portfolio2.jpg" alt="Onboarding Sample">
+        <div class="content">
+          <h4>Onboarding Doc</h4>
+          <p>Interactive onboarding documentation to help new users understand the product efficiently.</p>
         </div>
-
-        <div>
-          <h3>Internal & Process Documentation</h3>
-          <p>
-            Process documentation, internal guides, and reference material
-            for support, CSM, and cross-functional teams.
-          </p>
-        </div>
-
-        <div>
-          <h3>Visual & Video Documentation</h3>
-          <p>
-            Instructional videos and visual content created using Camtasia,
-            Snagit, and Synthesia to simplify complex workflows.
-          </p>
+      </div>
+      <div class="portfolio-card">
+        <img src="portfolio3.jpg" alt="Feature Documentation">
+        <div class="content">
+          <h4>Feature Documentation</h4>
+          <p>Detailed documentation for new feature release with annotated screenshots and tips.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS & COLLABORATION -->
-  <section class="section">
-    <div class="container">
-      <h2>Process & Collaboration</h2>
-      <p>
-        I work closely with Product Managers, Engineers, Designers, Customer
-        Success Managers, Support teams, and DAC teams to understand feature
-        intent and user pain points.
-      </p>
-      <p>
-        My documentation process includes hands-on product exploration,
-        gap analysis, content structuring, stakeholder reviews, and continuous
-        iteration based on feedback.
-      </p>
-    </div>
+  <!-- --- Case Study --- -->
+  <section id="case-study">
+    <h2>Case Study</h2>
+    <p class="fade-in delay-1">
+      <strong>Problem:</strong> Users were struggling with onboarding and feature adoption for a new SaaS module.
+    </p>
+    <p class="fade-in delay-2">
+      <strong>Approach:</strong> I collaborated with PMs, Developers, Designers, and Support teams to create interactive DAP flows, videos, and contextual product tips. Surveys were used to gather feedback on usability and effectiveness.
+    </p>
+    <p class="fade-in delay-3">
+      <strong>Outcome:</strong> Reduced support queries, faster onboarding, higher feature adoption, and improved user satisfaction.
+    </p>
   </section>
 
-  <!-- IMPACT -->
-  <section class="section alt">
-    <div class="container">
-      <h2>Impact & Outcomes</h2>
-
-      <ul class="impact">
-        <li>Reduced customer dependency on support through clear, task-based documentation</li>
-        <li>Improved onboarding by creating DAP content, product tips, and walkthroughs</li>
-        <li>Helped users complete tasks faster using contextual guidance and flows</li>
-        <li>Created surveys to measure documentation effectiveness and user satisfaction</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- SELECTED WORK -->
-  <section class="section" id="work">
-    <div class="container">
-      <h2>Selected Work</h2>
-
-      <div class="cards">
-        <div class="card">
-          <h3>SaaS Help Center Content</h3>
-          <p>
-            End-user documentation covering product setup, feature usage,
-            troubleshooting, and FAQs.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Product Onboarding</h3>
-          <p>
-            Guided onboarding experiences designed to help new users
-            adopt features with minimal friction.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Internal Knowledge Base</h3>
-          <p>
-            Process and reference documentation supporting support and
-            customer-facing teams.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CASE STUDY -->
-  <section class="section alt" id="case-study">
-    <div class="container narrow">
-      <h2>Case Study</h2>
-      <p>
-        At Whatfix, I worked on improving user onboarding and feature adoption
-        by creating structured documentation, DAP content, product tips,
-        walkthroughs, and contextual guidance.
-      </p>
-      <p>
-        These efforts contributed to reduced support queries, faster task
-        completion, and improved customer onboarding experiences.
-      </p>
-      <p class="note">
-        Detailed case studies are available on request due to confidentiality.
-      </p>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section contact" id="contact">
-    <div class="container narrow">
-      <h2>Contact</h2>
-      <p>
-        I’m exploring opportunities where I can contribute to meaningful,
-        user-centered documentation for SaaS products.
-      </p>
-      <a href="mailto:sarangi@email.com">Get in touch</a>
-    </div>
-  </section>
-
-  <footer>
+  <!-- --- Contact --- -->
+  <footer id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:sarangisurendran43@gmail.com">sarangisurendran43@gmail.com</a></p>
+    <p>Phone: +91 938134</p>
+    <p>Location: Bangalore, India</p>
     <p>© 2026 Sarangi Nambiar</p>
   </footer>
 
