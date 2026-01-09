@@ -1,214 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sarangi Nambiar | Technical Writer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* --- Reset & Fonts --- */
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth;}
-    body { line-height:1.6; color:#333; background: #f7f7f7; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarangi Nambiar | Technical Writer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* --- Reset & Fonts --- */
+  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+  body { background:#f2f2f5; color:#333; line-height:1.6; }
 
-    /* --- Hero Section --- */
-    header.hero {
-      position: relative;
-      background: linear-gradient(135deg, #6C63FF, #00C2FF);
-      color: #fff;
-      text-align: center;
-      padding: 120px 20px 80px;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-      overflow: hidden;
-    }
-    header.hero::before {
-      content: '';
-      position: absolute;
-      top:0; left:0; width:100%; height:100%;
-      background: url('hero-bg.jpg') no-repeat center/cover;
-      opacity:0.15;
-      z-index:0;
-      transform: scale(1.05);
-    }
-    header.hero h1, header.hero p, header.hero .links { position: relative; z-index: 1; }
-    header.hero h1 { font-size: 3rem; margin-bottom: 10px; animation: fadeInUp 1s ease forwards; }
-    header.hero p.subtitle { font-size: 1.2rem; margin-bottom: 5px; opacity: 0; animation: fadeInUp 1.2s forwards; }
-    header.hero p.tagline { font-size: 1rem; margin-bottom: 30px; opacity: 0; animation: fadeInUp 1.4s forwards; }
+  /* --- Premium Color Palette --- */
+  :root {
+    --primary: #6C63FF;
+    --secondary: #00C2FF;
+    --accent: #FF6363;
+    --bg-light: #f2f2f5;
+    --text-dark: #1F1F1F;
+    --card-bg: #fff;
+  }
 
-    header.hero .links a {
-      display:inline-block;
-      margin: 0 10px;
-      text-decoration:none;
-      background:#fff;
-      color:#6C63FF;
-      font-weight:600;
-      padding:12px 25px;
-      border-radius:8px;
-      transition: transform 0.3s, background 0.3s, color 0.3s;
-    }
-    header.hero .links a:hover {
-      background:#6C63FF;
-      color:#fff;
-      transform: translateY(-5px) scale(1.05);
-    }
+  /* --- Header / Hero --- */
+  header.hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color:#fff;
+    text-align: center;
+    padding: 140px 20px 100px;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+    overflow: hidden;
+  }
+  header.hero::before {
+    content:'';
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    background:url('hero-bg.jpg') no-repeat center/cover;
+    opacity:0.15; z-index:0;
+  }
+  header.hero h1, header.hero p, header.hero .nav-links { position: relative; z-index:1; }
+  header.hero h1 { font-size:3.2rem; font-weight:700; margin-bottom:15px; }
+  header.hero p.subtitle { font-size:1.3rem; margin-bottom:10px; }
+  header.hero p.tagline { font-size:1.05rem; max-width:700px; margin:0 auto 30px; line-height:1.5; }
 
-    @keyframes fadeInUp {
-      0% { opacity:0; transform: translateY(20px);}
-      100% { opacity:1; transform: translateY(0);}
-    }
+  header.hero .nav-links a {
+    display:inline-block;
+    margin:0 10px;
+    text-decoration:none;
+    background:#fff; color:var(--primary);
+    font-weight:600; padding:14px 28px; border-radius:12px;
+    transition: all 0.3s ease;
+  }
+  header.hero .nav-links a:hover {
+    background:var(--primary); color:#fff; transform:translateY(-4px) scale(1.05);
+  }
 
-    /* --- Sections --- */
-    section {
-      max-width: 1000px;
-      margin: 80px auto;
-      padding: 0 20px;
-      opacity:0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-out;
-    }
-    section.visible { opacity:1; transform: translateY(0); }
-    section h2 {
-      font-size: 2rem;
-      color:#6C63FF;
-      margin-bottom:20px;
-      position: relative;
-    }
-    section h2::after {
-      content: '';
-      position: absolute;
-      width: 60px;
-      height: 4px;
-      background:#00C2FF;
-      bottom:-10px;
-      left:0;
-      border-radius:2px;
-    }
-    section p, section ul, section li {
-      font-size:1rem;
-      margin-bottom:15px;
-    }
-    ul { list-style-type: square; padding-left: 20px; }
-    ul li { margin-bottom:10px; }
+  /* --- Sections --- */
+  section {
+    max-width: 1000px;
+    margin:80px auto;
+    padding:0 20px;
+    opacity:0; transform: translateY(20px);
+    transition: all 0.8s ease-out;
+  }
+  section.visible { opacity:1; transform:translateY(0); }
+  section h2 {
+    font-size:2rem; color:var(--primary); margin-bottom:25px; position:relative;
+  }
+  section h2::after {
+    content:''; position:absolute; width:60px; height:4px; background:var(--secondary); bottom:-10px; left:0; border-radius:2px;
+  }
+  section p, section ul, section li { font-size:1rem; margin-bottom:15px; color:var(--text-dark); }
+  ul { list-style-type: none; padding-left:0; }
+  ul li { background: var(--secondary); color:#fff; display:inline-block; padding:5px 12px; border-radius:8px; margin:5px 5px 5px 0; font-size:0.95rem; }
 
-    /* --- Skills / Tools Cards --- */
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap:20px;
-      justify-content: center;
-    }
-    .skill-card {
-      background: #fff;
-      flex: 1 1 200px;
-      padding:20px;
-      border-radius:12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      text-align:center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .skill-card:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-    }
-    .skill-card h3 {
-      color:#6C63FF;
-      margin-bottom:10px;
-    }
+  /* --- About Me Premium --- */
+  .about-me p { margin-bottom:20px; font-size:1.05rem; line-height:1.7; }
 
-    /* --- Portfolio / Case Studies --- */
-    .portfolio-container {
-      display:flex;
-      flex-wrap: wrap;
-      gap:30px;
-      justify-content: center;
-    }
-    .portfolio-card {
-      background:#fff;
-      flex:1 1 300px;
-      border-radius:12px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.1);
-      overflow:hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-    }
-    .portfolio-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 30px rgba(0,0,0,0.2);
-    }
-    .portfolio-card img {
-      width:100%;
-      height:180px;
-      object-fit:cover;
-      transition: transform 0.5s;
-    }
-    .portfolio-card:hover img { transform: scale(1.05); }
-    .portfolio-card .content {
-      padding:15px;
-    }
-    .portfolio-card .content h4 {
-      margin-bottom:10px;
-      color:#6C63FF;
-    }
-    .portfolio-card .content p {
-      font-size:0.95rem;
-      color:#555;
-    }
+  /* --- Skills / Tools Cards --- */
+  .skills-container { display:flex; flex-wrap:wrap; gap:25px; justify-content:center; }
+  .skill-card {
+    background: var(--card-bg);
+    flex:1 1 220px;
+    padding:25px; border-radius:15px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    text-align:center; transition: all 0.3s ease;
+  }
+  .skill-card:hover { transform: translateY(-8px) scale(1.03); box-shadow:0 20px 30px rgba(0,0,0,0.12); }
+  .skill-card h3 { color:var(--primary); margin-bottom:12px; font-size:1.1rem; }
 
-    /* --- Contact --- */
-    footer {
-      background:#333;
-      color:#fff;
-      text-align:center;
-      padding:50px 20px;
-    }
-    footer a { color:#00C2FF; text-decoration:none; font-weight:600; transition: color 0.3s;}
-    footer a:hover { color:#6C63FF; }
+  /* --- Impact / Achievements --- */
+  .impact-container { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+  .impact-card { background: var(--card-bg); flex:1 1 260px; padding:20px; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; }
+  .impact-card:hover { transform:translateY(-5px); box-shadow:0 15px 25px rgba(0,0,0,0.12); }
+  .impact-card p { color:var(--text-dark); font-size:0.95rem; }
 
-    /* --- Scroll to top button --- */
-    #scrollTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background:#6C63FF;
-      color:#fff;
-      border:none;
-      padding:12px 18px;
-      border-radius:50%;
-      cursor:pointer;
-      font-size:18px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.2);
-      display:none;
-      transition: transform 0.3s, background 0.3s;
-    }
-    #scrollTop:hover { transform: scale(1.1); background:#00C2FF; }
+  /* --- Portfolio / Case Studies --- */
+  .portfolio-container { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; }
+  .portfolio-card {
+    background:var(--card-bg); flex:1 1 300px; border-radius:15px;
+    box-shadow:0 12px 25px rgba(0,0,0,0.08); overflow:hidden; position:relative; transition: all 0.3s ease;
+  }
+  .portfolio-card:hover { transform:translateY(-8px) scale(1.03); box-shadow:0 20px 30px rgba(0,0,0,0.15); }
+  .portfolio-card img { width:100%; height:200px; object-fit:cover; transition: transform 0.5s ease; }
+  .portfolio-card:hover img { transform: scale(1.05); }
+  .portfolio-card .content { padding:18px; }
+  .portfolio-card .content h4 { color:var(--primary); margin-bottom:10px; }
+  .portfolio-card .content p { color:#555; font-size:0.95rem; line-height:1.4; }
 
-  </style>
+  /* --- Case Study Section --- */
+  .case-study p { margin-bottom:18px; }
+
+  /* --- Contact --- */
+  footer {
+    background:var(--text-dark); color:#fff; text-align:center; padding:60px 20px;
+  }
+  footer a { color:var(--secondary); font-weight:600; text-decoration:none; transition:0.3s; }
+  footer a:hover { color:var(--primary); }
+
+  /* --- Scroll to top button --- */
+  #scrollTop {
+    position: fixed; bottom:30px; right:30px;
+    background:var(--primary); color:#fff; border:none; padding:14px 18px;
+    border-radius:50%; cursor:pointer; font-size:20px; display:none;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2); transition: all 0.3s ease;
+  }
+  #scrollTop:hover { transform:scale(1.1); background:var(--secondary); }
+
+  /* --- Responsive --- */
+  @media(max-width:768px){
+    header.hero h1 { font-size:2.5rem; }
+    .portfolio-card img { height:180px; }
+  }
+  @media(max-width:480px){
+    .skills-container, .impact-container, .portfolio-container { flex-direction:column; align-items:center; }
+  }
+</style>
 </head>
-
 <body>
 
-  <!-- --- Hero Section --- -->
+  <!-- --- Hero --- -->
   <header class="hero">
     <h1>Sarangi Nambiar</h1>
     <p class="subtitle">Technical Writer / Information Developer</p>
-    <p class="tagline">
-      2.6 years of experience creating user-focused SaaS documentation that empowers end users and internal teams.
-    </p>
-
-    <div class="links">
+    <p class="tagline">2.6 years of experience creating high-impact SaaS documentation that empowers users, reduces support dependency, and drives product adoption.</p>
+    <div class="nav-links">
+      <a href="#about">About Me</a>
+      <a href="#what-i-do">What I Do</a>
+      <a href="#skills">Skills</a>
+      <a href="#impact">Impact</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#case-study">Case Study</a>
-      <a href="#contact">Contact Me</a>
+      <a href="#contact">Contact</a>
     </div>
   </header>
 
   <!-- --- About Me --- -->
-  <section id="about">
+  <section id="about" class="about-me">
     <h2>About Me</h2>
     <p>
-      I am an Information Developer based in Bangalore, India, with 2.6 years of experience documenting complex SaaS products at Whatfix. I specialize in creating structured, user-focused content that reduces support queries, improves onboarding, and helps users complete tasks efficiently.
+      I am a passionate Information Developer based in Bangalore, India, specializing in SaaS documentation. Over 2.6 years at Whatfix, I have transformed complex product workflows into structured, easy-to-follow guides for end users, support teams, and internal stakeholders.
     </p>
     <p>
-      I collaborate closely with Product Managers, Developers, Engineers, Designers, CSMs, DAC teams, and Support teams to ensure documentation is accurate, intuitive, and visually engaging.
+      My approach is rooted in understanding the user’s journey, collaborating closely with Product Managers, Developers, Designers, CSMs, and Support teams to ensure clarity, accuracy, and usability. I create documentation, interactive flows, and multimedia content that reduces support queries, enhances onboarding, and empowers users to succeed independently.
     </p>
   </section>
 
@@ -224,7 +176,7 @@
     </ul>
   </section>
 
-  <!-- --- Skills & Tools --- -->
+  <!-- --- Skills / Tools --- -->
   <section id="skills">
     <h2>Skills & Tools</h2>
     <div class="skills-container">
@@ -247,57 +199,51 @@
     </div>
   </section>
 
-  <!-- --- Impact / Achievements --- -->
+  <!-- --- Impact --- -->
   <section id="impact">
     <h2>Impact</h2>
-    <ul>
-      <li>Reduced support queries by creating clear documentation and video tutorials</li>
-      <li>Improved onboarding with DAP content and structured flows</li>
-      <li>Helped users complete tasks faster with product tips and contextual content</li>
-      <li>Created surveys to measure documentation effectiveness and impact</li>
-    </ul>
+    <div class="impact-container">
+      <div class="impact-card"><p>Reduced support queries through clear guides and video tutorials.</p></div>
+      <div class="impact-card"><p>Improved onboarding with interactive DAP flows and structured content.</p></div>
+      <div class="impact-card"><p>Helped users complete tasks faster with product tips and contextual content.</p></div>
+      <div class="impact-card"><p>Created surveys to measure documentation effectiveness and user satisfaction.</p></div>
+    </div>
   </section>
 
-  <!-- --- Portfolio Samples --- -->
+  <!-- --- Portfolio --- -->
   <section id="portfolio">
     <h2>Portfolio</h2>
     <div class="portfolio-container">
       <div class="portfolio-card">
-        <img src="portfolio1.jpg" alt="User Guide Sample">
+        <img src="images/user-guide.jpg" alt="User Guide Sample">
         <div class="content">
           <h4>User Guide</h4>
-          <p>Structured user guide for a complex SaaS workflow, including step-by-step flows and visual screenshots.</p>
+          <p>Structured user guide for complex SaaS workflows with annotated screenshots and step-by-step instructions.</p>
         </div>
       </div>
       <div class="portfolio-card">
-        <img src="portfolio2.jpg" alt="Onboarding Sample">
+        <img src="images/onboarding-doc.jpg" alt="Onboarding Doc Sample">
         <div class="content">
           <h4>Onboarding Doc</h4>
-          <p>Interactive onboarding documentation to help new users understand the product efficiently.</p>
+          <p>Interactive onboarding documentation designed to help new users understand the product quickly and efficiently.</p>
         </div>
       </div>
       <div class="portfolio-card">
-        <img src="portfolio3.jpg" alt="Feature Documentation">
+        <img src="images/feature-doc.jpg" alt="Feature Documentation Sample">
         <div class="content">
           <h4>Feature Documentation</h4>
-          <p>Detailed documentation for new feature release with annotated screenshots and tips.</p>
+          <p>Comprehensive feature documentation with screenshots, product tips, and troubleshooting guidance for end users.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- --- Case Study --- -->
-  <section id="case-study">
+  <section id="case-study" class="case-study">
     <h2>Case Study</h2>
-    <p>
-      <strong>Problem:</strong> Users were struggling with onboarding and feature adoption for a new SaaS module.
-    </p>
-    <p>
-      <strong>Approach:</strong> Collaborated with PMs, Developers, Designers, and Support teams to create interactive DAP flows, videos, and contextual product tips. Surveys measured usability and effectiveness.
-    </p>
-    <p>
-      <strong>Outcome:</strong> Reduced support queries, faster onboarding, higher feature adoption, and improved user satisfaction.
-    </p>
+    <p><strong>Problem:</strong> Users struggled with onboarding and feature adoption for a new SaaS module.</p>
+    <p><strong>Approach:</strong> Collaborated with Product Managers, Developers, Designers, and Support teams to create interactive DAP flows, videos, and contextual product tips. Surveys were conducted to measure effectiveness.</p>
+    <p><strong>Outcome:</strong> Reduced support queries, faster onboarding, higher feature adoption, and improved user satisfaction.</p>
   </section>
 
   <!-- --- Contact --- -->
@@ -312,28 +258,24 @@
   <!-- --- Scroll to Top --- -->
   <button id="scrollTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">&#8679;</button>
 
-  <!-- --- JavaScript for Scroll Animations --- -->
+  <!-- --- JS Animations --- -->
   <script>
+    // Section fade-in
     const sections = document.querySelectorAll('section');
-
-    function revealSections() {
+    function revealSections(){
       const triggerBottom = window.innerHeight / 5 * 4;
-      sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if(sectionTop < triggerBottom) {
-          section.classList.add('visible');
-        }
+      sections.forEach(section=>{
+        const top = section.getBoundingClientRect().top;
+        if(top < triggerBottom){ section.classList.add('visible'); }
       });
     }
-
     window.addEventListener('scroll', revealSections);
     window.addEventListener('load', revealSections);
 
-    // Show scroll-to-top button
+    // Scroll-to-top button
     const scrollBtn = document.getElementById('scrollTop');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 300) { scrollBtn.style.display = 'block'; }
-      else { scrollBtn.style.display = 'none'; }
+    window.addEventListener('scroll', ()=>{
+      scrollBtn.style.display = (window.scrollY > 300)?'block':'none';
     });
   </script>
 
