@@ -49,7 +49,7 @@ body {
   opacity: 0.85;
 }
 
-/* NAV LINKS (HERO) */
+/* HERO NAV LINKS */
 .links {
   margin-top: 40px;
   display: flex;
@@ -60,18 +60,19 @@ body {
 
 .links a {
   text-decoration: none;
-  color: #e5e7eb;
-  border: 1px solid #374151;
+  color: #e5e7eb;        /* Light neutral text */
+  border: 1px solid #e5e7eb; /* Border same as text */
   padding: 10px 20px;
   border-radius: 6px;
   transition: all 0.25s ease;
   font-weight: 500;
+  background: transparent; /* No background by default */
 }
 
 .links a:hover {
-  background: #ffffff;
-  color: #020617;
-  border-color: #ffffff;
+  background: #ffffff;   /* White background on hover */
+  color: #020617;        /* Dark text on hover */
+  border-color: #ffffff; /* White border on hover */
 }
 
 /* SECTIONS */
@@ -104,6 +105,7 @@ p {
 
 ul {
   list-style: none;
+  padding-left: 0;
 }
 
 /* CORE EXPERTISE GRID */
@@ -120,7 +122,6 @@ ul {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 15px;
   margin-top: 20px;
-  padding-left: 20px;
 }
 
 .impact li::before {
@@ -166,16 +167,19 @@ ul {
   display: inline-block;
   margin-top: 20px;
   padding: 14px 28px;
-  background: #020617;
-  color: #ffffff;
-  text-decoration: none;
+  background: transparent; /* Transparent by default to match other buttons */
+  color: #e5e7eb;          /* Same light text as hero buttons */
+  border: 1px solid #e5e7eb;
   border-radius: 6px;
   font-weight: 500;
+  text-decoration: none;
   transition: all 0.25s ease;
 }
 
 .contact a:hover {
-  background: #0f172a;
+  background: #ffffff;
+  color: #020617;
+  border-color: #ffffff;
 }
 
 /* FOOTER */
