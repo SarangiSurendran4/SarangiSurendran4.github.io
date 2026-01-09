@@ -5,119 +5,174 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sarangi Surendran | Information Developer</title>
   <style>
-    /* --- Global Styles --- */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+    /* --- Global --- */
     * { box-sizing: border-box; margin:0; padding:0; }
     html { scroll-behavior: smooth; }
-    body { font-family:'Inter', sans-serif; color:#111; line-height:1.5; background:#fefefe; }
-    a { color:#0066cc; text-decoration:none; transition:color 0.3s; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefefe;
+      color: #111;
+      line-height: 1.6;
+    }
+    a { color: #0066cc; text-decoration:none; transition: color 0.3s; }
     a:hover { color:#004a99; }
 
-    section { padding:60px 20px; max-width:900px; margin:auto; }
-
-    h1,h2,h3 { font-weight:700; margin-bottom:12px; }
-    h1 { font-size:2.6rem; }
-    h2 { font-size:1.8rem; border-bottom:2px solid #e2e2e2; padding-bottom:6px; margin-bottom:20px; }
-    h3 { font-size:1.2rem; color:#111; }
-
-    p { margin-bottom:12px; font-size:0.97rem; color:#333; }
-
-    ul { list-style-type:disc; padding-left:20px; margin-bottom:12px; }
-    li { margin-bottom:6px; }
-
-    /* --- Header Navigation --- */
+    /* --- Header / Sticky --- */
     header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      z-index: 999;
+      transition: all 0.3s ease;
+    }
+    header .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #111;
+    }
+    nav {
+      display: flex;
+      gap: 24px;
+    }
+    nav a {
+      font-weight: 500;
+      position: relative;
+      padding: 4px 0;
+    }
+    nav a::after {
+      content:'';
+      display:block;
+      width:0;
+      height:2px;
+      background:#0066cc;
+      transition: width 0.3s;
+      position:absolute;
+      bottom:0;
+      left:0;
+    }
+    nav a:hover::after { width:100%; }
+
+    /* --- Sections --- */
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    h1,h2,h3,h4,h5 {
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    h1 { font-size: 2.8rem; color:#111; }
+    h2 { font-size:2rem; color:#222; border-bottom:2px solid #e2e2e2; padding-bottom:8px; margin-bottom:24px; }
+    h3 { font-size:1.3rem; color:#111; margin-bottom:12px; }
+    h4 { font-size:1.1rem; color:#0066cc; margin-bottom:8px; }
+    p { margin-bottom:16px; font-size:1rem; color:#333; }
+
+    ul { list-style: disc; padding-left:20px; margin-bottom:16px; }
+    li { margin-bottom:8px; }
+
+    /* --- Intro --- */
+    .intro {
+      text-align:left;
+      padding-top:60px;
+      padding-bottom:60px;
+    }
+    .intro h1 { margin-bottom:8px; }
+    .intro h3 { font-weight:500; font-size:1.2rem; color:#555; margin-bottom:16px; }
+    .intro .contact-links a { margin-right:16px; font-weight:500; }
+
+    /* --- Skills --- */
+    .skills-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+    .skill-card {
       background:#fff;
-      position:sticky; top:0;
-      z-index:999;
-      padding:14px 20px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      box-shadow:0 1px 5px rgba(0,0,0,0.06);
+      border:1px solid #e2e2e2;
+      padding:16px;
+      border-radius:8px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    header h1 { font-size:2rem; margin-bottom:4px; }
-    header h3 { font-weight:500; font-size:1rem; color:#555; }
-    header nav { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; margin-top:8px; }
-    header nav a { font-weight:600; padding:4px 0; position:relative; }
-    header nav a::after {
-      content:''; display:block; width:0; height:2px; background:#0066cc; transition:width .3s; position:absolute; bottom:0; left:0;
-    }
-    header nav a:hover::after { width:100%; }
+    .skill-card:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.08); }
 
-    /* --- Intro Section --- */
-    .intro { text-align:center; padding-top:40px; padding-bottom:40px; }
-    .intro p { font-size:1rem; margin-bottom:12px; }
-    .intro .contact-links a { margin:0 10px; font-weight:600; }
-
-    /* --- Skills Section --- */
-    .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
-    .skill-card { background:#fff; border:1px solid #e2e2e2; padding:14px; border-radius:6px; transition:transform 0.3s, box-shadow 0.3s; }
-    .skill-card:hover { transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,0.07); }
-    .skill-card h4 { margin-bottom:6px; font-size:1.05rem; color:#0066cc; }
-
-    /* --- Experience Section --- */
-    .experience-block { margin-bottom:30px; }
-    .role { margin-bottom:20px; }
-    .role h3 { font-size:1.15rem; margin-bottom:4px; }
-    .role .duration { font-size:0.88rem; color:#666; margin-bottom:8px; }
-    .role ul { list-style:disc inside; }
+    /* --- Experience --- */
+    .experience-block { margin-bottom:40px; }
+    .role .duration { font-size:0.9rem; color:#666; margin-bottom:12px; }
     .growth-note {
-      background:#e6f0ff; border-left:4px solid #0066cc; padding:10px 14px; font-style:italic; margin-top:12px; border-radius:4px;
+      background:#e6f0ff;
+      border-left:4px solid #0066cc;
+      padding:12px 16px;
+      font-style:italic;
+      margin-top:16px;
+      border-radius:4px;
     }
 
-    /* --- Work Samples --- */
-    .work-samples { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
-    .work-card { border:1px solid #e2e2e2; border-radius:6px; padding:14px; background:#fff; transition:transform 0.3s, box-shadow 0.3s; }
-    .work-card:hover { transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,0.07); }
-    .work-card h4 { margin-bottom:4px; color:#0066cc; font-size:1.05rem; }
-    .work-card p { font-size:0.92rem; margin-bottom:4px; }
+    /* --- Work / Recognition --- */
+    .work-samples, .recognitions {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
+    }
+    .work-card, .recognition-card {
+      background:#fff;
+      border:1px solid #e2e2e2;
+      border-radius:8px;
+      padding:16px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .work-card:hover, .recognition-card:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.08); }
 
-    /* --- Recognition Section --- */
-    .recognitions { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
-    .recognition-card { background:#fff; border-left:4px solid #0066cc; padding:10px 14px; border-radius:6px; transition:transform 0.3s, box-shadow 0.3s; }
-    .recognition-card:hover { transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,0.07); }
-    .recognition-card h5 { font-size:1rem; margin-bottom:4px; color:#004a99; }
-    .recognition-card p { font-size:0.88rem; color:#333; }
+    .recognition-card { border-left:4px solid #0066cc; }
 
-    /* --- Contact Section --- */
-    .contact a { display:block; margin-bottom:6px; font-weight:600; }
+    /* --- Contact --- */
+    .contact a { display:block; margin-bottom:8px; font-weight:600; }
 
     /* --- Responsive --- */
     @media(max-width:768px){
-      h1{ font-size:2rem; }
-      h2{ font-size:1.5rem; }
+      header { flex-direction:column; align-items:flex-start; gap:12px; padding:16px 20px; }
+      nav { gap:16px; }
+      h1 { font-size:2.4rem; }
+      h2 { font-size:1.6rem; }
     }
 
-    /* --- Subtle Animations on Scroll --- */
-    .fade-in { opacity:0; transform:translateY(15px); transition:opacity 0.7s ease-out, transform 0.7s ease-out; }
+    /* --- Fade-in --- */
+    .fade-in { opacity:0; transform:translateY(20px); transition:opacity 0.8s ease-out, transform 0.8s ease-out; }
     .fade-in.visible { opacity:1; transform:translateY(0); }
 
   </style>
 </head>
 <body>
 
-  <!-- Header / Navigation -->
+  <!-- Header -->
   <header>
-    <h1>Sarangi Surendran</h1>
-    <h3>Information Developer / Technical Writer</h3>
+    <div class="logo">Sarangi Surendran</div>
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
-      <a href="#work">Work Samples</a>
+      <a href="#work">Work</a>
       <a href="#recognitions">Recognition</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Intro Section -->
+  <!-- Intro -->
   <section class="intro fade-in">
-    <p>Creating clear, user-focused documentation and in-app guidance for SaaS products, enhancing adoption and reducing support dependency.</p>
+    <h1>Information Developer / Technical Writer</h1>
+    <h3>Creating clear, user-focused documentation and in-app guidance for SaaS products, enhancing adoption and reducing support dependency.</h3>
     <div class="contact-links">
-      <a href="#">Resume PDF</a> | 
-      <a href="https://www.linkedin.com/in/sarangi-surendran" target="_blank">LinkedIn</a> | 
+      <a href="#">Resume PDF</a>
+      <a href="https://www.linkedin.com/in/sarangi-surendran" target="_blank">LinkedIn</a>
       <a href="mailto:sarangisurendran43@gmail.com">Email</a>
     </div>
   </section>
@@ -128,7 +183,7 @@
     <p>I am an Information Developer with 2.6 years of experience at Whatfix, specializing in simplifying complex workflows into structured, actionable content. I collaborate closely with PMs, engineers, UX writers, and CSMs to create documentation, DAP content, videos, and community posts that address real user needs and align with product goals. My approach combines user-centered design, data-driven insights, and cross-pod collaboration to ensure content is impactful and adoption-focused.</p>
   </section>
 
-  <!-- Skills & Tools -->
+  <!-- Skills -->
   <section id="skills" class="fade-in">
     <h2>Skills & Tools</h2>
     <div class="skills-grid">
@@ -166,3 +221,151 @@
       </div>
     </div>
   </section>
+
+  <!-- Experience -->
+  <section id="experience" class="fade-in">
+    <h2>Experience</h2>
+    <div class="experience-block">
+      <h3>Whatfix</h3>
+      <div class="role">
+        <h3>Information Developer II</h3>
+        <p class="duration">March 2025 – Present</p>
+        <ul>
+          <li>Owned documentation and DAP content for multiple features across pods.</li>
+          <li>Created user guides, walkthroughs, FAQs, release notes, and product tips.</li>
+          <li>Partnered with PMs and engineers to document new releases and workflows.</li>
+          <li>Reviewed and improved content consistency using templates and standards.</li>
+          <li>Created videos, community posts, and surveys to measure impact and adoption.</li>
+        </ul>
+      </div>
+      <div class="role">
+        <h3>Information Developer I</h3>
+        <p class="duration">Jan 2024 – March 2025</p>
+        <ul>
+          <li>Authored user guides, tutorials, and release notes.</li>
+          <li>Contributed to documentation templates and content standards.</li>
+          <li>Collaborated across multiple pods for content accuracy and consistency.</li>
+        </ul>
+      </div>
+      <div class="role">
+        <h3>Intern</h3>
+        <p class="duration">July 2023 – Jan 2024</p>
+        <ul>
+          <li>Assisted with documentation updates, audits, and learning product workflows.</li>
+        </ul>
+      </div>
+      <div class="growth-note">
+        Promoted from Intern → ID I → ID II based on ownership, quality, and cross-pod contributions.
+      </div>
+    </div>
+
+    <div class="experience-block">
+      <h3>Software Engineer Trainee</h3>
+      <p>Qspiders Campus Connect – Internship (Sep 2022 – Feb 2023)</p>
+      <ul>
+        <li>Trained in Java, SQL, Aptitude, and soft skills.</li>
+        <li>Created web pages using HTML, CSS, and JavaScript.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Work Samples -->
+  <section id="work" class="fade-in">
+    <h2>Selected Work / Case Studies</h2>
+    <div class="work-samples">
+      <div class="work-card">
+        <h4>Feature Walkthrough Documentation</h4>
+        <p><strong>Context:</strong> Whatfix SaaS Feature Release</p>
+        <p><strong>Audience:</strong> End users & Admins</p>
+        <p><strong>Role:</strong> Lead Documentation Owner</p>
+        <p><strong>Challenge:</strong> Complex multi-step workflows confusing for users</p>
+        <p><strong>Solution:</strong> Created structured guides, screenshots, and DAP flows</p>
+        <p><strong>Outcome:</strong> Reduced support tickets and improved adoption of new features</p>
+      </div>
+      <div class="work-card">
+        <h4>Onboarding DAP Content</h4>
+        <p><strong>Context:</strong> Multi-product onboarding for new users</p>
+        <p><strong>Audience:</strong> New users & CSM teams</p>
+        <p><strong>Role:</strong> Designer & Writer</p>
+        <p><strong>Challenge:</strong> Users struggled to complete tasks efficiently</p>
+        <p><strong>Solution:</strong> Contextual in-app guidance, videos, and tips</p>
+        <p><strong>Outcome:</strong> Faster onboarding, higher feature adoption</p>
+      </div>
+      <div class="work-card">
+        <h4>Community & Video Content</h4>
+        <p><strong>Context:</strong> Product knowledge sharing & adoption</p>
+        <p><strong>Audience:</strong> Users & internal teams</p>
+        <p><strong>Role:</strong> Content Creator</p>
+        <p><strong>Challenge:</strong> Users unaware of advanced features</p>
+        <p><strong>Solution:</strong> Videos, community posts, tutorials</p>
+        <p><strong>Outcome:</strong> Positive feedback, engagement, and reduced support tickets</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recognition -->
+  <section id="recognitions" class="fade-in">
+    <h2>Rewards & Recognition</h2>
+    <div class="recognitions">
+      <div class="recognition-card">
+        <h5>Badge: Above and Beyond</h5>
+        <p>Recognized for being exceptionally dependable and committed. Consistently met deadlines, even under challenges, validating reliability and ownership.</p>
+      </div>
+      <div class="recognition-card">
+        <h5>Badge: Hustler</h5>
+        <p>Recognized for proactively improving work, seeking feedback, and implementing it to deliver high-quality outputs, reflecting commitment to growth.</p>
+      </div>
+      <div class="recognition-card">
+        <h5>PM Appreciation</h5>
+        <p>Supported Seek for Salesforce announcement by preparing demo videos under tight deadlines, amplifying product visibility.</p>
+      </div>
+      <div class="recognition-card">
+        <h5>Spot Award</h5>
+        <p>Implemented urgent emergency downtime pop-up; stayed late to troubleshoot and deliver on time while identifying new solutions.</p>
+      </div>
+      <div class="recognition-card">
+        <h5>Spot Award</h5>
+        <p>Presented use cases during "Monday use case call," demonstrating creativity and practical application of features.</p>
+      </div>
+      <div class="recognition-card">
+        <h5>Slack Appreciation</h5>
+        <p>Recognized for hustle, quick turnaround, proactive delivery, including drafting content under limited information.</p>
+      </div>
+      <div class="recognition-card">
+        <h5>Cheers Mate Shoutout</h5>
+        <p>Created innovative solution for video workflow using Synthesia + Loom, reducing rework and saving costs.</p>
+      </div>
+      <div class="recognition-card">
+        <h5>Slack Appreciation</h5>
+        <p>Proposed user-centered smart tip to improve documentation and reduce errors in Studio.</p>
+      </div>
+      <div class="recognition-card">
+        <h5>Slack Appreciation</h5>
+        <p>Engaged with users in community posts, maintaining a positive and responsive presence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="fade-in">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:sarangisurendran43@gmail.com">sarangisurendran43@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/sarangi-surendran" target="_blank">linkedin.com/in/sarangi-surendran</a></p>
+    <p>Resume: <a href="#">Download PDF</a></p>
+  </section>
+
+  <script>
+    // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2, rootMargin:"0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver((entries, observer)=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
+</body>
+</html>
