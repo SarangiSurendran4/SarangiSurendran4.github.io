@@ -7,17 +7,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     /* --- Reset & Fonts --- */
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth;}
     body { line-height:1.6; color:#333; background: #f7f7f7; }
 
-    /* --- Header / Hero --- */
+    /* --- Hero Section --- */
     header.hero {
+      position: relative;
       background: linear-gradient(135deg, #6C63FF, #00C2FF);
       color: #fff;
       text-align: center;
       padding: 120px 20px 80px;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+      overflow: hidden;
     }
+    header.hero::before {
+      content: '';
+      position: absolute;
+      top:0; left:0; width:100%; height:100%;
+      background: url('hero-bg.jpg') no-repeat center/cover;
+      opacity:0.15;
+      z-index:0;
+      transform: scale(1.05);
+    }
+    header.hero h1, header.hero p, header.hero .links { position: relative; z-index: 1; }
     header.hero h1 { font-size: 3rem; margin-bottom: 10px; animation: fadeInUp 1s ease forwards; }
     header.hero p.subtitle { font-size: 1.2rem; margin-bottom: 5px; opacity: 0; animation: fadeInUp 1.2s forwards; }
     header.hero p.tagline { font-size: 1rem; margin-bottom: 30px; opacity: 0; animation: fadeInUp 1.4s forwards; }
@@ -36,7 +48,7 @@
     header.hero .links a:hover {
       background:#6C63FF;
       color:#fff;
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.05);
     }
 
     @keyframes fadeInUp {
@@ -49,7 +61,11 @@
       max-width: 1000px;
       margin: 80px auto;
       padding: 0 20px;
+      opacity:0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
     }
+    section.visible { opacity:1; transform: translateY(0); }
     section h2 {
       font-size: 2rem;
       color:#6C63FF;
@@ -66,7 +82,6 @@
       left:0;
       border-radius:2px;
     }
-
     section p, section ul, section li {
       font-size:1rem;
       margin-bottom:15px;
@@ -91,7 +106,7 @@
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .skill-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.03);
       box-shadow: 0 15px 25px rgba(0,0,0,0.15);
     }
     .skill-card h3 {
@@ -113,16 +128,19 @@
       box-shadow:0 8px 20px rgba(0,0,0,0.1);
       overflow:hidden;
       transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
     }
     .portfolio-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.2);
     }
     .portfolio-card img {
       width:100%;
       height:180px;
       object-fit:cover;
+      transition: transform 0.5s;
     }
+    .portfolio-card:hover img { transform: scale(1.05); }
     .portfolio-card .content {
       padding:15px;
     }
@@ -142,18 +160,27 @@
       text-align:center;
       padding:50px 20px;
     }
-    footer a { color:#00C2FF; text-decoration:none; font-weight:600; }
+    footer a { color:#00C2FF; text-decoration:none; font-weight:600; transition: color 0.3s;}
+    footer a:hover { color:#6C63FF; }
 
-    /* --- Animations on Scroll (fadeIn) --- */
-    .fade-in {
-      opacity:0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards;
+    /* --- Scroll to top button --- */
+    #scrollTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background:#6C63FF;
+      color:#fff;
+      border:none;
+      padding:12px 18px;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:18px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+      display:none;
+      transition: transform 0.3s, background 0.3s;
     }
-    .fade-in.delay-1 { animation-delay:0.2s; }
-    .fade-in.delay-2 { animation-delay:0.4s; }
-    .fade-in.delay-3 { animation-delay:0.6s; }
-    .fade-in.delay-4 { animation-delay:0.8s; }
+    #scrollTop:hover { transform: scale(1.1); background:#00C2FF; }
+
   </style>
 </head>
 
@@ -177,10 +204,10 @@
   <!-- --- About Me --- -->
   <section id="about">
     <h2>About Me</h2>
-    <p class="fade-in delay-1">
-      I am an Information Developer based in Bangalore, India, with 2.6 years of experience documenting complex SaaS products, primarily at Whatfix. I specialize in creating structured, user-focused content that reduces support queries, improves onboarding, and helps users complete tasks efficiently.
+    <p>
+      I am an Information Developer based in Bangalore, India, with 2.6 years of experience documenting complex SaaS products at Whatfix. I specialize in creating structured, user-focused content that reduces support queries, improves onboarding, and helps users complete tasks efficiently.
     </p>
-    <p class="fade-in delay-2">
+    <p>
       I collaborate closely with Product Managers, Developers, Engineers, Designers, CSMs, DAC teams, and Support teams to ensure documentation is accurate, intuitive, and visually engaging.
     </p>
   </section>
@@ -188,7 +215,7 @@
   <!-- --- What I Do --- -->
   <section id="what-i-do">
     <h2>What I Do</h2>
-    <ul class="fade-in delay-1">
+    <ul>
       <li>User Guides & Onboarding Docs</li>
       <li>How-To Articles, FAQs, Troubleshooting Guides</li>
       <li>Feature Documentation & Release Notes</li>
@@ -200,13 +227,13 @@
   <!-- --- Skills & Tools --- -->
   <section id="skills">
     <h2>Skills & Tools</h2>
-    <div class="skills-container fade-in delay-1">
+    <div class="skills-container">
       <div class="skill-card">
         <h3>Documentation</h3>
         <p>Confluence, Document 360, Markdown</p>
       </div>
       <div class="skill-card">
-        <h3>Collaboration & Project</h3>
+        <h3>Collaboration</h3>
         <p>Jira, Slack, Figma</p>
       </div>
       <div class="skill-card">
@@ -223,7 +250,7 @@
   <!-- --- Impact / Achievements --- -->
   <section id="impact">
     <h2>Impact</h2>
-    <ul class="fade-in delay-1">
+    <ul>
       <li>Reduced support queries by creating clear documentation and video tutorials</li>
       <li>Improved onboarding with DAP content and structured flows</li>
       <li>Helped users complete tasks faster with product tips and contextual content</li>
@@ -234,7 +261,7 @@
   <!-- --- Portfolio Samples --- -->
   <section id="portfolio">
     <h2>Portfolio</h2>
-    <div class="portfolio-container fade-in delay-1">
+    <div class="portfolio-container">
       <div class="portfolio-card">
         <img src="portfolio1.jpg" alt="User Guide Sample">
         <div class="content">
@@ -262,13 +289,13 @@
   <!-- --- Case Study --- -->
   <section id="case-study">
     <h2>Case Study</h2>
-    <p class="fade-in delay-1">
+    <p>
       <strong>Problem:</strong> Users were struggling with onboarding and feature adoption for a new SaaS module.
     </p>
-    <p class="fade-in delay-2">
-      <strong>Approach:</strong> I collaborated with PMs, Developers, Designers, and Support teams to create interactive DAP flows, videos, and contextual product tips. Surveys were used to gather feedback on usability and effectiveness.
+    <p>
+      <strong>Approach:</strong> Collaborated with PMs, Developers, Designers, and Support teams to create interactive DAP flows, videos, and contextual product tips. Surveys measured usability and effectiveness.
     </p>
-    <p class="fade-in delay-3">
+    <p>
       <strong>Outcome:</strong> Reduced support queries, faster onboarding, higher feature adoption, and improved user satisfaction.
     </p>
   </section>
@@ -281,6 +308,34 @@
     <p>Location: Bangalore, India</p>
     <p>© 2026 Sarangi Nambiar</p>
   </footer>
+
+  <!-- --- Scroll to Top --- -->
+  <button id="scrollTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">&#8679;</button>
+
+  <!-- --- JavaScript for Scroll Animations --- -->
+  <script>
+    const sections = document.querySelectorAll('section');
+
+    function revealSections() {
+      const triggerBottom = window.innerHeight / 5 * 4;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if(sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealSections);
+    window.addEventListener('load', revealSections);
+
+    // Show scroll-to-top button
+    const scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 300) { scrollBtn.style.display = 'block'; }
+      else { scrollBtn.style.display = 'none'; }
+    });
+  </script>
 
 </body>
 </html>
