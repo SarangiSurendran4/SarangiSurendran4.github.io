@@ -69,14 +69,17 @@
 
   /* ===== Sections ===== */
   section {
-    padding:50px 10%;
+    padding:60px 10%; /* Reduced from 80px to 60px */
+    border-bottom: 1px solid #e0e0e0; /* subtle divider */
   }
+
+  section:last-child {border-bottom:none;}
 
   section:nth-child(even) {background: var(--section-bg);}
 
   h2 {
     font-size:2rem;
-    margin-bottom:20px;
+    margin-bottom:15px; /* reduced from 20px */
     color: var(--accent-color);
     position:relative;
   }
@@ -91,23 +94,23 @@
     border-radius:2px;
   }
 
-  p {margin-bottom:15px;}
-  ul {list-style:disc inside; margin-bottom:15px;}
-  li {margin-bottom:8px;}
+  p {margin-bottom:12px;} /* reduced from 15px */
+  ul {list-style:disc inside; margin-bottom:12px;}
+  li {margin-bottom:6px;} /* reduced spacing between bullets */
 
   /* ===== Hero / Intro ===== */
   .hero {
-    padding:120px 10% 80px;
+    padding:100px 10% 60px; /* reduced top/bottom padding */
     text-align:left;
   }
-  .hero h1 {font-size:3rem; margin-bottom:10px;}
+  .hero h1 {font-size:3rem; margin-bottom:8px;}
   .hero p {font-size:1.2rem; color: var(--muted-color);}
-  .hero .links {margin-top:20px;}
+  .hero .links {margin-top:15px;} /* reduced spacing */
   .hero .links a {
     text-decoration:none;
     color: var(--primary-color);
     font-weight:600;
-    margin-right:20px;
+    margin-right:15px; /* slightly reduced */
     transition: var(--transition);
   }
   .hero .links a:hover {text-decoration:underline; color:#2565c0;}
@@ -116,7 +119,7 @@
   .skills-grid {
     display:grid;
     grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
+    gap:15px; /* slightly smaller gap */
   }
   .skill-card {
     background: var(--card-bg);
@@ -129,62 +132,62 @@
     transform: translateY(-5px);
     box-shadow:0 8px 16px var(--shadow);
   }
-  .skill-card h4 {margin-bottom:8px; color:var(--primary-color);}
+  .skill-card h4 {margin-bottom:6px; color:var(--primary-color);}
   .skill-card ul {list-style:none; padding-left:0;}
   .skill-card li::before {content:'• '; color: var(--primary-color); font-weight:bold;}
 
   /* ===== Experience ===== */
   .experience-block {
-    margin-bottom:40px;
+    margin-bottom:30px; /* reduced from 40px */
   }
-  .experience-block h3 {color: var(--primary-color); margin-bottom:10px;}
-  .experience-block h4 {color:var(--accent-color); margin-bottom:5px;}
-  .experience-block ul {margin-left:20px;}
+  .experience-block h3 {color: var(--primary-color); margin-bottom:8px;}
+  .experience-block h4 {color:var(--accent-color); margin-bottom:4px;}
+  .experience-block ul {margin-left:20px; margin-bottom:8px;}
 
   .growth-note {
     background: var(--primary-color);
     color:#fff;
-    padding:15px 20px;
+    padding:12px 18px;
     border-radius:6px;
     font-weight:600;
-    margin-top:10px;
+    margin-top:8px;
     display:inline-block;
   }
 
   /* ===== Work Samples ===== */
   .work-sample {
     background: var(--card-bg);
-    padding:20px;
+    padding:18px; /* slightly smaller padding */
     border-radius:8px;
     box-shadow:0 4px 12px var(--shadow);
-    margin-bottom:20px;
+    margin-bottom:15px; /* reduced from 20px */
     transition: var(--transition);
   }
   .work-sample:hover {transform: translateY(-5px); box-shadow:0 8px 20px var(--shadow);}
-  .work-sample h4 {color: var(--primary-color); margin-bottom:8px;}
-  .work-sample p {margin-bottom:5px;}
+  .work-sample h4 {color: var(--primary-color); margin-bottom:6px;}
+  .work-sample p {margin-bottom:4px;}
   .work-sample .label {font-weight:600;}
 
   /* ===== Awards / Recognition ===== */
   .awards-grid {
     display:grid;
     grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+    gap:15px; /* reduced spacing */
   }
   .award-card {
     background: var(--card-bg);
-    padding:15px;
+    padding:12px; /* slightly smaller */
     border-radius:8px;
     box-shadow:0 4px 12px var(--shadow);
     transition: var(--transition);
   }
-  .award-card h5 {color: var(--primary-color); margin-bottom:5px;}
+  .award-card h5 {color: var(--primary-color); margin-bottom:4px;}
   .award-card p {font-size:0.9rem; color:var(--muted-color);}
 
   /* ===== Contact ===== */
   .contact a {
     display:inline-block;
-    margin-right:20px;
+    margin-right:15px; /* reduced spacing */
     text-decoration:none;
     color: var(--primary-color);
     font-weight:600;
@@ -193,7 +196,7 @@
   .contact a:hover {text-decoration:underline;}
 
   /* ===== Footer ===== */
-  footer {text-align:center; padding:20px; font-size:0.9rem; color: var(--muted-color);}
+  footer {text-align:center; padding:15px; font-size:0.9rem; color: var(--muted-color);}
 
   /* ===== Smooth Scroll ===== */
   html {scroll-behavior:smooth;}
