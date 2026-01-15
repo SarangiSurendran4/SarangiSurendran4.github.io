@@ -1,391 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sarangi Surendran | Information Developer / Technical Writer</title>
-<style>
-  /* ===== Fonts & Colors ===== */
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  <meta charset="UTF-8" />
+  <title>Sarangi Surendran – Information Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  :root {
-    --primary-color: #4a90e2;
-    --accent-color: #1c1c1c;
-    --bg-color: #ffffff;
-    --section-bg: #f9f9f9;
-    --text-color: #1c1c1c;
-    --muted-color: #555555;
-    --card-bg: #ffffff;
-    --shadow: rgba(0,0,0,0.08);
-    --transition: all 0.3s ease;
-  }
+  <!-- Premium font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  * {margin:0; padding:0; box-sizing:border-box;}
-  body {font-family: 'Inter', sans-serif; color: var(--text-color); background: var(--bg-color); line-height: 1.6;}
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --border: #e5e7eb;
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.08);
+    }
 
-  /* ===== Header ===== */
-  header {
-    position: sticky;
-    top:0;
-    width:100%;
-    background: var(--bg-color);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 40px;
-    box-shadow: 0 2px 5px var(--shadow);
-    z-index:100;
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  header h1 {
-    font-weight:700;
-    font-size:1.6rem;
-    color: var(--primary-color);
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  nav a {
-    margin-left:30px;
-    text-decoration:none;
-    color: var(--text-color);
-    font-weight:600;
-    position: relative;
-    transition: var(--transition);
-  }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
 
-  nav a::after {
-    content:'';
-    position:absolute;
-    width:0%;
-    height:2px;
-    bottom:-3px;
-    left:0;
-    background: var(--primary-color);
-    transition: var(--transition);
-  }
+    /* ---------------- HEADER ---------------- */
 
-  nav a:hover::after {width:100%;}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,250,250,0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
 
-  nav a:hover {color: var(--primary-color);}
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-  /* ===== Sections ===== */
-  section {
-    padding:60px 10%; /* Reduced from 80px to 60px */
-    border-bottom: 1px solid #e0e0e0; /* subtle divider */
-  }
+    .nav-name {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
 
-  section:last-child {border-bottom:none;}
+    nav a {
+      margin-left: 28px;
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 14px;
+      position: relative;
+      transition: color 0.2s ease;
+    }
 
-  section:nth-child(even) {background: var(--section-bg);}
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
 
-  h2 {
-    font-size:2rem;
-    margin-bottom:15px; /* reduced from 20px */
-    color: var(--accent-color);
-    position:relative;
-  }
+    nav a:hover {
+      color: var(--text-primary);
+    }
 
-  h2::after {
-    content:'';
-    display:block;
-    width:60px;
-    height:3px;
-    background: var(--primary-color);
-    margin-top:8px;
-    border-radius:2px;
-  }
+    nav a:hover::after {
+      width: 100%;
+    }
 
-  p {margin-bottom:12px;} /* reduced from 15px */
-  ul {list-style:disc inside; margin-bottom:12px;}
-  li {margin-bottom:6px;} /* reduced spacing between bullets */
+    /* ---------------- LAYOUT ---------------- */
 
-  /* ===== Hero / Intro ===== */
-  .hero {
-    padding:100px 10% 60px; /* reduced top/bottom padding */
-    text-align:left;
-  }
-  .hero h1 {font-size:3rem; margin-bottom:8px;}
-  .hero p {font-size:1.2rem; color: var(--muted-color);}
-  .hero .links {margin-top:15px;} /* reduced spacing */
-  .hero .links a {
-    text-decoration:none;
-    color: var(--primary-color);
-    font-weight:600;
-    margin-right:15px; /* slightly reduced */
-    transition: var(--transition);
-  }
-  .hero .links a:hover {text-decoration:underline; color:#2565c0;}
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
 
-  /* ===== Skills & Tools Grid ===== */
-  .skills-grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-    gap:15px; /* slightly smaller gap */
-  }
-  .skill-card {
-    background: var(--card-bg);
-    padding:15px;
-    border-radius:8px;
-    box-shadow:0 4px 8px var(--shadow);
-    transition: var(--transition);
-  }
-  .skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow:0 8px 16px var(--shadow);
-  }
-  .skill-card h4 {margin-bottom:6px; color:var(--primary-color);}
-  .skill-card ul {list-style:none; padding-left:0;}
-  .skill-card li::before {content:'• '; color: var(--primary-color); font-weight:bold;}
+    section {
+      margin-bottom: 72px;
+    }
 
-  /* ===== Experience ===== */
-  .experience-block {
-    margin-bottom:30px; /* reduced from 40px */
-  }
-  .experience-block h3 {color: var(--primary-color); margin-bottom:8px;}
-  .experience-block h4 {color:var(--accent-color); margin-bottom:4px;}
-  .experience-block ul {margin-left:20px; margin-bottom:8px;}
+    h1 {
+      font-size: 36px;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
 
-  .growth-note {
-    background: var(--primary-color);
-    color:#fff;
-    padding:12px 18px;
-    border-radius:6px;
-    font-weight:600;
-    margin-top:8px;
-    display:inline-block;
-  }
+    h2 {
+      font-size: 22px;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
 
-  /* ===== Work Samples ===== */
-  .work-sample {
-    background: var(--card-bg);
-    padding:18px; /* slightly smaller padding */
-    border-radius:8px;
-    box-shadow:0 4px 12px var(--shadow);
-    margin-bottom:15px; /* reduced from 20px */
-    transition: var(--transition);
-  }
-  .work-sample:hover {transform: translateY(-5px); box-shadow:0 8px 20px var(--shadow);}
-  .work-sample h4 {color: var(--primary-color); margin-bottom:6px;}
-  .work-sample p {margin-bottom:4px;}
-  .work-sample .label {font-weight:600;}
+    h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
 
-  /* ===== Awards / Recognition ===== */
-  .awards-grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap:15px; /* reduced spacing */
-  }
-  .award-card {
-    background: var(--card-bg);
-    padding:12px; /* slightly smaller */
-    border-radius:8px;
-    box-shadow:0 4px 12px var(--shadow);
-    transition: var(--transition);
-  }
-  .award-card h5 {color: var(--primary-color); margin-bottom:4px;}
-  .award-card p {font-size:0.9rem; color:var(--muted-color);}
+    p {
+      color: var(--text-secondary);
+      margin: 0 0 12px;
+      max-width: 800px;
+    }
 
-  /* ===== Contact ===== */
-  .contact a {
-    display:inline-block;
-    margin-right:15px; /* reduced spacing */
-    text-decoration:none;
-    color: var(--primary-color);
-    font-weight:600;
-    transition: var(--transition);
-  }
-  .contact a:hover {text-decoration:underline;}
+    /* ---------------- INTRO ---------------- */
 
-  /* ===== Footer ===== */
-  footer {text-align:center; padding:15px; font-size:0.9rem; color: var(--muted-color);}
+    .intro {
+      margin-top: 24px;
+    }
 
-  /* ===== Smooth Scroll ===== */
-  html {scroll-behavior:smooth;}
-</style>
+    .intro .role {
+      font-size: 16px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .intro .links a {
+      margin-right: 20px;
+      font-size: 14px;
+      text-decoration: none;
+      color: var(--text-secondary);
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .intro .links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ---------------- GRID ---------------- */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .card ul {
+      padding-left: 18px;
+      margin: 10px 0 0;
+    }
+
+    .card li {
+      margin-bottom: 6px;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    /* ---------------- EXPERIENCE ---------------- */
+
+    .company {
+      margin-bottom: 16px;
+    }
+
+    .role-block {
+      margin-top: 12px;
+      padding-left: 16px;
+      border-left: 2px solid var(--border);
+    }
+
+    .role-block p {
+      font-size: 14px;
+    }
+
+    .growth {
+      margin-top: 20px;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    /* ---------------- CASE STUDIES ---------------- */
+
+    .case {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+
+    .case:last-child {
+      border-bottom: none;
+    }
+
+    .case strong {
+      display: inline-block;
+      min-width: 120px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* ---------------- RECOGNITION ---------------- */
+
+    .badge {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    /* ---------------- CONTACT ---------------- */
+
+    .contact p {
+      font-size: 14px;
+    }
+
+    /* ---------------- ANIMATION ---------------- */
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
-  <h1>Sarangi Surendran</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#work">Work</a>
-    <a href="#awards">Awards</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="nav-container">
+    <div class="nav-name">Sarangi Surendran</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#recognition">Recognition</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero" id="home">
-  <h1>Sarangi Surendran</h1>
-  <p>Information Developer / Technical Writer</p>
-  <p>2.6 years of experience delivering clear, user-focused documentation and enablement content for SaaS products.</p>
-  <div class="links">
-    <a href="#">Download Resume (PDF)</a>
-    <a href="https://www.linkedin.com/in/sarangi-surendran/">LinkedIn</a>
-    <a href="mailto:sarangisurendran43@gmail.com">Email</a>
-  </div>
-</section>
+<main>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>I am an Information Developer with 2.6 years of experience at Whatfix, creating user-centered documentation, in-app guidance, and multimedia content across multiple pods and features. I collaborate closely with PMs, engineers, UX designers, and support teams to ensure content is accurate, actionable, and aligned with user workflows. My approach emphasizes clarity, structured thinking, and measurable impact on user adoption and satisfaction.</p>
-</section>
+  <!-- INTRO -->
+  <section class="intro fade-in">
+    <div class="role">Information Developer / Technical Writer</div>
+    <h1>Designing clear, user-centered documentation for complex SaaS products</h1>
+    <p>
+      2.6 years of experience at Whatfix creating documentation, in-app guidance, videos, and enablement content
+      that improves onboarding, feature adoption, and user confidence across products.
+    </p>
+    <div class="links">
+      <a href="#">Resume (PDF)</a>
+      <a href="#">LinkedIn</a>
+      <a href="mailto:sarangisurendran43@gmail.com">Email</a>
+    </div>
+  </section>
 
-<section id="skills">
-  <h2>Skills & Tools</h2>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <h4>Documentation Skills</h4>
-      <ul>
-        <li>User Guides & Tutorials</li>
-        <li>Release Notes</li>
-        <li>FAQs & Knowledge Base</li>
-        <li>In-App Guidance / DAP</li>
-        <li>UX Copy</li>
-      </ul>
-    </div>
-    <div class="skill-card">
-      <h4>Tools</h4>
-      <ul>
-        <li>Confluence</li>
-        <li>Document 360</li>
-        <li>Jira</li>
-        <li>Figma</li>
-        <li>Camtasia & Snagit</li>
-        <li>Whatfix</li>
-        <li>Markdown / HTML / CSS / Git (Basic)</li>
-      </ul>
-    </div>
-    <div class="skill-card">
-      <h4>Collaboration & Soft Skills</h4>
-      <ul>
-        <li>Cross-team collaboration</li>
-        <li>Research & Analytics</li>
-        <li>Problem Solving</li>
-        <li>Proactive Content Strategy</li>
-        <li>Knowledge Sharing</li>
-      </ul>
-    </div>
-  </div>
-</section>
+  <!-- ABOUT -->
+  <section id="about" class="fade-in">
+    <h2>About</h2>
+    <p>
+      I am an Information Developer with 2.6 years of experience working on large-scale SaaS products at Whatfix.
+      I focus on creating structured, context-aware documentation and in-app guidance that aligns with real user
+      workflows rather than treating content as an isolated deliverable.
+    </p>
+    <p>
+      I work closely with product managers, engineers, designers, CSMs, and support teams to understand user
+      pain points and business goals. I use analytics, support tickets, and customer feedback to identify gaps,
+      validate assumptions, and measure the impact of the content I ship.
+    </p>
+  </section>
 
-<section id="experience">
-  <h2>Experience</h2>
-  <div class="experience-block">
-    <h3>Whatfix</h3>
-    <h4>Information Developer II | Mar 2025 – Present</h4>
-    <ul>
-      <li>Owned documentation for multiple high-impact features across pods.</li>
-      <li>Created user guides, walkthroughs, FAQs, release notes, and DAP content.</li>
-      <li>Partnered with PMs, engineers, UX designers, and support teams to align content with workflows.</li>
-      <li>Improved content consistency and quality using templates and standards.</li>
-    </ul>
+  <!-- SKILLS -->
+  <section id="skills" class="fade-in">
+    <h2>Skills & Tools</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Documentation & Content</h3>
+        <ul>
+          <li>User guides, onboarding docs, FAQs</li>
+          <li>In-app guidance (DAP), product tips</li>
+          <li>Release notes, best practices</li>
+          <li>UX copy for pop-ups and flows</li>
+        </ul>
+      </div>
 
-    <h4>Information Developer I | Jan 2024 – Mar 2025</h4>
-    <ul>
-      <li>Authored user guides, tutorials, release notes, and internal documentation.</li>
-      <li>Contributed to content templates, style guides, and documentation standards.</li>
-      <li>Collaborated with PMs and engineers to document feature releases accurately.</li>
-    </ul>
+      <div class="card">
+        <h3>Tools & Platforms</h3>
+        <ul>
+          <li>Whatfix, Document360, Confluence</li>
+          <li>Jira, Git (basic), Markdown</li>
+          <li>Figma, Draw.io</li>
+          <li>Camtasia, Snagit, Synthesia</li>
+        </ul>
+      </div>
 
-    <h4>Intern | Jul 2023 – Jan 2024</h4>
-    <ul>
-      <li>Assisted with documentation updates, audits, and research for internal processes.</li>
-      <li>Learned product workflows, documentation tools, and best practices.</li>
-    </ul>
+      <div class="card">
+        <h3>Collaboration & Research</h3>
+        <ul>
+          <li>Cross-functional collaboration</li>
+          <li>Analytics-driven content decisions</li>
+          <li>Support ticket & CallAI analysis</li>
+          <li>Usability testing & feedback loops</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <div class="growth-note">Promoted from Intern → ID I → ID II based on ownership, quality, and cross-pod contributions.</div>
-  </div>
+  <!-- EXPERIENCE -->
+  <section id="experience" class="fade-in">
+    <h2>Experience</h2>
 
-  <div class="experience-block">
-    <h3>Qspiders Campus Connect</h3>
-    <h4>Software Engineer Trainee | Sep 2022 – Feb 2023</h4>
-    <ul>
-      <li>Trained in Java, SQL, aptitude, and soft skills.</li>
-      <li>Built web pages using HTML, CSS, and JavaScript.</li>
-    </ul>
-  </div>
-</section>
+    <div class="company">
+      <h3>Whatfix</h3>
+      <p>Information Developer | July 2023 – Present</p>
 
-<section id="work">
-  <h2>Selected Work / Case Studies</h2>
-  <div class="work-sample">
-    <h4>Feature Documentation – Studio Module</h4>
-    <p><span class="label">Context:</span> Documentation for new feature in Studio module for content creators.</p>
-    <p><span class="label">Role:</span> Sole author & content strategist.</p>
-    <p><span class="label">Challenge:</span> Complex workflows across multiple user personas.</p>
-    <p><span class="label">Solution:</span> Created step-by-step guides, DAP content, and video walkthroughs.</p>
-    <p><span class="label">Outcome:</span> Reduced support tickets by 15% and improved user adoption.</p>
-  </div>
-  <div class="work-sample">
-    <h4>Release Notes & UX Copy</h4>
-    <p><span class="label">Context:</span> Documenting feature releases with clear UX copy for pop-ups and in-app messaging.</p>
-    <p><span class="label">Role:</span> Author & UX content reviewer.</p>
-    <p><span class="label">Solution:</span> Clear, concise messaging aligned with style guides.</p>
-    <p><span class="label">Outcome:</span> Increased feature discoverability and user engagement.</p>
-  </div>
-  <div class="work-sample">
-    <h4>Community Post & DAP Interventions</h4>
-    <p><span class="label">Context:</span> Creating community posts and in-app guidance for feature adoption.</p>
-    <p><span class="label">Role:</span> Author & strategist.</p>
-    <p><span class="label">Solution:</span> Integrated videos, smart tips, and guides targeting multiple user personas.</p>
-    <p><span class="label">Outcome:</span> Higher adoption rate and improved task completion for end users.</p>
-  </div>
-</section>
+      <div class="role-block">
+        <p><strong>Responsibilities</strong></p>
+        <ul>
+          <li>Owned documentation and in-app guidance for multiple features across DAP pods</li>
+          <li>Created user guides, walkthroughs, FAQs, release notes, videos, and community posts</li>
+          <li>Partnered with PMs and engineers to document releases aligned to user journeys</li>
+          <li>Used analytics, support tickets, and CallAI calls to identify gaps and measure impact</li>
+          <li>Improved content consistency through templates, standards, and UX guidelines</li>
+        </ul>
+      </div>
 
-<section id="awards">
-  <h2>Rewards & Recognition</h2>
-  <div class="awards-grid">
-    <div class="award-card">
-      <h5>Badge: Above and Beyond</h5>
-      <p>Recognized for being exceptionally dependable and committed, consistently delivering high-quality work.</p>
-    </div>
-    <div class="award-card">
-      <h5>Badge: Hustler</h5>
-      <p>Recognized for proactively improving work quality and consistently implementing feedback.</p>
-    </div>
-    <div class="award-card">
-      <h5>PM Appreciation</h5>
-      <p>Supported Seek for Salesforce announcement by preparing demo videos under tight deadlines, amplifying visibility.</p>
-    </div>
-    <div class="award-card">
-      <h5>Spot Award</h5>
-      <p>Implemented urgent emergency downtime pop-up, staying late to troubleshoot and deliver on time.</p>
-    </div>
-    <div class="award-card">
-      <h5>Spot Award</h5>
-      <p>Presented creative use cases during "Monday use case call" demonstrating practical application of features.</p>
-    </div>
-    <div class="award-card">
-      <h5>Slack Appreciation</h5>
-      <p>Recognized for quick turnaround, proactive delivery, and drafting content with limited info.</p>
-    </div>
-    <div class="award-card">
-      <h5>Cheers Mate Shoutout</h5>
-      <p>Optimized video creation workflow using Synthesia + Loom, reducing rework and saving costs.</p>
-    </div>
-    <div class="award-card">
-      <h5>Slack Appreciation</h5>
-      <p>Approached documentation from user and product perspective, proposing solutions to reduce errors.</p>
-    </div>
-  </div>
-</section>
+      <div class="role-block">
+        <p><strong>Role Progression</strong></p>
+        <ul>
+          <li>Intern — Jul 2023 to Jan 2024</li>
+          <li>Information Developer I — Jan 2024 to Mar 2025</li>
+          <li>Information Developer II — Mar 2025 to Present</li>
+        </ul>
+      </div>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:sarangisurendran43@gmail.com">sarangisurendran43@gmail.com</a></p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/sarangi-surendran/">linkedin.com/in/sarangi-surendran</a></p>
-  <p>Phone: 938134</p>
-  <p>Location: Bangalore, India</p>
-</section>
+      <div class="growth">
+        Promoted from Intern to Information Developer II based on ownership, quality of delivery,
+        cross-pod contributions, and impact on adoption and enablement.
+      </div>
+    </div>
 
-<footer>
-  © 2026 Sarangi Surendran
-</footer>
+    <div class="company" style="margin-top:40px">
+      <h3>QSpiders – Campus Connect</h3>
+      <p>Software Engineer Trainee | Sep 2022 – Feb 2023</p>
+      <p>
+        Trained in Java, SQL, HTML, CSS, JavaScript, aptitude, and soft skills.
+        Built basic web pages and strengthened problem-solving and technical fundamentals.
+      </p>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="fade-in">
+    <h2>Selected Work</h2>
+
+    <div class="case">
+      <p><strong>Context:</strong> DAP onboarding for admins</p>
+      <p><strong>Challenge:</strong> High dependency on support during initial setup</p>
+      <p><strong>Solution:</strong> Contextual flows, smart tips, and onboarding docs</p>
+      <p><strong>Outcome:</strong> Improved self-serve onboarding and reduced support queries</p>
+    </div>
+
+    <div class="case">
+      <p><strong>Context:</strong> Feature adoption across pods</p>
+      <p><strong>Challenge:</strong> Low discoverability of advanced features</p>
+      <p><strong>Solution:</strong> DAP interventions, product tips, and community posts</p>
+      <p><strong>Outcome:</strong> Increased feature usage and engagement</p>
+    </div>
+
+    <div class="case">
+      <p><strong>Context:</strong> Time-sensitive release communication</p>
+      <p><strong>Challenge:</strong> Emergency downtime communication</p>
+      <p><strong>Solution:</strong> UX-aligned pop-up content and troubleshooting</p>
+      <p><strong>Outcome:</strong> Critical information delivered on time to users</p>
+    </div>
+  </section>
+
+  <!-- RECOGNITION -->
+  <section id="recognition" class="fade-in">
+    <h2>Rewards & Recognition</h2>
+
+    <div class="grid">
+      <div class="card">
+        <div class="badge">Badge</div>
+        <h3>Above and Beyond</h3>
+        <p>Recognized for reliability, ownership, and consistent delivery under challenging situations.</p>
+      </div>
+
+      <div class="card">
+        <div class="badge">Badge</div>
+        <h3>Hustler</h3>
+        <p>Recognized for continuous improvement, proactive feedback, and meaningful contributions.</p>
+      </div>
+
+      <div class="card">
+        <div class="badge">Spot Award</div>
+        <h3>Emergency Downtime Pop-up</h3>
+        <p>Handled urgent communication, troubleshooting issues and delivering on time.</p>
+      </div>
+
+      <div class="card">
+        <div class="badge">Cheers Mate</div>
+        <h3>Video Workflow Optimization</h3>
+        <p>Created a cost-effective Synthesia + Loom workflow, reducing rework and saving resources.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact fade-in">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:sarangisurendran43@gmail.com">sarangisurendran43@gmail.com</a></p>
+    <p>Location: Bangalore, India</p>
+    <p><a href="#">Resume (PDF)</a> · <a href="#">LinkedIn</a></p>
+  </section>
+
+</main>
 
 <script>
-  // Optional JS for future interactivity (scrolling, animations)
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 
 </body>
