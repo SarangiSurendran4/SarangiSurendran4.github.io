@@ -4,192 +4,216 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sarangi Surendran | Technical Writer Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* ------------------- CSS ------------------- */
-* {margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif;}
-body {background:#f9fafb; color:#111827; line-height:1.6;}
-a {text-decoration:none; color:inherit;}
-h1,h2,h3,h4 {color:#111827;}
+    /* ===================== Reset & Base ===================== */
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family:'Inter', sans-serif; color:#111827; background:#f7f8fa; scroll-behavior:smooth;}
+    a {text-decoration:none; color:inherit;}
+    h1,h2,h3,h4 {color:#111827; font-weight:700;}
+    p {color:#374151;}
+    section {padding:3rem 1.5rem;}
+    .container {max-width:1200px; margin:0 auto;}
 
-/* Container */
-.container {max-width:1100px; margin:0 auto; padding:2rem;}
+    /* ===================== Hero ===================== */
+    .hero {display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:6rem 2rem; background:linear-gradient(135deg,#4f46e5,#6366f1); color:white; border-radius:1rem; margin-bottom:2rem;}
+    .hero h1 {font-size:3rem; margin-bottom:1rem; animation:fadeInDown 1s ease forwards;}
+    .hero p {font-size:1.25rem; margin-bottom:2rem; max-width:700px; animation:fadeInUp 1s ease forwards; animation-delay:.2s; opacity:0;}
+    .hero .cta {padding:.75rem 2rem; background:#facc15; color:#111827; font-weight:600; border-radius:.5rem; transition:all .3s; animation:fadeInUp 1s ease forwards; animation-delay:.4s; opacity:0;}
+    .hero .cta:hover {background:#eab308; cursor:pointer;}
 
-/* Navbar */
-.navbar {background:white; box-shadow:0 2px 6px rgba(0,0,0,0.08); padding:.75rem 2rem; position:sticky; top:0; z-index:1000;}
-.nav-container {display:flex; justify-content:space-between; align-items:center;}
-.nav-links a {margin-left:1.5rem; font-weight:600; color:#6366f1; transition:color .3s;}
-.nav-links a:hover {color:#4f46e5;}
-.logo {font-weight:700; font-size:1.25rem; color:#4f46e5;}
+    @keyframes fadeInDown {0%{opacity:0; transform:translateY(-30px);} 100%{opacity:1; transform:translateY(0);}}
+    @keyframes fadeInUp {0%{opacity:0; transform:translateY(30px);} 100%{opacity:1; transform:translateY(0);}}
 
-/* Hero */
-.hero {padding:3rem 2rem; text-align:center; background:linear-gradient(135deg,#6366f1,#4f46e5); color:white; border-radius:1rem; margin-bottom:2rem;}
-.hero h1 {font-size:3rem; margin-bottom:1rem;}
-.hero p {font-size:1.25rem; max-width:700px; margin:0 auto 1.5rem;}
-.cta {padding:.75rem 1.5rem; background:#facc15; color:#111827; font-weight:600; border-radius:.5rem; transition:all .3s;}
-.cta:hover {background:#eab308; cursor:pointer;}
+    /* ===================== Section Titles ===================== */
+    section h2 {font-size:2rem; margin-bottom:1.5rem; position:relative; display:inline-block;}
+    section h2::after {content:""; width:60px; height:4px; background:#4f46e5; display:block; margin-top:8px; border-radius:2px;}
 
-/* Section Titles */
-section {margin-bottom:2.5rem;}
-section h2 {font-size:2rem; margin-bottom:1.25rem; position:relative; display:inline-block;}
-section h2::after {content:""; width:50px; height:4px; background:#4f46e5; display:block; margin-top:8px; border-radius:2px;}
+    /* ===================== About Me ===================== */
+    .about p {margin-bottom:1rem; max-width:800px;}
 
-/* Skills */
-.skills-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem;}
-.skill-card {background:white; padding:1rem 1.25rem; border-radius:1rem; box-shadow:0 4px 12px rgba(0,0,0,0.06); font-weight:500; text-align:center; transition:transform .3s, box-shadow .3s;}
-.skill-card:hover {transform:translateY(-5px); box-shadow:0 6px 16px rgba(0,0,0,0.1); color:#4f46e5;}
+    /* ===================== Skills ===================== */
+    .skills-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem;}
+    .skill-card {background:white; padding:1rem 1.5rem; border-radius:1rem; box-shadow:0 6px 15px rgba(0,0,0,0.05); font-weight:500; transition:all .3s;}
+    .skill-card:hover {transform:translateY(-5px) scale(1.02); box-shadow:0 10px 25px rgba(0,0,0,0.1);}
 
-/* Timeline */
-.timeline {position:relative; margin-left:2rem;}
-.timeline::before {content:""; position:absolute; left:20px; top:0; bottom:0; width:4px; background:#4f46e5; border-radius:2px;}
-.timeline-item {position:relative; margin-bottom:2rem; padding-left:3rem;}
-.timeline-item h3 {margin-bottom:.25rem;}
-.timeline-item p {margin-bottom:.25rem;}
-.timeline-item .time {font-size:.875rem; color:#6b7280; margin-bottom:.5rem;}
-.timeline-item::before {content:""; position:absolute; left:11px; top:5px; width:18px; height:18px; background:white; border:4px solid #4f46e5; border-radius:50%;}
+    /* ===================== Experience Timeline ===================== */
+    .timeline {position:relative; margin-left:2rem;}
+    .timeline::before {content:""; position:absolute; left:20px; top:0; bottom:0; width:4px; background:#4f46e5; border-radius:2px;}
+    .timeline-item {position:relative; margin-bottom:2rem; padding-left:3rem;}
+    .timeline-item h3 {margin-bottom:.25rem;}
+    .timeline-item p {margin-bottom:.25rem;}
+    .timeline-item .time {font-size:.875rem; color:#6b7280; margin-bottom:.5rem;}
+    .timeline-item::before {content:""; position:absolute; left:11px; top:5px; width:18px; height:18px; background:white; border:4px solid #4f46e5; border-radius:50%;}
 
-/* Case Studies Cards */
-.case-card {background:white; padding:1.5rem 2rem; border-radius:1rem; box-shadow:0 4px 12px rgba(0,0,0,0.05); margin-bottom:1.5rem; transition:transform .3s;}
-.case-card:hover {transform:translateY(-5px); box-shadow:0 6px 18px rgba(0,0,0,0.08);}
-.case-card h3 {margin-bottom:.5rem; color:#4f46e5;}
-.case-card p {margin-bottom:.5rem;}
+    /* ===================== Case Studies ===================== */
+    .case-study-card {background:white; border-radius:1rem; padding:2rem; margin-bottom:2rem; box-shadow:0 6px 20px rgba(0,0,0,0.05); transition:transform .3s;}
+    .case-study-card:hover {transform:translateY(-5px) scale(1.02); box-shadow:0 12px 30px rgba(0,0,0,0.12);}
+    .case-study-card h3 {margin-bottom:.5rem; color:#4f46e5;}
+    .case-study-card p {margin-bottom:.5rem;}
+    .metric {color:#f59e0b; font-weight:600;}
 
-/* Contact */
-.contact {text-align:center; padding:2rem 1rem;}
-.contact a {margin:0.5rem; padding:.75rem 1.5rem; background:#4f46e5; color:white; font-weight:600; border-radius:.5rem; transition:all .3s;}
-.contact a:hover {background:#4338ca;}
+    /* ===================== Contact ===================== */
+    .contact {display:flex; flex-direction:column; align-items:center; text-align:center;}
+    .contact a {margin:0.5rem; padding:.75rem 2rem; background:#4f46e5; color:white; font-weight:600; border-radius:.5rem; transition:all .3s;}
+    .contact a:hover {background:#4338ca;}
+
+    /* ===================== Animations ===================== */
+    .fade-in {opacity:0; transform:translateY(20px); animation:fadeIn 1s forwards;}
+    @keyframes fadeIn {to{opacity:1; transform:translateY(0);}}
 </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar">
-    <div class="container nav-container">
-        <a href="#home" class="logo">Sarangi Surendran</a>
-        <div class="nav-links">
-            <a href="#experience">Experience</a>
-            <a href="#case-studies">Case Studies</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </div>
-</nav>
-
-<!-- Hero -->
-<section class="hero" id="home">
-    <div class="container">
-        <h1>Sarangi Surendran</h1>
-        <p>Transforming complex products into intuitive experiences through expert documentation, in-app guidance, automation, and UX-focused content solutions.</p>
-        <a href="#contact" class="cta">Connect with Me</a>
-    </div>
+<!-- Hero Section -->
+<section class="hero">
+    <h1>Sarangi Surendran</h1>
+    <p>Transforming complex SaaS products into intuitive experiences through expert documentation, automation, and in-app guidance.</p>
+    <a href="#case-studies" class="cta">Explore My Work</a>
 </section>
 
-<!-- About Me -->
-<section class="about">
-    <div class="container">
+<div class="container">
+
+    <!-- About Me -->
+    <section class="about fade-in">
         <h2>About Me</h2>
-        <p>I am an Information Developer with 2.6 years of experience at Whatfix, specializing in **user-focused documentation, in-app guidance, feature adoption, and content automation**. I translate complex workflows into intuitive experiences that help users succeed faster.</p>
-        <p>I collaborate closely with PMs, engineers, UX writers, CSMs, and support teams to identify gaps and deliver actionable content. I analyze analytics, support data, and user feedback to continuously improve content strategy, adoption, and overall user experience.</p>
-    </div>
-</section>
+        <p>I am an Information Developer with 2.6 years at Whatfix, specializing in user-focused documentation, in-app guidance, and automation-driven content strategies. I turn complex workflows into actionable, easy-to-understand content that drives feature adoption and improves user experience.</p>
+        <p>I collaborate with PMs, engineers, UX writers, CSMs, and support teams to identify gaps and deliver measurable impact. My work includes analytics-driven decisions, automated reporting, usability testing, and content improvement initiatives.</p>
+    </section>
 
-<!-- Experience -->
-<section class="experience" id="experience">
-    <div class="container">
+    <!-- Skills & Tools -->
+    <section class="skills fade-in">
+        <h2>Core Skills & Tools</h2>
+        <div class="skills-grid">
+            <!-- Core Writing & Documentation -->
+            <div class="skill-card">User Guides, Tutorials, How-To Docs</div>
+            <div class="skill-card">Release Notes & Feature Documentation</div>
+            <div class="skill-card">FAQs, Troubleshooting, Knowledge Base</div>
+            <div class="skill-card">In-App Guidance / DAP Content</div>
+            <div class="skill-card">UX Copywriting & Microcopy</div>
+            <div class="skill-card">Video Scripts & Demo Content</div>
+            <div class="skill-card">Content Strategy & Research</div>
+            <div class="skill-card">Content Audits & Gap Analysis</div>
+            <div class="skill-card">Article Aging & Quality Tracking</div>
+            <div class="skill-card">Usability Testing & Customer Research</div>
+            <div class="skill-card">Analytics-Driven Content Decisions</div>
+            <div class="skill-card">Feature Adoption Strategy</div>
+
+            <!-- Tools & Platforms -->
+            <div class="skill-card">Confluence, Document360, Jira, Notion</div>
+            <div class="skill-card">Figma, Camtasia, Snagit, Canva</div>
+            <div class="skill-card">GitHub / Repositories for Automation</div>
+            <div class="skill-card">Python Scripts for Reports & Checks</div>
+
+            <!-- Collaboration & Leadership -->
+            <div class="skill-card">Cross-Team Collaboration</div>
+            <div class="skill-card">Mentorship & Knowledge Sharing</div>
+            <div class="skill-card">Coordinating Multi-Pod Content</div>
+
+            <!-- Automation & Efficiency -->
+            <div class="skill-card">Automated Content Reports</div>
+            <div class="skill-card">Dashboard/Workflow Automation</div>
+            <div class="skill-card">Streamlined Editorial Processes</div>
+
+            <!-- Design & UX -->
+            <div class="skill-card">Wireframing & Mockups (Figma)</div>
+            <div class="skill-card">UX Writing & User-Centric Design</div>
+            <div class="skill-card">Microinteractions & Contextual Guidance</div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="experience fade-in">
         <h2>Experience</h2>
         <div class="timeline">
             <div class="timeline-item">
-                <div class="time">Mar 2025 – Present</div>
+                <div class="time">Jul 2023 – Present</div>
                 <h3>Information Developer II | Whatfix</h3>
-                <p>Lead documentation and in-app guidance for multiple pods. Built automations to track Jira tickets, article aging, and broken links, reducing manual effort and improving content quality. Collaborated with UX writers to fix inconsistencies and drive adoption.</p>
+                <p>Lead documentation and in-app guidance across multiple pods. Developed automation for Jira ticket tracking, article aging, and broken link detection, reducing manual effort and improving content quality.</p>
             </div>
             <div class="timeline-item">
-                <div class="time">Jan 2024 – Mar 2025</div>
+                <div class="time">Jan 2024 – Jul 2023</div>
                 <h3>Information Developer I | Whatfix</h3>
-                <p>Authored user guides, tutorials, release notes, and FAQs. Improved content consistency, collaborated with cross-functional teams, and contributed to style guides and templates.</p>
+                <p>Authored user guides, tutorials, release notes, FAQs. Collaborated cross-functionally to improve adoption, reduce support tickets, and standardize content across pods.</p>
             </div>
             <div class="timeline-item">
                 <div class="time">Jul 2023 – Jan 2024</div>
                 <h3>Intern | Whatfix</h3>
-                <p>Assisted in documentation creation, DAP content, and audits. Learned product workflows and documentation standards.</p>
+                <p>Assisted in content creation, audits, and process improvements, contributing to automation and feature adoption efforts.</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Case Studies -->
-<section class="case-studies" id="case-studies">
-    <div class="container">
+    <!-- Case Studies -->
+    <section id="case-studies" class="case-studies fade-in">
         <h2>Selected Case Studies</h2>
 
-        <div class="case-card">
-            <h3>Improving Feature Adoption Through Use-Case Content</h3>
-            <p><strong>Problem:</strong> Low adoption, high support tickets, users unaware of key use cases.</p>
-            <p><strong>Action:</strong> Analyzed support tickets, calls, and queries. Created use-case documentation, tutorial videos, and community teaser posts. Collaborated with CSMs and internal teams.</p>
-            <p><strong>Impact:</strong> Increased adoption, reduced support tickets, higher engagement on community posts, manager and PM recognition.</p>
+        <!-- Case Study 1 -->
+        <div class="case-study-card">
+            <h3>Improving Feature Adoption Through Use-Case–Driven Content</h3>
+            <p><strong>Problem:</strong> Moderate feature adoption, high support tickets, and user confusion about feature use cases.</p>
+            <p><strong>Action:</strong> Analyzed support tickets, calls, and queries. Created user-friendly documentation, tutorial videos, and community teaser posts. Collaborated with CSMs and internal teams.</p>
+            <p><strong>Impact:</strong> <span class="metric">Feature adoption increased</span>, support tickets decreased, community engagement rose, and PM/manager appreciation received.</p>
         </div>
 
-        <div class="case-card">
+        <!-- Case Study 2 -->
+        <div class="case-study-card">
             <h3>Usability Testing with DAC</h3>
-            <p><strong>Problem:</strong> Customers struggled with support content; adoption gaps in pods.</p>
-            <p><strong>Action:</strong> Conducted usability tests, compiled insights, recommended improvements, created videos and articles to enhance clarity.</p>
-            <p><strong>Impact:</strong> Improved usability, adoption, and engagement; team appreciation.</p>
+            <p><strong>Problem:</strong> Limited understanding of how customers use support content; some pods had low adoption.</p>
+            <p><strong>Action:</strong> Conducted structured usability testing, created insights report, recommended improvements, authored use-case articles, videos, and engaging posts.</p>
+            <p><strong>Impact:</strong> Clarity and usability improved, feature adoption increased, and initiative recognized by team and manager.</p>
         </div>
 
-        <div class="case-card">
+        <!-- Case Study 3 -->
+        <div class="case-study-card">
             <h3>Broken Link & Asset Automation</h3>
-            <p><strong>Problem:</strong> Broken links/images across thousands of articles affecting search and user experience; manual checking impossible.</p>
-            <p><strong>Action:</strong> Built Python crawler to check links/images weekly and automatically notify owners.</p>
-            <p><strong>Impact:</strong> Significant drop in broken links, improved search, reduced manual effort, manager recognition.</p>
+            <p><strong>Problem:</strong> Broken links and outdated assets affecting thousands of articles, harming search and UX; manual checking was impossible.</p>
+            <p><strong>Action:</strong> Built Python-based automation to check links and images weekly, notifying assigned owners automatically.</p>
+            <p><strong>Impact:</strong> Significant drop in broken links/assets, improved search and UX, reduced manual work, manager appreciation.</p>
         </div>
 
-        <div class="case-card">
+        <!-- Case Study 4 -->
+        <div class="case-study-card">
             <h3>Jira Ticket & Article Aging Automation</h3>
-            <p><strong>Problem:</strong> Missed Jira tickets and outdated articles affecting user experience.</p>
-            <p><strong>Action:</strong> Automated Jira ticket and article aging reports weekly; enforced review practices.</p>
-            <p><strong>Impact:</strong> Faster ticket resolution, regular content updates, improved accountability, manager recognition.</p>
+            <p><strong>Problem:</strong> Missed Jira tickets and outdated articles; manual tracking inefficient; over 2,000 articles required proactive review.</p>
+            <p><strong>Action:</strong> Automated weekly Jira ticket and article aging reports, notifying writers to update content and close tickets.</p>
+            <p><strong>Impact:</strong> Tickets tracked and closed faster, articles updated regularly, accountability improved, manager/team recognized initiative.</p>
         </div>
 
-        <div class="case-card">
+        <!-- Case Study 5 -->
+        <div class="case-study-card">
             <h3>Proactive Content Quality & Process Improvements</h3>
-            <p><strong>Problem:</strong> Manual audits, inconsistent content, outdated material affecting UX.</p>
-            <p><strong>Action:</strong> Partnered with UX writers, automated audits, standardized practices, knowledge sharing sessions.</p>
-            <p><strong>Impact:</strong> Consistent, up-to-date documentation, reduced manual work, improved UX, team recognition.</p>
+            <p><strong>Problem:</strong> Manual audits, content inconsistencies, and outdated documentation across multiple pods.</p>
+            <p><strong>Action:</strong> Partnered with UX writers, automated audits, standardized practices, conducted knowledge sharing.</p>
+            <p><strong>Impact:</strong> Consistent, up-to-date documentation, reduced manual work, improved UX and adoption, team acknowledged efforts.</p>
         </div>
 
-    </div>
-</section>
+    </section>
 
-<!-- Skills -->
-<section class="skills" id="skills">
-    <div class="container">
-        <h2>Skills & Tools</h2>
-        <div class="skills-grid">
-            <div class="skill-card">User Guides & Tutorials</div>
-            <div class="skill-card">Release Notes & Feature Docs</div>
-            <div class="skill-card">FAQs & Troubleshooting Articles</div>
-            <div class="skill-card">In-App Guidance / DAP Content</div>
-            <div class="skill-card">UX Writing & Microcopy</div>
-            <div class="skill-card">Figma & UI Mockups</div>
-            <div class="skill-card">Demo Video Scripts & Production</div>
-            <div class="skill-card">Content Automation & Reporting (Python)</div>
-            <div class="skill-card">Confluence, Document360, Jira</div>
-            <div class="skill-card">DITA & Structured Authoring</div>
-            <div class="skill-card">Analytics-Driven Content Decisions</div>
-            <div class="skill-card">Cross-Team Collaboration & Mentorship</div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact -->
-<section class="contact" id="contact">
-    <div class="container">
+    <!-- Contact -->
+    <section id="contact" class="contact fade-in">
         <h2>Contact Me</h2>
-        <p>Looking to collaborate or discuss opportunities? Reach out to me!</p>
+        <p>Looking to collaborate or discuss opportunities? Reach out!</p>
         <a href="mailto:youremail@example.com">Email Me</a>
         <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-    </div>
-</section>
+    </section>
+
+</div>
+
+<script>
+    // Fade-in animation on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+        entries.forEach(entry => {
+            if(!entry.isIntersecting) return;
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = "translateY(0)";
+            appearOnScroll.unobserve(entry.target);
+        });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
 
 </body>
 </html>
