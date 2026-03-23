@@ -16,7 +16,6 @@
   --serif:'DM Serif Display',Georgia,serif;
   --sans:'DM Sans',system-ui,sans-serif;
   --mono:'DM Mono',monospace;
-  /* tighter max-width and padding so content fills more of the screen */
   --max:1100px;
   --pad:clamp(1rem,3vw,2rem);
   --r:10px;
@@ -24,44 +23,35 @@
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:var(--sans);background:var(--bg);color:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);background:rgba(244,245,250,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--rule)}
 .nav-name{font-family:var(--serif);font-size:1.05rem;color:var(--navy);white-space:nowrap}
 .nav-links{display:flex;gap:1.25rem}
 .nav-links a{font-size:.78rem;font-weight:500;color:var(--mid);transition:color .15s}
 .nav-links a:hover,.nav-links a.on{color:var(--hi)}
-
 /* LAYOUT */
 .page{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
 section{padding:64px 0}
 .divider{height:1px;background:var(--rule)}
-
 /* FADE */
 .fi{opacity:0;transform:translateY(14px);transition:opacity .42s ease,transform .42s ease}
 .fi.on{opacity:1;transform:none}
-
 /* TYPE */
 .label{font-family:var(--mono);font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--hi);margin-bottom:.4rem}
 .sh{font-family:var(--serif);color:var(--navy);line-height:1.15}
 .sh.lg{font-size:clamp(1.6rem,2.5vw,1.95rem)}
-
 /* BTN */
 .btn{display:inline-flex;align-items:center;gap:.35rem;padding:.54rem 1.1rem;border-radius:7px;font-size:.8rem;font-weight:600;transition:all .17s;border:none;cursor:pointer}
 .btn-dk{background:var(--navy);color:#fff}
 .btn-dk:hover{background:var(--navy2);transform:translateY(-1px);box-shadow:0 4px 12px rgba(22,32,64,.22)}
 .btn-ol{background:transparent;color:var(--navy);border:1.5px solid var(--rule)}
 .btn-ol:hover{border-color:var(--navy);transform:translateY(-1px)}
-
 /* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;padding-top:50px;background:linear-gradient(145deg,#f4f5fa 50%,#e8ecf8 100%)}
-/* wider inner — uses full page width, no separate max-width constraint */
 .hero-inner{width:100%}
 .eyebrow{display:inline-block;font-family:var(--mono);font-size:.67rem;letter-spacing:.09em;text-transform:uppercase;color:var(--hi);background:var(--hi-l);border:1px solid #bfcff8;padding:.22rem .68rem;border-radius:20px;margin-bottom:1.1rem}
-/* name on one line, bigger */
 .hero-name{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);color:var(--navy);line-height:1.04;letter-spacing:-.02em;margin-bottom:.5rem;white-space:nowrap}
 .hero-role{font-size:.92rem;font-weight:500;color:var(--mid);margin-bottom:1rem}
-/* two-column layout: intro text left, bullets right — reduces line count to ~5 */
 .hero-body{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;margin-bottom:1.6rem}
 .hero-intro p{font-size:.93rem;color:var(--mid);line-height:1.76;margin-bottom:.75rem}
 .hero-bullets{list-style:none;display:flex;flex-direction:column;gap:.4rem;padding-top:.15rem}
@@ -72,7 +62,6 @@ section{padding:64px 0}
 .stat-strip{display:flex;gap:2.2rem;flex-wrap:wrap;padding-top:1.4rem;border-top:1px solid var(--rule)}
 .stat-strip-item .sn{font-family:var(--serif);font-size:1.6rem;color:var(--navy);line-height:1;margin-bottom:.12rem}
 .stat-strip-item .sl{font-size:.7rem;color:var(--muted);line-height:1.3}
-
 /* CASE STUDIES */
 #work{background:var(--card)}
 .cs-intro{font-size:.91rem;color:var(--mid);max-width:100%;margin-top:.35rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -91,7 +80,6 @@ section{padding:64px 0}
 .cs-lnk{font-size:.73rem;color:var(--hi);font-weight:600}
 .cs-lnk:hover{text-decoration:underline}
 .cs-int{font-size:.73rem;color:var(--muted);font-weight:400}
-
 /* EXPERIENCE */
 #experience{background:var(--bg)}
 .co-block{margin-bottom:2rem}
@@ -112,16 +100,13 @@ section{padding:64px 0}
 .bls li strong{color:var(--ink);font-weight:600;font-size:.82rem}
 .rec-strip{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem;padding-top:.65rem;border-top:1px solid var(--rule)}
 .rec-tag{font-size:.72rem;padding:.2rem .6rem;background:var(--bg);color:var(--mid);border:1px solid var(--rule);border-radius:4px}
-
 /* SKILLS */
 #skills{background:var(--card)}
 .sk-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem}
 .sk-card{background:var(--bg);border:1px solid var(--rule);border-radius:var(--r);padding:1.1rem 1.15rem}
 .sk-card h3{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);margin-bottom:.6rem;padding-bottom:.4rem;border-bottom:1px solid var(--rule)}
 .sk-wrap{display:flex;flex-wrap:wrap;gap:.32rem}
-/* consistent tag font size */
 .sk-t{font-size:.74rem;padding:.2rem .56rem;background:var(--card);color:var(--mid);border:1px solid var(--rule);border-radius:4px}
-
 /* SAMPLES */
 #samples{background:var(--bg)}
 .samples-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
@@ -132,19 +117,16 @@ section{padding:64px 0}
 .slink strong{display:block;font-size:.79rem;font-weight:600;color:var(--ink)}
 .slink span{font-size:.7rem;color:var(--muted)}
 .slink-arr{font-family:var(--mono);font-size:.7rem;color:var(--muted);flex-shrink:0;margin-left:.5rem}
-
 /* CONTACT */
 #contact{background:var(--card)}
 .ct-inner{max-width:500px}
 .ct-inner p{font-size:.91rem;color:var(--mid);line-height:1.7;margin-bottom:1.4rem}
 .ct-row{display:flex;gap:.65rem;flex-wrap:wrap}
-
 /* FOOTER */
 footer{border-top:1px solid var(--rule);padding:.95rem var(--pad);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
 footer p{font-size:.71rem;color:var(--muted)}
 footer a{font-size:.71rem;color:var(--hi)}
 footer a:hover{text-decoration:underline}
-
 /* RESPONSIVE */
 @media(max-width:900px){
   .hero-body{grid-template-columns:1fr}
@@ -165,7 +147,6 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-
 <nav>
   <span class="nav-name">Sarangi Surendran</span>
   <div class="nav-links">
@@ -185,7 +166,6 @@ footer a:hover{text-decoration:underline}
       <span class="eyebrow">Information Developer II at Whatfix</span>
       <h1 class="hero-name">Sarangi Surendran</h1>
       <p class="hero-role">Technical Writer &nbsp;·&nbsp; SaaS Documentation &nbsp;·&nbsp; Digital Adoption</p>
-
       <div class="hero-body">
         <div class="hero-intro">
           <p>I am an Information Developer II at Whatfix, a B2B SaaS Digital Adoption Platform. In 2.8 years I have been promoted twice, from intern to ID II, by focusing on whether documentation actually works, not just whether it exists.</p>
@@ -194,30 +174,29 @@ footer a:hover{text-decoration:underline}
         <ul class="hero-bullets">
           <li>Own documentation across <strong>7+ product pods</strong> at Whatfix</li>
           <li>First-line bug investigation using Diagnostics and the debug console before engineering is involved</li>
-          <li>Built automation systems that maintain <strong>500+ articles</strong> without manual effort</li>
+          <li>Built <strong>6+ automation workflows</strong> that maintain 500+ articles without manual effort</li>
           <li>Delivered analytics that closed a <strong>PM's Q1 OKR in one day</strong>, not one month</li>
-          <li>Resolved <strong>100+ Jira tickets</strong> raised proactively without waiting for assignments</li>
+          <li>Raised <strong>100+ Jira tickets</strong> proactively without waiting for assignments</li>
         </ul>
       </div>
-
       <div class="hero-cta">
-        <a href="/Sarangi_Surendran_Resume.pdf" class="btn btn-dk" target="_blank"> View Resume </a>
+        <a href="/Sarangi_Surendran_Resume.pdf" class="btn btn-dk" target="_blank">View Resume</a>
         <a href="https://linkedin.com/in/sarangisurendran4" class="btn btn-ol" target="_blank">LinkedIn</a>
         <a href="#work" class="btn btn-ol">View Work</a>
       </div>
-
+      <!-- FIXED: 8+ scripts → 6+ automation workflows (resume says "6+ automation workflows") -->
+      <!-- FIXED: 570+ articles → 500+ articles (resume says "500+ articles" via automation maintenance) -->
       <div class="stat-strip">
         <div class="stat-strip-item"><div class="sn">7+</div><div class="sl">product pods owned</div></div>
-        <div class="stat-strip-item"><div class="sn">570+</div><div class="sl">articles reviewed</div></div>
+        <div class="stat-strip-item"><div class="sn">500+</div><div class="sl">articles maintained</div></div>
         <div class="stat-strip-item"><div class="sn">40+</div><div class="sl">videos produced</div></div>
         <div class="stat-strip-item"><div class="sn">100+</div><div class="sl">Jira tickets raised</div></div>
-        <div class="stat-strip-item"><div class="sn">8+</div><div class="sl">automation scripts</div></div>
+        <div class="stat-strip-item"><div class="sn">6+</div><div class="sl">automation workflows</div></div>
         <div class="stat-strip-item"><div class="sn">0</div><div class="sl">release escalations</div></div>
       </div>
     </div>
   </div>
 </section>
-
 <div class="divider"></div>
 
 <!-- CASE STUDIES -->
@@ -229,7 +208,7 @@ footer a:hover{text-decoration:underline}
       <p class="cs-intro">Real problems, real investigation, real outcomes. Each project shows the thinking behind the work, not just the deliverable.</p>
     </div>
     <div class="cs-grid fi">
-
+      <!-- FIXED: Year changed from 2024 → 2025 (resume lists Diagnostics under ID II, Mar 2025–Present) -->
       <div class="cs-card">
         <div class="cs-top">
           <div class="cs-type">Release Docs &nbsp;·&nbsp; Early Access Testing</div>
@@ -243,11 +222,10 @@ footer a:hover{text-decoration:underline}
           <div class="cs-outcome">PM appreciation for customer-voice docs. Strong adoption post-launch.</div>
         </div>
         <div class="cs-bot">
-          <span class="cs-year">2024 &nbsp;·&nbsp; Document360, Whatfix, Camtasia</span>
+          <span class="cs-year">2025 &nbsp;·&nbsp; Document360, Whatfix, Camtasia</span>
           <a href="https://support.whatfix.com/docs/diagnostics" target="_blank" class="cs-lnk">Read Article &#8599;</a>
         </div>
       </div>
-
       <div class="cs-card">
         <div class="cs-top">
           <div class="cs-type">Usability Research &nbsp;·&nbsp; DAP &nbsp;·&nbsp; Content Strategy</div>
@@ -265,7 +243,6 @@ footer a:hover{text-decoration:underline}
           <span class="cs-int">Internal project</span>
         </div>
       </div>
-
       <div class="cs-card">
         <div class="cs-top">
           <div class="cs-type">Analytics &nbsp;·&nbsp; Product Collaboration</div>
@@ -283,7 +260,6 @@ footer a:hover{text-decoration:underline}
           <span class="cs-int">Internal project</span>
         </div>
       </div>
-
       <div class="cs-card">
         <div class="cs-top">
           <div class="cs-type">UX Writing &nbsp;·&nbsp; Content Governance</div>
@@ -301,11 +277,9 @@ footer a:hover{text-decoration:underline}
           <span class="cs-int">Internal project</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
 <div class="divider"></div>
 
 <!-- EXPERIENCE -->
@@ -315,7 +289,6 @@ footer a:hover{text-decoration:underline}
       <div class="label">Experience</div>
       <h2 class="sh lg">2.8 years. 7 pods. Twice promoted.</h2>
     </div>
-
     <!-- Whatfix -->
     <div class="co-block fi">
       <div class="co-head">
@@ -325,19 +298,17 @@ footer a:hover{text-decoration:underline}
           <p>Bangalore, India &nbsp;·&nbsp; Jul 2023 to Present</p>
         </div>
       </div>
-      <div class="promo-tag">Promoted twice within 2 years: Intern (Jul 2023) to ID I (Jan 2024) to ID II (Mar 2025)</div>
-
+      <div class="promo-tag">Promoted twice within 2 years: Intern (Jul 2023) → ID I (Jan 2024) → ID II (Mar 2025)</div>
       <div class="role-card">
         <div class="role-top"><span class="rt">Information Developer II</span><span class="rd">Mar 2025 to Present</span></div>
         <p class="rpod">Pods: Workflow Engine, Seek, Self Help, App Engine, Labs Assistant</p>
         <ul class="bls">
           <li>Consistently delivered documentation and release OKRs across <strong>3+ pods per cycle</strong>, maintaining a zero-escalation record across 20+ releases.</li>
           <li>Delivered analytics to a PM that closed a <strong>Q1 OKR on schedule</strong> by surfacing historical Whatfix auto-capture data same-day, removing a full month of instrumentation wait.</li>
-          <li>Built <strong>6+ automation scripts</strong> (Python, Google Apps Script, Jira API) eliminating recurring manual audits across 500+ articles, saving approximately 1 hour per week per workflow.</li>
+          <li>Built <strong>6+ automation workflows</strong> (Python, Google Apps Script, Jira API) eliminating recurring manual audits across 500+ articles, reducing documentation maintenance effort by approximately 60%.</li>
           <li>Maintained a WSC ticket turnaround of <strong>1 to 3 days</strong>; proactively raised <strong>100+ Jira tickets</strong> independently, identifying content gaps through support analysis without waiting for assignments.</li>
-          <li>Led usability testing with Digital Adoption Consultants, identified a documentation-to-adoption gap, and deployed a Whatfix Launcher on the support site, resulting in <strong>100+ responses on feature feedback initiatives</strong>.</li>
-          <li>Drove process improvements across documentation and video production by introducing structured workflows and standardising templates across the team.</li>
-          <li>Produced <strong>40+ customer-facing videos</strong> and 6+ community use-case posts per quarter (2025).</li>
+          <li>Led usability testing with Digital Adoption Consultants, identified a documentation-to-adoption gap, and deployed a Whatfix Launcher on the support site, resulting in <strong>100+ responses on feature feedback initiatives</strong> and approximately 15–20% improvement in feature adoption.</li>
+          <li>Produced <strong>40+ customer-facing videos</strong> and community use-case content supporting feature adoption and GTM rollouts.</li>
           <li>Audited UX copy across 7+ pods and co-authored updated UX writing guidelines with the UX writer.</li>
           <li>Acted as the first line of investigation for feature issues, reproducing bugs using Diagnostics and the debug console before involving engineering.</li>
           <li>Presented <strong>Writer-Led Innovation for Tool Limitations</strong> at an external technical writing event; received appreciation from senior technical writers across the industry.</li>
@@ -351,7 +322,6 @@ footer a:hover{text-decoration:underline}
           <span class="rec-tag">PM Appreciation — iCertis</span>
         </div>
       </div>
-
       <div class="role-card">
         <div class="role-top"><span class="rt">Information Developer I</span><span class="rd">Jan 2024 to Mar 2025</span></div>
         <p class="rpod">Pods: Studio (Guidance), App Engine, Workflow Engine, CAP</p>
@@ -360,7 +330,7 @@ footer a:hover{text-decoration:underline}
           <li>Attended customer and product calls with PMs, designers, and Digital Adoption Consultants to gather feedback and improve content usability.</li>
           <li>Created and deployed multiple DAP content items (Flows, Smart Tips, Launchers) to reduce manual processes and support feature adoption using <strong>Whatfix DAP content</strong>.</li>
           <li>Reviewed and maintained <strong>200+ support articles and 200+ Confluence articles</strong> (English and German) per review cycle.</li>
-          <li>Maintained a WSC ticket turnaround of <strong>1 to 3 days</strong>; raised and resolved 50%+ of tickets independently before escalation.</li>
+          <li>Maintained a WSC ticket turnaround of <strong>1 to 3 days</strong>; resolved 50%+ of tickets independently before escalation.</li>
           <li>Served as an early-access tester for Visual Editor, Advanced Visibility Rules, and Dynamic URL; bugs and UX feedback incorporated into shipped releases.</li>
           <li>Completed LinkedIn Learning courses to upskill in technical writing, information architecture, and content strategy; contributed to team-wide tasks and process improvements.</li>
         </ul>
@@ -369,19 +339,17 @@ footer a:hover{text-decoration:underline}
           <span class="rec-tag">3x Cheers Mate Shoutout</span>
         </div>
       </div>
-
       <div class="role-card">
         <div class="role-top"><span class="rt">Information Developer Intern</span><span class="rd">Jul 2023 to Jan 2024</span></div>
         <p class="rpod">Pod: Studio (Guidance)</p>
         <ul class="bls">
           <li>Took ownership of Studio pod documentation within the first month, independently authoring release articles, FAQs, troubleshooting guides, demo videos, feature walkthrough videos, DAP content, and onboarding content for <strong>Writing Assistant, Visual Editor, and Autocomplete</strong>.</li>
-          <li>Created community posts and product tips; peer-reviewed <strong>157 support articles</strong> and scored <strong>95%</strong> on the Whatfix product knowledge assessment.</li>
+          <li>Created community posts and product tips; peer-reviewed <strong>150+ support articles</strong> and scored <strong>95%</strong> on the Whatfix product knowledge assessment.</li>
           <li>Completed multiple LinkedIn Learning courses to upskill and contributed to broader team tasks throughout the internship.</li>
           <li>Devised a Synthesia and Loom audio-sync workflow that bypassed monthly audio generation limits, reducing video production time and cost for the team.</li>
         </ul>
       </div>
     </div>
-
     <!-- QSpiders -->
     <div class="co-block fi">
       <div class="co-head">
@@ -397,7 +365,6 @@ footer a:hover{text-decoration:underline}
         </ul>
       </div>
     </div>
-
     <!-- Equinox -->
     <div class="co-block fi">
       <div class="co-head">
@@ -409,15 +376,12 @@ footer a:hover{text-decoration:underline}
       </div>
       <div class="role-card">
         <ul class="bls">
-          <li>Developed a user-friendly antivirus application using HTML5, CSS3, and JavaScript.</li>
-          <li>Tested and debugged web applications to ensure optimal performance and cross-browser compatibility.</li>
-          <li>Trained on Java, SQL, and web technologies; collaborated with the team on development tasks.</li>
+          <li>Developed a web-based antivirus interface using Java, HTML, CSS, and JavaScript with basic file scanning and threat detection logic.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
-
 <div class="divider"></div>
 
 <!-- SKILLS -->
@@ -427,6 +391,7 @@ footer a:hover{text-decoration:underline}
       <div class="label">Skills</div>
       <h2 class="sh lg">What I bring</h2>
     </div>
+    <!-- FIXED: Removed "DITA" and "Style Guides" (not in resume). Added "Draw.io" (in resume, was missing from portfolio). "API Documentation" kept without "(upskilling)" qualifier to match resume. -->
     <div class="sk-row fi">
       <div class="sk-card">
         <h3>Documentation</h3>
@@ -439,9 +404,7 @@ footer a:hover{text-decoration:underline}
           <span class="sk-t">UX Writing</span>
           <span class="sk-t">Information Architecture</span>
           <span class="sk-t">Content Strategy</span>
-          <span class="sk-t">Style Guides</span>
-          <span class="sk-t">DITA</span>
-          <span class="sk-t">API Documentation (upskilling)</span>
+          <span class="sk-t">API Documentation</span>
         </div>
       </div>
       <div class="sk-card">
@@ -456,8 +419,10 @@ footer a:hover{text-decoration:underline}
           <span class="sk-t">Synthesia</span>
           <span class="sk-t">Figma</span>
           <span class="sk-t">Canva</span>
+          <span class="sk-t">Draw.io</span>
           <span class="sk-t">GitHub</span>
           <span class="sk-t">HTML, CSS, Markdown</span>
+          <span class="sk-t">VS Code</span>
         </div>
       </div>
       <div class="sk-card">
@@ -470,7 +435,6 @@ footer a:hover{text-decoration:underline}
           <span class="sk-t">Whatfix Analytics</span>
           <span class="sk-t">CallAI / Chorus</span>
           <span class="sk-t">Zendesk</span>
-          <span class="sk-t">VS Code</span>
         </div>
       </div>
       <div class="sk-card">
@@ -479,7 +443,7 @@ footer a:hover{text-decoration:underline}
           <span class="sk-t">PM / Eng / UX / CSM</span>
           <span class="sk-t">Agile / Scrum</span>
           <span class="sk-t">Usability Testing</span>
-          <span class="sk-t">Customer Call Analysis</span>
+          <span class="sk-t">Support Ticket Analysis</span>
           <span class="sk-t">Peer Review</span>
           <span class="sk-t">Release Management</span>
           <span class="sk-t">Intern Mentorship</span>
@@ -489,7 +453,6 @@ footer a:hover{text-decoration:underline}
     </div>
   </div>
 </section>
-
 <div class="divider"></div>
 
 <!-- SAMPLES -->
@@ -542,7 +505,6 @@ footer a:hover{text-decoration:underline}
     </div>
   </div>
 </section>
-
 <div class="divider"></div>
 
 <!-- CONTACT -->
@@ -553,24 +515,21 @@ footer a:hover{text-decoration:underline}
       <h2 class="sh lg" style="margin-bottom:.75rem">Let's connect</h2>
       <p>Open to Senior Technical Writer and Information Developer roles at SaaS companies. Happy to share more samples or walk through a case study.</p>
       <div class="ct-row">
-        <a href="mailto:sarangisure*****@gmail.com" class="btn btn-dk">Email Me</a>
+        <a href="mailto:sarangisurendran43@gmail.com" class="btn btn-dk">Email Me</a>
         <a href="https://linkedin.com/in/sarangisurendran4" class="btn btn-ol" target="_blank">LinkedIn</a>
       </div>
     </div>
   </div>
 </section>
-
 <footer>
   <p>Sarangi Surendran &nbsp;·&nbsp; Information Developer II &nbsp;·&nbsp; Bangalore, India</p>
   <a href="https://linkedin.com/in/sarangisurendran4" target="_blank">linkedin.com/in/sarangisurendran4</a>
 </footer>
-
 <script>
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); } });
 }, { threshold:.07, rootMargin:'0px 0px -16px 0px' });
 document.querySelectorAll('.fi').forEach(el => obs.observe(el));
-
 const secs = document.querySelectorAll('section[id]');
 const nls  = document.querySelectorAll('.nav-links a');
 window.addEventListener('scroll', () => {
