@@ -1,169 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/> 
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-<title>Sarangi Surendran — Documentation Systems Thinker</title>
+<title>Sarangi Surendran — Technical Writer & Documentation Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-/* VARIABLES & RESET */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } 
-:root {
-  --navy: #0f172a; --navy-hover: #1e293b; --text-main: #334155; --text-muted: #64748b;
-  --bg-main: #f8fafc; --bg-card: #ffffff; --border: #e2e8f0;
-  --accent: #2563eb; --accent-light: #eff6ff; 
-  --success: #059669; --success-light: #ecfdf5;
-  --serif: 'DM Serif Display', Georgia, serif;
-  --sans: 'DM Sans', system-ui, sans-serif;
-  --mono: 'DM Mono', monospace;
-  --max-w: 1000px;
-  --pad: clamp(1.5rem, 4vw, 3rem);
-  --radius: 12px;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0} 
+:root{
+  --navy:#111827;--navy2:#1f2937;--ink:#0f172a;--body:#334155;
+  --mid:#475569;--muted:#64748b;--rule:#e2e8f0;--bg:#f8fafc;
+  --card:#ffffff;--hi:#2563eb;--hi-l:#eff6ff;--hi-border:#bfdbfe;
+  --green:#16a34a;--green-l:#f0fdf4;--green-border:#bbf7d0;
+  --amber:#d97706;--amber-l:#fffbeb;--amber-border:#fde68a;
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+  --max:1040px;
+  --pad:clamp(1.25rem,4vw,2.5rem);
+  --r:12px;
 }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--sans); background: var(--bg-main); color: var(--text-main); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-a { color: inherit; text-decoration: none; transition: var(--transition); }
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);background:var(--bg);color:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
 
-/* ANIMATIONS */
-.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
+/* HEADER & NAVIGATION */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);background:rgba(248,250,252,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--rule)}
+.nav-logo{font-family:var(--serif);font-size:1.25rem;color:var(--navy);font-weight:400}
+.nav-links{display:flex;gap:1.5rem}
+.nav-links a{font-size:.8rem;font-weight:600;color:var(--muted);transition:color .2s}
+.nav-links a:hover,.nav-links a.on{color:var(--hi)}
+
+/* LAYOUT CONTAINER */
+.page{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+section{padding:100px 0 60px 0}
+.section-header{margin-bottom:3rem}
+
+/* SECTIONS FADE EFFECT */
+.fi{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(0.215, 0.610, 0.355, 1),transform .6s cubic-bezier(0.215, 0.610, 0.355, 1)}
+.fi.on{opacity:1;transform:none}
 
 /* TYPOGRAPHY */
-h1, h2, h3 { color: var(--navy); }
-.label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; display: block; }
-.section-title { font-family: var(--serif); font-size: clamp(2rem, 3vw, 2.5rem); line-height: 1.1; margin-bottom: 1rem; }
-.section-desc { font-size: 1.05rem; color: var(--text-muted); max-width: 600px; margin-bottom: 3rem; }
-
-/* LAYOUT */
-.container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
-section { padding: 100px 0; border-bottom: 1px solid var(--border); }
-section:last-of-type { border-bottom: none; }
+.label{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--hi);margin-bottom:.5rem;font-weight:500}
+.sh{font-family:var(--serif);color:var(--navy);font-weight:400;line-height:1.15}
+.sh.lg{font-size:clamp(1.75rem,3vw,2.25rem)}
+.sh.md{font-size:1.4rem;margin-bottom:1rem}
+.section-desc{font-size:.95rem;color:var(--mid);max-width:640px;margin-top:.5rem}
 
 /* BUTTONS */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: var(--transition); border: 1px solid transparent; }
-.btn-primary { background: var(--navy); color: #fff; }
-.btn-primary:hover { background: var(--navy-hover); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15); }
-.btn-outline { background: transparent; color: var(--navy); border-color: var(--border); }
-.btn-outline:hover { border-color: var(--navy); transform: translateY(-2px); }
-
-/* NAVIGATION */
-nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(248, 250, 252, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--pad); }
-.nav-brand { font-family: var(--serif); font-size: 1.2rem; color: var(--navy); }
-.nav-links { display: flex; gap: 1.5rem; }
-.nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); }
-.nav-links a:hover { color: var(--accent); }
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.25rem;border-radius:8px;font-size:.82rem;font-weight:600;transition:all .2s;border:none;cursor:pointer}
+.btn-dk{background:var(--navy);color:#fff}
+.btn-dk:hover{background:var(--navy2);transform:translateY(-1px);box-shadow:0 10px 20px rgba(15,23,42,.12)}
+.btn-ol{background:var(--card);color:var(--navy);border:1px solid var(--rule)}
+.btn-ol:hover{border-color:var(--navy);background:var(--bg);transform:translateY(-1px)}
 
 /* HERO SECTION */
-#hero { min-height: 100vh; display: flex; align-items: center; padding-top: 60px; background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-main) 100%); border-bottom: none; }
-.hero-content { max-width: 800px; }
-.hero-name { font-family: var(--serif); font-size: clamp(3rem, 6vw, 4.5rem); color: var(--navy); line-height: 1; letter-spacing: -0.02em; margin-bottom: 1rem; }
-.hero-subtitle { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 400; color: var(--text-muted); margin-bottom: 2rem; }
-.hero-blurb { font-size: 1.1rem; color: var(--text-main); margin-bottom: 2rem; max-width: 650px; }
-.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
-.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; border-top: 1px solid var(--border); padding-top: 2rem; }
-.metric-box { border-left: 2px solid var(--accent); padding-left: 1rem; }
-.metric-val { font-family: var(--serif); font-size: 1.8rem; color: var(--navy); line-height: 1; }
-.metric-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; font-weight: 500; }
+#hero{min-height:90vh;display:flex;align-items:center;padding-top:100px;background:radial-gradient(circle at 90% 10%, var(--hi-l) 0%, transparent 40%)}
+.hero-inner{width:100%}
+.eyebrow{display:inline-block;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--hi);background:var(--hi-l);border:1px solid var(--hi-border);padding:.25rem .75rem;border-radius:30px;margin-bottom:1.5rem;font-weight:500}
+.hero-title{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);color:var(--navy);line-height:1.05;letter-spacing:-.02em;margin-bottom:1rem}
+.hero-subtitle{font-size:1.1rem;font-weight:400;color:var(--mid);margin-bottom:2rem;max-width:750px}
+.hero-subtitle strong{color:var(--navy);font-weight:600}
+.hero-cta{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:3.5rem}
 
-/* CASE STUDIES (STRUCTURED) */
-.cs-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; margin-bottom: 2rem; transition: var(--transition); }
-.cs-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.04); transform: translateY(-3px); border-color: #cbd5e1; }
-.cs-header { margin-bottom: 2rem; }
-.cs-title { font-size: 1.5rem; margin-bottom: 0.5rem; line-height: 1.2; }
-.cs-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
-.tag { font-family: var(--mono); font-size: 0.65rem; background: var(--bg-main); border: 1px solid var(--border); padding: 0.25rem 0.6rem; border-radius: 4px; color: var(--text-muted); }
+/* METRIC CARDS GRID */
+.metrics-container{grid-column:span 2;margin-top:2rem}
+.metrics-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;border-top:1px solid var(--rule);padding-top:2rem}
+.metric-card{background:var(--card);border:1px solid var(--rule);padding:1.25rem 1rem;border-radius:var(--r);text-align:left;transition:transform .2s}
+.metric-card:hover{transform:translateY(-2px)}
+.metric-num{font-family:var(--serif);font-size:2rem;color:var(--navy);line-height:1;margin-bottom:.25rem}
+.metric-lbl{font-size:.75rem;color:var(--muted);line-height:1.3;font-weight:500}
 
-/* STRUCTURED TEXT GRID */
-.cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
-.cs-block h4 { font-family: var(--mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.4rem; letter-spacing: 0.05em; }
-.cs-block p { font-size: 0.9rem; color: var(--text-main); }
-.cs-impact { grid-column: 1 / -1; background: var(--success-light); border: 1px solid #a7f3d0; padding: 1rem 1.5rem; border-radius: 8px; }
-.cs-impact h4 { color: var(--success); }
-.cs-impact p { color: var(--navy); font-weight: 500; font-size: 0.95rem; }
+/* WORK / CASE STUDIES STRIP-BASED LAYOUT */
+.cs-list{display:flex;flex-direction:column;gap:2rem}
+.cs-item{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;display:grid;grid-template-columns:1fr;transition:border-color .2s}
+.cs-item:hover{border-color:var(--hi-border)}
+.cs-main{padding:2rem}
+.cs-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;flex-wrap:wrap}
+.cs-tag{font-family:var(--mono);font-size:.65rem;font-weight:500;padding:.2rem .5rem;background:var(--bg);border:1px solid var(--rule);border-radius:4px;text-transform:uppercase;color:var(--muted)}
+.cs-tag.highlight{color:var(--hi);background:var(--hi-l);border-color:var(--hi-border)}
+.cs-year{font-family:var(--mono);font-size:.7rem;color:var(--muted);margin-left:auto}
+.cs-item h3{font-family:var(--serif);font-size:1.5rem;color:var(--navy);margin-bottom:1.25rem;font-weight:400}
 
-/* VISUAL WORKFLOW DIAGRAMS */
-.workflow { display: flex; align-items: center; gap: 0.5rem; background: var(--bg-main); padding: 1.5rem; border-radius: 8px; border: 1px dashed var(--border); margin: 1.5rem 0; overflow-x: auto; }
-.wf-node { background: var(--bg-card); border: 1px solid var(--border); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.8rem; font-weight: 500; color: var(--navy); white-space: nowrap; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-.wf-node.ai { border-color: var(--accent); background: var(--accent-light); color: var(--accent); }
-.wf-arrow { color: var(--text-muted); font-size: 1.2rem; }
+/* THE 3-COLUMN STRUCTURED WRITING ARCHITECTURE */
+.cs-architecture{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:1.75rem}
+.cs-arch-col{background:var(--bg);padding:1rem 1.15rem;border-radius:8px;border:1px solid rgba(0,0,0,.02)}
+.cs-arch-col h4{font-size:.7rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:.5rem;display:flex;align-items:center;gap:.35rem}
+.cs-arch-col p{font-size:.82rem;color:var(--body);line-height:1.5}
+
+/* VISUAL WORKFLOW ENGINE DIAGRAMS */
+.wf-container{background:var(--navy);border-radius:8px;padding:1.25rem;margin-bottom:1.5rem;overflow-x:auto}
+.wf-title{font-family:var(--mono);font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem}
+.wf-flow{display:flex;align-items:center;gap:.75rem;min-width:650px}
+.wf-step{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:.5rem .75rem;flex:1;text-align:center;transition:background .2s}
+.wf-step:hover{background:rgba(255,255,255,.08)}
+.wf-step .st-lbl{font-family:var(--mono);font-size:.62rem;color:rgba(255,255,255,.4);text-transform:uppercase;display:block;margin-bottom:.15rem}
+.wf-step .st-val{font-size:.75rem;color:#fff;font-weight:500}
+.wf-arrow{color:rgba(255,255,255,.2);font-family:var(--mono);font-size:.8rem}
+.wf-step.wf-prime{border-color:var(--hi);background:rgba(37,99,235,.15)}
+
+.cs-footer{border-top:1px solid var(--rule);padding:1rem 2rem;background:var(--bg);display:flex;align-items:center;justify-content:between}
+.cs-outcome-badge{font-size:.78rem;font-weight:600;color:var(--green);background:var(--green-l);border:1px solid var(--green-border);padding:.25rem .75rem;border-radius:6px;display:inline-flex;align-items:center;gap:.35rem}
+.cs-action-link{font-size:.8rem;font-weight:600;color:var(--hi);margin-left:auto;display:inline-flex;align-items:center;gap:.25rem}
+.cs-action-link:hover{text-decoration:underline}
 
 /* EXPERIENCE ACCORDIONS */
-details { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 1rem; transition: var(--transition); }
-details[open] { box-shadow: 0 4px 12px rgba(0,0,0,0.03); border-color: #cbd5e1; }
-summary { padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; font-weight: 600; color: var(--navy); }
-summary::-webkit-details-marker { display: none; }
-.sum-left { display: flex; flex-direction: column; gap: 0.25rem; }
-.sum-role { font-size: 1.1rem; }
-.sum-meta { font-family: var(--mono); font-size: 0.8rem; color: var(--text-muted); font-weight: 400; }
-.sum-icon { transition: transform 0.3s; color: var(--text-muted); }
-details[open] summary .sum-icon { transform: rotate(180deg); }
-.exp-body { padding: 0 1.5rem 1.5rem 1.5rem; border-top: 1px solid var(--border); margin-top: 0.5rem; padding-top: 1.5rem; }
-.exp-highlights { list-style: none; margin-bottom: 1.5rem; }
-.exp-highlights li { position: relative; padding-left: 1.2rem; margin-bottom: 0.75rem; font-size: 0.9rem; }
-.exp-highlights li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
-.exp-highlights strong { color: var(--navy); }
+.exp-list{display:flex;flex-direction:column;gap:1rem}
+.exp-card{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;transition:box-shadow .2s}
+.exp-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.02)}
+.exp-trigger{width:100%;text-align:left;background:none;border:none;padding:1.5rem;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.25rem;cursor:pointer}
+.exp-logo{width:42px;height:42px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:1.1rem}
+.exp-logo.alt{background:var(--muted)}
+.exp-summary h3{font-size:1.05rem;font-weight:700;color:var(--navy)}
+.exp-summary p{font-size:.8rem;color:var(--muted);margin-top:.15rem}
+.exp-badge-group{display:flex;align-items:center;gap:.5rem}
+.exp-promo-badge{font-family:var(--mono);font-size:.65rem;font-weight:600;background:var(--green-l);color:var(--green);border:1px solid var(--green-border);padding:.2rem .6rem;border-radius:20px}
+.exp-arrow{font-family:var(--mono);font-size:.9rem;color:var(--muted);transition:transform .2s}
+.exp-card.open .exp-arrow{transform:rotate(90deg)}
 
-/* CAPABILITIES (Replaces Skills) */
-.cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-.cap-card { background: var(--bg-card); border: 1px solid var(--border); padding: 2rem; border-radius: var(--radius); }
-.cap-card h3 { font-size: 1.1rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-.cap-list { list-style: none; }
-.cap-list li { font-size: 0.9rem; color: var(--text-main); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
-.cap-list li::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+.exp-content{max-height:0;overflow:hidden;transition:max-height .3s cubic-bezier(0, 1, 0, 1);background:var(--bg)}
+.exp-card.open .exp-content{max-height:2000px;transition:max-height .3s cubic-bezier(1, 0, 1, 0)}
+.exp-inner{padding:1.5rem;border-top:1px solid var(--rule)}
+
+.role-segment{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:1.25rem;margin-bottom:1rem}
+.role-segment:last-child{margin-bottom:0}
+.role-header{display:flex;justify-content:between;align-items:baseline;margin-bottom:.35rem;flex-wrap:wrap;gap:.5rem}
+.role-title{font-size:.95rem;font-weight:700;color:var(--navy)}
+.role-date{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-left:auto}
+.role-pods{font-size:.78rem;color:var(--muted);font-style:italic;margin-bottom:.85rem}
+
+.bullet-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.bullet-list li{font-size:.85rem;color:var(--body);padding-left:1.1rem;position:relative;line-height:1.5}
+.bullet-list li::before{content:"→";position:absolute;left:0;color:var(--hi);font-weight:600}
+.bullet-list li strong{color:var(--navy);font-weight:600}
+
+.award-strip{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:1rem;padding-top:.85rem;border-top:1px solid var(--rule)}
+.award-tag{font-size:.72rem;font-weight:500;padding:.2rem .55rem;background:var(--bg);color:var(--mid);border:1px solid var(--rule);border-radius:4px}
+
+/* SKILLS LAB SECTION */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.skill-category{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:1.5rem}
+.skill-category h3{font-size:.78rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--navy);margin-bottom:1rem;border-bottom:1px solid var(--rule);padding-bottom:.5rem}
+.skill-cluster{display:flex;flex-direction:column;gap:.75rem}
+.skill-block h4{font-size:.75rem;color:var(--muted);margin-bottom:.35rem;font-weight:500}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.skill-tags span{font-size:.75rem;padding:.22rem .6rem;background:var(--bg);color:var(--mid);border:1px solid var(--rule);border-radius:4px;font-weight:500}
+
+/* WRITING REPOSITORY */
+.repo-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.repo-box h3{font-size:.75rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--navy);margin-bottom:1rem;padding-bottom:.35rem;border-bottom:1px solid var(--rule)}
+.links-stack{display:flex;flex-direction:column;gap:.5rem}
+.repo-link{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;background:var(--card);border:1px solid var(--rule);border-radius:8px;transition:all .15s}
+.repo-link:hover{border-color:var(--hi);background:var(--hi-l)}
+.repo-link strong{font-size:.85rem;font-weight:600;color:var(--navy);display:block}
+.repo-link span{font-size:.72rem;color:var(--muted);display:block;margin-top:.1rem}
+.repo-arr{font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-left:.75rem}
+
+/* CONTACT */
+#contact{background:var(--card);border-top:1px solid var(--rule)}
+.ct-box{max-width:550px}
+.ct-box p{font-size:.95rem;color:var(--mid);margin:1rem 0 1.75rem 0}
+.ct-actions{display:flex;gap:.75rem;flex-wrap:wrap}
 
 /* FOOTER */
-footer { padding: 2rem 0; text-align: center; border-top: 1px solid var(--border); background: var(--bg-card); }
-footer p { font-size: 0.85rem; color: var(--text-muted); }
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:1.5rem var(--pad);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,.05);font-size:.75rem}
+footer a{color:#fff;font-weight:500}
+footer a:hover{text-decoration:underline}
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .cs-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .workflow { flex-direction: column; align-items: flex-start; }
-  .wf-arrow { transform: rotate(90deg); margin-left: 1rem; }
-  .nav-links { display: none; /* simple mobile fallback */ }
+/* RESPONSIVE DESIGN */
+@media(max-width:960px){
+  .cs-architecture{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .metrics-grid .metric-card:last-child{grid-column: span 2}
+  .repo-grid{grid-template-columns:1fr}
+  section{padding:80px 0 40px 0}
+}
+@media(max-width:540px){
+  .metrics-grid{grid-template-columns:1fr}
+  .metrics-grid .metric-card:last-child{grid-column:auto}
+  .exp-trigger{grid-template-columns:1fr auto;gap:.5rem}
+  .exp-logo{display:none}
+  .exp-badge-group{grid-row:2;grid-column:span 2;margin-top:.25rem}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-brand">Sarangi Surendran</div>
+  <span class="nav-logo">Sarangi Surendran</span>
   <div class="nav-links">
+    <a href="#hero">Overview</a>
     <a href="#work">Case Studies</a>
     <a href="#experience">Experience</a>
-    <a href="#capabilities">Capabilities</a>
-    <a href="mailto:sarangisurendran43@gmail.com">Contact</a>
+    <a href="#skills">Skills Lab</a>
+    <a href="#samples">Repository</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <section id="hero">
-  <div class="container">
-    <div class="hero-content fade-in">
-      <span class="label">Portfolio 2026</span>
-      <h1 class="hero-name">Sarangi Surendran</h1>
-      <h2 class="hero-subtitle">Technical Writer &amp; Documentation Systems Thinker</h2>
-      <p class="hero-blurb">
-        With 2 years and 10 months of experience at Whatfix, I go beyond documenting features. I build scalable documentation systems, leverage AI for content governance, and write strategic product documentation that actively drives adoption and reduces support load.
+  <div class="page">
+    <div class="hero-inner fi">
+      <span class="eyebrow">Information Developer II @ Whatfix</span>
+      <h1 class="hero-title">Sarangi Surendran</h1>
+      <p class="hero-subtitle">
+        Technical Writer with <strong>2 years and 10 months</strong> of specialized expertise in enterprise B2B SaaS documentation strategy, product operations, and digital adoption mechanics. I engineer highly structured, task-driven knowledge infrastructures that systematically collapse support friction, optimize product discovery, and drive measurable user alignment.
       </p>
-      <div class="hero-actions">
-        <a href="#work" class="btn btn-primary">View Case Studies</a>
-        <a href="https://linkedin.com/in/sarangisurendran4" class="btn btn-outline" target="_blank">LinkedIn</a>
+      <div class="hero-cta">
+        <a href="/Sarangi_Surendran_Resume.pdf" class="btn btn-dk" target="_blank">Download Technical CV</a>
+        <a href="https://linkedin.com/in/sarangisurendran4" class="btn btn-ol" target="_blank">Corporate LinkedIn</a>
+        <a href="#work" class="btn btn-ol">Analyze Strategy</a>
       </div>
       
-      <div class="metrics-grid">
-        <div class="metric-box">
-          <div class="metric-val">500+</div>
-          <div class="metric-label">Articles Managed via Automation</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-val">7+</div>
-          <div class="metric-label">Product Pods Owned</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-val">6+</div>
-          <div class="metric-label">Docs Operations Workflows Built</div>
+      <div class="metrics-container">
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-num">7+</div><div class="metric-lbl">Product Pods Managed</div></div>
+          <div class="metric-card"><div class="metric-num">500+</div><div class="metric-lbl">Articles Programmatically Scaled</div></div>
+          <div class="metric-card"><div class="metric-num">40+</div><div class="metric-lbl">Enterprise Videos Produced</div></div>
+          <div class="metric-card"><div class="metric-num">6+</div><div class="metric-lbl">Automation Pipelines Built</div></div>
+          <div class="metric-card"><div class="metric-num">100+</div><div class="metric-lbl">Proactive Bug Discovered</div></div>
         </div>
       </div>
     </div>
@@ -171,257 +230,462 @@ footer p { font-size: 0.85rem; color: var(--text-muted); }
 </section>
 
 <section id="work">
-  <div class="container">
-    <span class="label">Featured Work</span>
-    <h2 class="section-title fade-in">Systems, Strategy, and Impact</h2>
-    <p class="section-desc fade-in">Real business problems solved through structured documentation and engineering operations.</p>
-
-    <div class="cs-card fade-in">
-      <div class="cs-header">
-        <div class="cs-tags">
-          <span class="tag">System Architecture</span>
-          <span class="tag">API Integration</span>
-          <span class="tag">AI Remediation</span>
-        </div>
-        <h3 class="cs-title">Broken Link Auto-Healing: Scaling docs maintenance for 500+ articles</h3>
-      </div>
-      
-      <div class="cs-grid">
-        <div class="cs-block">
-          <h4>Context & Constraint</h4>
-          <p>Maintaining a library of 500+ dynamic SaaS articles led to inevitable link rot. Manual audits were impossible to scale, causing degraded user trust and SEO penalties.</p>
-        </div>
-        <div class="cs-block">
-          <h4>Solution Built</h4>
-          <p>Designed a pipeline that programmatically audits the knowledge base, flags 404s, utilizes AI for suggested path remediation, and interfaces with the CMS API to push corrections.</p>
-        </div>
-      </div>
-
-      <div class="workflow">
-        <div class="wf-node">Fetch via Doc360 API</div>
-        <div class="wf-arrow">&rarr;</div>
-        <div class="wf-node">Crawler Scans 404s</div>
-        <div class="wf-arrow">&rarr;</div>
-        <div class="wf-node ai">AI Remediation Suggestions</div>
-        <div class="wf-arrow">&rarr;</div>
-        <div class="wf-node">API Auto-Update</div>
-      </div>
-
-      <div class="cs-impact">
-        <h4>Business Impact</h4>
-        <p>Eliminated manual link auditing entirely. Reduced documentation maintenance effort by ~60%, ensuring high-fidelity docs without constant human intervention.</p>
-      </div>
+  <div class="page">
+    <div class="section-header fi">
+      <div class="label">Case Studies</div>
+      <h2 class="sh lg">Structured Content Solutions</h2>
+      <p class="section-desc">Evidence-based documentation systems built around rigorous root-cause investigation, explicit technical execution, and verifiable user outcomes.</p>
     </div>
 
-    <div class="cs-card fade-in">
-      <div class="cs-header">
-        <div class="cs-tags">
-          <span class="tag">Content Governance</span>
-          <span class="tag">Automation</span>
-          <span class="tag">AI Vision</span>
-        </div>
-        <h3 class="cs-title">UI Drift Detection: Proactive QA across rapid release cycles</h3>
-      </div>
+    <div class="cs-list fi">
       
-      <div class="cs-grid">
-        <div class="cs-block">
-          <h4>Context & Constraint</h4>
-          <p>Rapid UI iteration across 7+ product pods caused visual documentation to drift. Users were seeing outdated screenshots, increasing cognitive load and support tickets.</p>
+      <div class="cs-item">
+        <div class="cs-main">
+          <div class="cs-meta">
+            <span class="cs-tag highlight">Flagship System</span>
+            <span class="cs-tag">Docs-As-Operations</span>
+            <span class="cs-tag">Python &amp; REST APIs</span>
+            <span class="cs-year">2025</span>
+          </div>
+          <h3>Programmatic Governance: Engineering an Auto-Healing Documentation Pipeline</h3>
+          
+          <div class="cs-architecture">
+            <div class="cs-arch-col">
+              <h4>[1] The System Friction</h4>
+              <p>Manual link auditing across 500+ deep-linked product knowledge pieces consumed excessive operational cycles and exposed high-velocity release channels to dead-end loops and broken UX trajectories.</p>
+            </div>
+            <div class="cs-arch-col">
+              <h4>[2] The Technical Pipeline</h4>
+              <p>Designed and deployed an unassisted script stack parsing the Document360 API. The system crawls production articles, cross-checks external resources for active structural status, isolates anomaly nodes, and pushes automated patch changes back to the core CMS matrix.</p>
+            </div>
+            <div class="cs-arch-col">
+              <h4>[3] Scalable Infrastructure</h4>
+              <p>Transitioned documentation governance from a manual verification loop to an automated background infrastructure process. Completely minimized repetitive maintenance overhead by 60%.</p>
+            </div>
+          </div>
+
+          <div class="wf-container">
+            <div class="wf-title">Pipeline Architecture: Link Resolution Lifecycle</div>
+            <div class="wf-flow">
+              <div class="wf-step"><span class="st-lbl">Source Target</span><span class="st-val">Document360 API</span></div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step"><span class="st-lbl">Execution Node</span><span class="st-val">Python Crawler Parsing</span></div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step wf-prime"><span class="st-lbl">Condition Match</span><span class="st-val">404 Anomaly Isolated</span></div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step"><span class="st-lbl">Remediation</span><span class="st-val">Script Payload Patch</span></div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step"><span class="st-lbl">Live State</span><span class="st-val">CMS Auto-Update</span></div>
+            </div>
+          </div>
         </div>
-        <div class="cs-block">
-          <h4>Solution Built</h4>
-          <p>Implemented a workflow to extract existing documentation imagery and compare it against live product UI states, surfacing drift reports before customers noticed.</p>
+        <div class="cs-footer">
+          <span class="cs-outcome-badge">⚡ 60% Maintenance Time Compression</span>
+          <span class="cs-int">Internal Infrastructure Project</span>
         </div>
       </div>
 
-      <div class="workflow">
-        <div class="wf-node">Extract Doc Images</div>
-        <div class="wf-arrow">&rarr;</div>
-        <div class="wf-node">Capture Live UI State</div>
-        <div class="wf-arrow">&rarr;</div>
-        <div class="wf-node ai">AI Visual Diff Analysis</div>
-        <div class="wf-arrow">&rarr;</div>
-        <div class="wf-node">Prioritized Update Queue</div>
+      <div class="cs-item">
+        <div class="cs-main">
+          <div class="cs-meta">
+            <span class="cs-tag">Information Architecture</span>
+            <span class="cs-tag">Technical Troubleshooting</span>
+            <span class="cs-tag">Product Walkthrough</span>
+            <span class="cs-year">2025</span>
+          </div>
+          <h3>User Failure Paths: Restructuring Technical Docs Around Real Debugging Workflows</h3>
+          
+          <div class="cs-architecture">
+            <div class="cs-arch-col">
+              <h4>[1] The Interface Reality</h4>
+              <p>Diagnostics launched as an advanced diagnostic module. Feature-driven documentation risked becoming structurally disconnected from real customer troubleshooting mindsets if formatted purely as an interface feature list.</p>
+            </div>
+            <div class="cs-arch-col">
+              <h4>[2] Strategic Redesign</h4>
+              <p>Onboarded as an early-access tester to replicate customer issues. Analyzed user telemetry to identify target problems, rewriting structural documentation into explicit, goal-oriented failure paths linked straight to error patterns.</p>
+            </div>
+            <div class="cs-arch-col">
+              <h4>[3] Usability Resolution</h4>
+              <p>Deployed specialized troubleshooting matrices paired with targeted diagnostic videos, transforming abstract feature documentation into an active resolution system used heavily by cross-functional customer engineering pods.</p>
+            </div>
+          </div>
+
+          <div class="wf-container">
+            <div class="wf-title">Content Architecture: Task-Driven Information Mapping</div>
+            <div class="wf-flow">
+              <div class="wf-step"><span class="st-lbl">User State</span><span class="st-val">System Failure Occurs</span></div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step wf-prime"><span class="st-lbl">Entry Vector</span><span class="st-val">Error Pattern Match</span></div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step"><span class="st-lbl">Content Block</span><span class="st-val">Isolate Node Matrix</span></div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step"><span class="st-lbl">Resolution</span><span class="st-val">Step-by-Step Remediation</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-footer">
+          <span class="cs-outcome-badge">✓ Endorsed by Product Management for High Adoption Alignment</span>
+          <a href="https://support.whatfix.com/docs/diagnostics" target="_blank" class="cs-action-link">Inspect Live Documentation Layout ↗</a>
+        </div>
       </div>
 
-      <div class="cs-impact">
-        <h4>Business Impact</h4>
-        <p>Shifted documentation QA from reactive (user complaints) to proactive governance. Established a scalable standard for visual accuracy across all pods.</p>
+      <div class="cs-item">
+        <div class="cs-main">
+          <div class="cs-meta">
+            <span class="cs-tag">Product Analytics</span>
+            <span class="cs-tag">Telemetry Extraction</span>
+            <span class="cs-tag">OKR Strategy</span>
+            <span class="cs-year">2025</span>
+          </div>
+          <h3>Telemetry Capture: Closing Critical Product Data Gaps Without New Instrumentation</h3>
+          
+          <div class="cs-architecture">
+            <div class="cs-arch-col">
+              <h4>[1] The Data Blockade</h4>
+              <p>A Product Manager required historical engagement data for the QuickRead module to fulfill a critical Q1 OKR. The standard engineering pathway estimated a 30-day instrumentation sprint to isolate and capture fresh usage events.</p>
+            </div>
+            <div class="cs-arch-col">
+              <h4>[2] Proactive Telemetry Audit</h4>
+              <p>Investigated background event capturing to find untracked historical logs. Extracted and parsed historical auto-capture datasets, bypassing the need for engineering intervention.</p>
+            </div>
+            <div class="cs-arch-col">
+              <h4>[3] Operational Impact</h4>
+              <p>Delivered data resolution within 24 hours of the initial query. Completely eliminated a 4-week engineering wait time and successfully unblocked the quarterly validation cycle ahead of schedule.</p>
+            </div>
+          </div>
+
+          <div class="wf-container">
+            <div class="wf-title">Data Extraction Pipeline</div>
+            <div class="wf-flow">
+              <div class="wf-step"><span class="st-lbl">Request</span><span class="st-val">Q1 Data Blank</span></div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step wf-prime"><span class="st-lbl">Investigation</span><span class="st-val">Passive Capture Audit</span></div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step"><span class="st-lbl">Processing</span><span class="st-val">Parse Raw Event Array</span></div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step"><span class="st-lbl">Delivery</span><span class="st-val">Same-Day OKR Validation</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-footer">
+          <span class="cs-outcome-badge">⚡ 30-Day Delay Avoided &middot; Instant Validation</span>
+          <span class="cs-int">Cross-Functional Product Collaboration</span>
+        </div>
       </div>
+
     </div>
-
-    <div class="cs-card fade-in">
-      <div class="cs-header">
-        <div class="cs-tags">
-          <span class="tag">Usability Research</span>
-          <span class="tag">Information Architecture</span>
-          <span class="tag">Troubleshooting</span>
-        </div>
-        <h3 class="cs-title">Diagnostics: Designing troubleshooting docs around user failure paths</h3>
-      </div>
-      
-      <div class="cs-grid">
-        <div class="cs-block">
-          <h4>Investigation</h4>
-          <p>Diagnostics was a complex debugging feature. Technically accurate docs existed, but failed to map to how users actually behaved when systems broke. I listened to customer calls and shadowed L1 support to map exact failure paths.</p>
-        </div>
-        <div class="cs-block">
-          <h4>System Realignment</h4>
-          <p>Restructured the documentation hierarchy away from a "feature list" approach. Rebuilt the guide as a task-based troubleshooting flow, directly linked from every in-app error state.</p>
-        </div>
-        <div class="cs-impact">
-          <h4>Business Impact</h4>
-          <p>The revised article became the primary reference for the support team. Strong post-launch adoption signaled that users could finally self-serve their debugging processes.</p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <section id="experience">
-  <div class="container">
-    <span class="label">Career History</span>
-    <h2 class="section-title fade-in">Experience</h2>
-    <p class="section-desc fade-in">2 years 10 months at Whatfix. Promoted twice. 7+ Pods.</p>
+  <div class="page">
+    <div class="section-header fi">
+      <div class="label">Experience</div>
+      <h2 class="sh lg">Corporate Timeline</h2>
+      <p class="section-desc">A 2.10-year track record of enterprise software experience, featuring consecutive promotions and deep cross-functional ownership across product pods.</p>
+    </div>
 
-    <details class="fade-in" open>
-      <summary>
-        <div class="sum-left">
-          <span class="sum-role">Information Developer II &mdash; Whatfix</span>
-          <span class="sum-meta">Mar 2025 – Present &nbsp;|&nbsp; B2B SaaS Digital Adoption Platform</span>
-        </div>
-        <span class="sum-icon">&#9660;</span>
-      </summary>
-      <div class="exp-body">
-        <ul class="exp-highlights">
-          <li><strong>Strategic Product Ownership:</strong> Managed complex documentation across 5 distinct pods (Workflow Engine, Seek, Self Help, App Engine, Labs Assistant) managing concurrent OKRs.</li>
-          <li><strong>Docs Operations Automation:</strong> Engineered 6+ custom workflows using Python and APIs to automate repetitive maintenance, reducing manual audit time by 60%.</li>
-          <li><strong>Product Analytics Recovery:</strong> Delivered crucial QuickRead engagement data to a PM same-day by querying auto-captured historical data, closing a Q1 OKR a month ahead of schedule without new instrumentation.</li>
-          <li><strong>Cross-functional Impact:</strong> Led usability testing with DAP Consultants to identify a massive doc-to-adoption gap. Deployed targeted in-app Launchers, yielding 100+ feedback responses and measurable feature engagement spikes.</li>
-        </ul>
-      </div>
-    </details>
+    <div class="exp-list fi">
+      
+      <div class="exp-card open">
+        <button class="exp-trigger" onclick="toggleAccordion(this)">
+          <div class="exp-logo">Wx</div>
+          <div class="exp-summary">
+            <h3>Whatfix — Enterprise Digital Adoption Platform</h3>
+            <p>Full-Time Core Documentation Track &nbsp;&middot;&nbsp; Bengaluru, India</p>
+          </div>
+          <div class="exp-badge-group">
+            <span class="exp-promo-badge">2x Promoted Within 24 Months</span>
+            <span class="exp-arrow">❯</span>
+          </div>
+        </button>
+        <div class="exp-content">
+          <div class="exp-inner">
+            
+            <div class="role-segment">
+              <div class="role-header">
+                <span class="role-title">Information Developer II</span>
+                <span class="role-date">March 2025 – Present</span>
+              </div>
+              <p class="role-pods">Owned Domains: Workflow Engine, Seek, Self Help, App Engine, Labs Assistant</p>
+              <ul class="bullet-list">
+                <li>Managed simultaneous releases across <strong>3+ advanced product pods per cycle</strong>, ensuring clean product deployments without user escalations across 20+ release environments.</li>
+                <li>Built <strong>6+ automated workflows</strong> using Python, Google Apps Script, and the Jira API to eliminate manual structural auditing for 500+ articles.</li>
+                <li>Acted as first-line technical triage; isolated complex system anomalies using console debugging patterns and <strong>Diagnostics platforms</strong> to document verified engineering bugs.</li>
+                <li>Designed usability testing programs alongside Digital Adoption Consultants; deployed targeted support mechanisms that secured <strong>100+ feature feedback inputs</strong>.</li>
+                <li>Engineered and scaled <strong>40+ enterprise-grade product demonstration systems</strong> and asset guides to accelerate product adoption across market channels.</li>
+              </ul>
+              <div class="award-strip">
+                <span class="award-tag">★ Above &amp; Beyond Corporate Badge</span>
+                <span class="award-tag">★ 2x Spot Recognition Award</span>
+                <span class="award-tag">★ PM Commendation: Seek GTM Infrastructure</span>
+                <span class="award-tag">★ PM Commendation: DAP Global Summit Delivery</span>
+              </div>
+            </div>
 
-    <details class="fade-in">
-      <summary>
-        <div class="sum-left">
-          <span class="sum-role">Information Developer I &mdash; Whatfix</span>
-          <span class="sum-meta">Jan 2024 – Mar 2025</span>
-        </div>
-        <span class="sum-icon">&#9660;</span>
-      </summary>
-      <div class="exp-body">
-        <ul class="exp-highlights">
-          <li><strong>Release Management:</strong> Owned documentation for 4+ major external releases per quarter (Visual Editor, Diagnostics, Content Anchoring).</li>
-          <li><strong>Support Intelligence:</strong> Proactively analyzed L1 support tickets to identify recurring knowledge gaps, independently creating 100+ Jira issues for UX and documentation improvements.</li>
-          <li><strong>Early Access Testing:</strong> Acted as first-line UX QA for beta features, catching bugs via debug console before engineering escalation.</li>
-        </ul>
-      </div>
-    </details>
+            <div class="role-segment">
+              <div class="role-header">
+                <span class="role-title">Information Developer I</span>
+                <span class="role-date">January 2024 – March 2025</span>
+              </div>
+              <p class="role-pods">Owned Domains: Studio Guidance Architecture, App Engine, Workflow Core, CAP Pod</p>
+              <ul class="bullet-list">
+                <li>Authored and optimized enterprise release content packages for <strong>4 core quarterly product rollouts</strong>, containing deep structural coverage of Advanced Visibility Rules and Content Anchoring.</li>
+                <li>Maintained strict ownership of inbound customer ticketing workflows, driving a <strong>1-to-3 day resolution window</strong> while independently debugging 50%+ of incoming tickets.</li>
+                <li>Conducted rigorous documentation audits, maintaining quality and structural consistency across <strong>200+ production support nodes and internal Confluence hubs</strong> across English and German installations.</li>
+              </ul>
+              <div class="award-strip">
+                <span class="award-tag">⚡ Corporate Hustler Badge</span>
+                <span class="award-tag">⚡ 3x Cheers Mate Special Mention</span>
+              </div>
+            </div>
 
-    <details class="fade-in">
-      <summary>
-        <div class="sum-left">
-          <span class="sum-role">Information Developer Intern &mdash; Whatfix</span>
-          <span class="sum-meta">Jul 2023 – Jan 2024</span>
-        </div>
-        <span class="sum-icon">&#9660;</span>
-      </summary>
-      <div class="exp-body">
-        <ul class="exp-highlights">
-          <li>Took full ownership of Studio pod documentation within month one.</li>
-          <li>Engineered a custom audio-sync workflow bypassing tool limitations, significantly reducing video production costs.</li>
-        </ul>
-      </div>
-    </details>
+            <div class="role-segment">
+              <div class="role-header">
+                <span class="role-title">Information Developer Intern</span>
+                <span class="role-date">July 2023 – January 2024</span>
+              </div>
+              <p class="role-pods">Owned Domains: Studio Guidance Engine</p>
+              <ul class="bullet-list">
+                <li>Assumed complete product ownership of Studio Pod documentation tracks within 30 days of onboarding, shipping technical guides for <strong>Writing Assistant and Visual Editor</strong>.</li>
+                <li>Achieved a <strong>95% score on the comprehensive Whatfix Enterprise Core Competency Matrix</strong>.</li>
+                <li>Created a customized media synchronization pipeline that avoided monthly service output limits, saving video production budget across the team.</li>
+              </ul>
+            </div>
 
-    <details class="fade-in">
-      <summary>
-        <div class="sum-left">
-          <span class="sum-role">Software Engineer Trainee &mdash; QSpiders</span>
-          <span class="sum-meta">Sep 2022 – Feb 2023</span>
+          </div>
         </div>
-        <span class="sum-icon">&#9660;</span>
-      </summary>
-      <div class="exp-body">
-        <ul class="exp-highlights">
-          <li>Built technical foundation in Java, SQL, HTML5, CSS3, and JavaScript logic.</li>
-        </ul>
       </div>
-    </details>
+
+      <div class="exp-card">
+        <button class="exp-trigger" onclick="toggleAccordion(this)">
+          <div class="exp-logo alt">Qs</div>
+          <div class="exp-summary">
+            <h3>QSpiders Campus Connect</h3>
+            <p>Software Engineer Trainee (Internship) &nbsp;&middot;&nbsp; Technical Training</p>
+          </div>
+          <div class="exp-badge-group">
+            <span class="exp-arrow">❯</span>
+          </div>
+        </button>
+        <div class="exp-content">
+          <div class="exp-inner">
+            <div class="role-segment">
+              <div class="role-header">
+                <span class="role-title">Technical Infrastructure Intern</span>
+                <span class="role-date">September 2022 – February 2023</span>
+              </div>
+              <ul class="bullet-list">
+                <li>Trained on object-oriented programming frameworks (Java), database query engines (SQL), and web layouts (HTML5/CSS3/JavaScript) to build a strong foundation for writing technical code documentation.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <button class="exp-trigger" onclick="toggleAccordion(this)">
+          <div class="exp-logo alt">Eq</div>
+          <div class="exp-summary">
+            <h3>Equinox Technologies</h3>
+            <p>Software Developer Intern &nbsp;&middot;&nbsp; Application Development</p>
+          </div>
+          <div class="exp-badge-group">
+            <span class="exp-arrow">❯</span>
+          </div>
+        </button>
+        <div class="exp-content">
+          <div class="exp-inner">
+            <div class="role-segment">
+              <div class="role-header">
+                <span class="role-title">Software Developer Intern</span>
+                <span class="role-date">June 2021 – October 2021</span>
+              </div>
+              <ul class="bullet-list">
+                <li>Developed a clean front-end application layout for a web-based threat scanning application using Java, HTML, CSS, and basic scripting logic, showing early interest in writing user-facing product documentation.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<section id="capabilities">
-  <div class="container">
-    <span class="label">Skillset</span>
-    <h2 class="section-title fade-in">How I Work</h2>
-    <p class="section-desc fade-in">Moving past standard tools to focus on outcomes and operational efficiency.</p>
+<section id="skills">
+  <div class="page">
+    <div class="section-header fi">
+      <div class="label">Skills Lab</div>
+      <h2 class="sh lg">Execution Capabilities</h2>
+      <p class="section-desc">A structured map of my technical skillset, tool competencies, and operational workflows.</p>
+    </div>
 
-    <div class="cap-grid">
-      <div class="cap-card fade-in">
-        <h3>Documentation Operations</h3>
-        <ul class="cap-list">
-          <li>Python &amp; API Scripting</li>
-          <li>AI-Assisted Workflow Remediation</li>
-          <li>Automated Link &amp; UI Auditing</li>
-          <li>Scalable Knowledge Base Maintenance</li>
-        </ul>
+    <div class="skills-grid fi">
+      
+      <div class="skill-category">
+        <h3>Information Architecture</h3>
+        <div class="skill-cluster">
+          <div class="skill-block">
+            <h4>Content Architecture</h4>
+            <div class="skill-tags"><span>User Guides</span><span>Release Analysis</span><span>Technical Troubleshooting</span><span>UX Microcopy</span><span>Structural Information Architecture</span><span>Content Strategy Mapping</span></div>
+          </div>
+          <div class="skill-block">
+            <h4>Product Discovery</h4>
+            <div class="skill-tags"><span>Contextual Search Design</span><span>Knowledge Graph Linkage</span><span>Localization Frameworks (EN+DE)</span></div>
+          </div>
+        </div>
       </div>
-      <div class="cap-card fade-in">
-        <h3>User Enablement</h3>
-        <ul class="cap-list">
-          <li>In-App Digital Adoption (DAP)</li>
-          <li>Task-Based Troubleshooting Docs</li>
-          <li>UX Writing &amp; Microcopy Audits</li>
-          <li>Video Production &amp; Enablement</li>
-        </ul>
+
+      <div class="skill-category">
+        <h3>Tooling Ecosystem</h3>
+        <div class="skill-cluster">
+          <div class="skill-block">
+            <h4>Content Delivery &amp; Management</h4>
+            <div class="skill-tags"><span>Document360</span><span>Confluence</span><span>Markdown Engine</span><span>Git &amp; GitHub Stack</span><span>VS Code</span></div>
+          </div>
+          <div class="skill-block">
+            <h4>Product Tracking &amp; Video Production</h4>
+            <div class="skill-tags"><span>Jira Enterprise</span><span>Whatfix Studio</span><span>Camtasia Editor</span><span>Snagit Platform</span><span>Synthesia Suite</span><span>Figma Canvas</span><span>Draw.io</span></div>
+          </div>
+        </div>
       </div>
-      <div class="cap-card fade-in">
-        <h3>Product Collaboration</h3>
-        <ul class="cap-list">
-          <li>L1 Support Ticket Analysis</li>
-          <li>Usability Testing &amp; Shadowing</li>
-          <li>Release Management &amp; QA</li>
-          <li>Agile / Scrum Integration</li>
-        </ul>
+
+      <div class="skill-category">
+        <h3>Automation &amp; Product Operations</h3>
+        <div class="skill-cluster">
+          <div class="skill-block">
+            <h4>Programmable Quality Assurance</h4>
+            <div class="skill-tags"><span>Python Custom Scripts</span><span>Google Apps Script Engine</span><span>REST API Extraction</span><span>Jira Automation API</span></div>
+          </div>
+          <div class="skill-block">
+            <h4>User Telemetry Insight</h4>
+            <div class="skill-tags"><span>Whatfix Data Analytics</span><span>Zendesk Support Analytics</span><span>Chorus Conversational AI</span><span>Browser Console Diagnostics</span></div>
+          </div>
+        </div>
       </div>
-      <div class="cap-card fade-in">
-        <h3>Core Toolkit</h3>
-        <ul class="cap-list">
-          <li>Document360, Confluence, Jira</li>
-          <li>Whatfix DAP &amp; Analytics</li>
-          <li>Draw.io &amp; Figma</li>
-          <li>HTML, CSS, Markdown</li>
-        </ul>
+
+    </div>
+  </div>
+</section>
+
+<section id="samples">
+  <div class="page">
+    <div class="section-header fi">
+      <div class="label">Documentation Repository</div>
+      <h2 class="sh lg">Published Software Content</h2>
+      <p class="section-desc">Live production artifacts across cloud installations and engineering video pipelines demonstrating clean structured writing.</p>
+    </div>
+
+    <div class="repo-grid fi">
+      
+      <div class="repo-box">
+        <h3>Production Support Manuals</h3>
+        <div class="links-stack">
+          <a href="https://support.whatfix.com/docs/diagnostics" target="_blank" class="repo-link">
+            <div><strong>Diagnostics Core Guide</strong><span>Task-driven platform troubleshooting guide</span></div>
+            <span class="repo-arr">❯</span>
+          </a>
+          <a href="https://support.whatfix.com/docs/understand-visibility-rules-20" target="_blank" class="repo-link">
+            <div><strong>Understanding Visibility Rules 2.0</strong><span>High-level architecture concepts guide</span></div>
+            <span class="repo-arr">❯</span>
+          </a>
+          <a href="https://support.whatfix.com/docs/create-advanced-visibility-rules-using-ai" target="_blank" class="repo-link">
+            <div><strong>AI Visibility Automation Matrix</strong><span>A step-by-step feature integration manual</span></div>
+            <span class="repo-arr">❯</span>
+          </a>
+          <a href="https://support.whatfix.com/docs/show-pop-ups-in-succession" target="_blank" class="repo-link">
+            <div><strong>Sequential UX Modal Launch</strong><span>A technical step-by-step interface configuration guide</span></div>
+            <span class="repo-arr">❯</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="repo-box">
+        <h3>Technical Video &amp; Screencast Pipelines</h3>
+        <div class="links-stack">
+          <a href="https://drive.google.com/file/d/1RLiilMcT0J4FCZLOZcIExQX2eUP0jbq6/view?usp=sharing" target="_blank" class="repo-link">
+            <div><strong>Diagnostics Module Walkthrough</strong><span>Technical support video designed to help users resolve issues</span></div>
+            <span class="repo-arr">❯</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1DEqMZddlQLNbO4gmDpP7bWlGbhsEMEqn/view?usp=sharing" target="_blank" class="repo-link">
+            <div><strong>Advanced Visibility Logic Systems</strong><span>Comprehensive feature rollout explainer</span></div>
+            <span class="repo-arr">❯</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1oA4ycKqpy3Vn13Ia56jh6MsA2RPh0_uH/view?usp=sharing" target="_blank" class="repo-link">
+            <div><strong>Visual Layout Editor Controls</strong><span>UI workflow video guide highlighting ease of use</span></div>
+            <span class="repo-arr">❯</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="page">
+    <div class="ct-box fi">
+      <div class="label">Initiate Contact</div>
+      <h2 class="sh lg">Let's build structured knowledge systems together.</h2>
+      <p>I am looking for Senior Technical Writer, Information Developer II/III, or Documentation Operations roles within high-growth B2B enterprise SaaS ecosystems. Let's connect to discuss scaling your documentation workflows.</p>
+      <div class="ct-actions">
+        <a href="mailto:sarangisurendran43@gmail.com" class="btn btn-dk">Email Communication</a>
+        <a href="https://linkedin.com/in/sarangisurendran4" class="btn btn-ol" target="_blank">LinkedIn Connection</a>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    <p>&copy; 2026 Sarangi Surendran. Built for modern documentation systems.</p>
-  </div>
+  <p>Sarangi Surendran &nbsp;&middot;&nbsp; Information Developer II &nbsp;&middot;&nbsp; Enterprise Product Strategy</p>
+  <p>Corporate Verification Vector: <a href="https://linkedin.com/in/sarangisurendran4" target="_blank">linkedin.com/in/sarangisurendran4</a></p>
 </footer>
 
 <script>
-// Fade in elements on scroll
-const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+// SCROLL-ANIMATION OBSERVER LAYER
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { 
+    if(e.isIntersecting){ 
+      e.target.classList.add('on'); 
+      obs.unobserve(e.target); 
+    } 
+  });
+}, { threshold:.05, rootMargin:'0px 0px -20px 0px' });
+
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+// INTERACTIVE ACCORDION MECHANISM
+function toggleAccordion(button) {
+  const card = button.parentElement;
+  const isOpen = card.classList.contains('open');
+  
+  // Collapse all matching cards to keep views clean
+  document.querySelectorAll('.exp-card').forEach(c => {
+    c.classList.remove('open');
+  });
+  
+  // Toggle current selection target
+  if (!isOpen) {
+    card.classList.add('open');
+  }
+}
+
+// NAVIGATION SELECTION POSITION TRACKER
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  let activeId = '';
+  sections.forEach(s => { 
+    if(window.scrollY >= (s.offsetTop - 80)) {
+      activeId = s.id; 
     }
   });
-}, observerOptions);
-
-document.querySelectorAll('.fade-in').forEach(el => {
-  observer.observe(el);
-});
+  navLinks.forEach(a => { 
+    a.classList.toggle('on', a.getAttribute('href') === '#' + activeId); 
+  });
+}, { passive:true });
 </script>
-
 </body>
 </html>
